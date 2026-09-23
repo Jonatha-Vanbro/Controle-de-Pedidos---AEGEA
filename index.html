@@ -1210,9 +1210,10 @@
 
   <!-- =========================================================
        MODAL - NOVO / EDITAR PEDIDO
+       (data-fixo: não fecha ao clicar fora nem com Esc)
        ========================================================= -->
 
-  <div class="modal-overlay" id="modalPedido">
+  <div class="modal-overlay" id="modalPedido" data-fixo>
     <div class="modal">
 
       <div class="modal-header">
@@ -1368,6 +1369,7 @@
 
   <!-- =========================================================
        MODAL - DETALHES
+       (somente consulta: fecha ao clicar fora ou com Esc)
        ========================================================= -->
 
   <div class="modal-overlay" id="modalDetalhes">
@@ -1404,9 +1406,10 @@
 
   <!-- =========================================================
        MODAL - ALTERAÇÃO DE SITUAÇÃO
+       (data-fixo: não fecha ao clicar fora nem com Esc)
        ========================================================= -->
 
-  <div class="modal-overlay" id="modalSituacao">
+  <div class="modal-overlay" id="modalSituacao" data-fixo>
     <div class="modal modal-pequeno">
 
       <div class="modal-header">
@@ -2433,10 +2436,16 @@
     }
 
 
+    /*
+     * Clique no fundo escuro fecha apenas os modais de consulta.
+     * Modais marcados com data-fixo (formulários) só fecham
+     * pelos botões Cancelar / Salvar / X.
+     */
+
     document.querySelectorAll('.modal-overlay').forEach(modal => {
 
       modal.addEventListener('click', function(event) {
-        if (event.target === modal) {
+        if (event.target === modal && !modal.hasAttribute('data-fixo')) {
           modal.classList.remove('aberto');
         }
       });
@@ -2444,11 +2453,15 @@
     });
 
 
+    /*
+     * Tecla Esc: mesma regra, ignora os modais com data-fixo.
+     */
+
     document.addEventListener('keydown', function(event) {
 
       if (event.key === 'Escape') {
         document
-          .querySelectorAll('.modal-overlay.aberto')
+          .querySelectorAll('.modal-overlay.aberto:not([data-fixo])')
           .forEach(modal => modal.classList.remove('aberto'));
       }
 
