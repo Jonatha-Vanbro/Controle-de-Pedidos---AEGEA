@@ -10,14 +10,10 @@
   <link rel="icon" type="image/png" href="favicon2.png">
 
   <!-- Bootstrap Icons -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
   <!-- Fonte Inter -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
 
@@ -51,10 +47,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      transition:
-        background-color 0.2s,
-        color 0.2s,
-        border-color 0.2s;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
     }
 
     body {
@@ -227,14 +220,8 @@
       transition: .15s;
     }
 
-    .btn-primary {
-      background: var(--primary-color);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-hover);
-    }
+    .btn-primary { background: var(--primary-color); color: #fff; }
+    .btn-primary:hover { background: var(--primary-hover); }
 
     .btn-secondary {
       background: #f1f5f9;
@@ -242,24 +229,11 @@
       border: 1px solid var(--border-color);
     }
 
-    .btn-secondary:hover {
-      background: #e2e8f0;
-    }
+    .btn-secondary:hover { background: #e2e8f0; }
 
-    .btn-success {
-      background: var(--success);
-      color: #fff;
-    }
-
-    .btn-danger {
-      background: var(--danger);
-      color: #fff;
-    }
-
-    .btn-info {
-      background: var(--info);
-      color: #fff;
-    }
+    .btn-success { background: var(--success); color: #fff; }
+    .btn-danger  { background: var(--danger);  color: #fff; }
+    .btn-info    { background: var(--info);    color: #fff; }
 
     .btn:disabled {
       opacity: .6;
@@ -305,21 +279,10 @@
       background: var(--primary-color);
     }
 
-    .kpi-card.success::before {
-      background: var(--success);
-    }
-
-    .kpi-card.warning::before {
-      background: var(--warning);
-    }
-
-    .kpi-card.danger::before {
-      background: var(--danger);
-    }
-
-    .kpi-card.info::before {
-      background: var(--info);
-    }
+    .kpi-card.success::before { background: var(--success); }
+    .kpi-card.warning::before { background: var(--warning); }
+    .kpi-card.danger::before  { background: var(--danger); }
+    .kpi-card.info::before    { background: var(--info); }
 
     .kpi-label {
       color: var(--text-muted);
@@ -421,9 +384,7 @@
       border-color: var(--primary-color);
     }
 
-    .filtro-periodo {
-      grid-column: span 2;
-    }
+    .filtro-periodo { grid-column: span 2; }
 
     .periodo-grid {
       display: grid;
@@ -498,9 +459,7 @@
       vertical-align: middle;
     }
 
-    tbody tr:hover {
-      background-color: var(--table-hover);
-    }
+    tbody tr:hover { background-color: var(--table-hover); }
 
     .pedido-link {
       color: var(--primary-color);
@@ -509,17 +468,10 @@
       text-decoration: none;
     }
 
-    .pedido-link:hover {
-      text-decoration: underline;
-    }
+    .pedido-link:hover { text-decoration: underline; }
 
-    .cidade-col {
-      min-width: 150px;
-    }
-
-    .transportadora-col {
-      min-width: 150px;
-    }
+    .cidade-col { min-width: 150px; }
+    .transportadora-col { min-width: 150px; }
 
     .valor-col {
       text-align: right;
@@ -545,30 +497,11 @@
       white-space: nowrap;
     }
 
-    .status-Aguardando {
-      background: #fef3c7;
-      color: #92400e;
-    }
-
-    .status-transito {
-      background: #dbeafe;
-      color: #1d4ed8;
-    }
-
-    .status-entregue {
-      background: #d1fae5;
-      color: #047857;
-    }
-
-    .status-problema {
-      background: #fee2e2;
-      color: #b91c1c;
-    }
-
-    .status-cancelado {
-      background: #e2e8f0;
-      color: #475569;
-    }
+    .status-Aguardando { background: #fef3c7; color: #92400e; }
+    .status-transito   { background: #dbeafe; color: #1d4ed8; }
+    .status-entregue   { background: #d1fae5; color: #047857; }
+    .status-problema   { background: #fee2e2; color: #b91c1c; }
+    .status-cancelado  { background: #e2e8f0; color: #475569; }
 
     .status-select {
       border: none;
@@ -604,9 +537,7 @@
       justify-content: center;
     }
 
-    .btn-icon:hover {
-      background: #f1f5f9;
-    }
+    .btn-icon:hover { background: #f1f5f9; }
 
     .btn-icon.excluir:hover {
       color: var(--danger);
@@ -629,9 +560,7 @@
       padding: 20px;
     }
 
-    .modal-overlay.aberto {
-      display: flex;
-    }
+    .modal-overlay.aberto { display: flex; }
 
     .modal {
       width: 100%;
@@ -643,9 +572,7 @@
       box-shadow: 0 15px 50px rgba(0,0,0,.3);
     }
 
-    .modal-pequeno {
-      max-width: 550px;
-    }
+    .modal-pequeno { max-width: 550px; }
 
     .modal-header {
       background: var(--header-color);
@@ -676,13 +603,9 @@
       border-radius: 5px;
     }
 
-    .modal-close:hover {
-      background: rgba(255,255,255,.12);
-    }
+    .modal-close:hover { background: rgba(255,255,255,.12); }
 
-    .modal-body {
-      padding: 20px;
-    }
+    .modal-body { padding: 20px; }
 
     .modal-footer {
       padding: 15px 20px;
@@ -699,9 +622,7 @@
        FORMULÁRIO DO PEDIDO
        ========================================================= */
 
-    .form-section {
-      margin-bottom: 22px;
-    }
+    .form-section { margin-bottom: 22px; }
 
     .form-section-title {
       font-size: .9rem;
@@ -723,13 +644,8 @@
       flex-direction: column;
     }
 
-    .form-field.full {
-      grid-column: 1 / -1;
-    }
-
-    .form-field.span-2 {
-      grid-column: span 2;
-    }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field.span-2 { grid-column: span 2; }
 
     .form-field label {
       font-size: .76rem;
@@ -819,9 +735,7 @@
       margin-left: 7px;
     }
 
-    .timeline-item:last-child {
-      border-left-color: transparent;
-    }
+    .timeline-item:last-child { border-left-color: transparent; }
 
     .timeline-item::before {
       content: "";
@@ -849,6 +763,23 @@
       font-size: .78rem;
       color: var(--text-muted);
       margin-top: 3px;
+    }
+
+    /* Selo com o número do Pedido AEGEA no histórico */
+    .timeline-pedido {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: 6px;
+      padding: 1px 7px;
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      vertical-align: middle;
+      white-space: nowrap;
     }
 
     /* =========================================================
@@ -880,28 +811,13 @@
       animation: toastIn .2s ease;
     }
 
-    .toast.success {
-      background: #047857;
-    }
-
-    .toast.error {
-      background: #b91c1c;
-    }
-
-    .toast.warning {
-      background: #b45309;
-    }
+    .toast.success { background: #047857; }
+    .toast.error   { background: #b91c1c; }
+    .toast.warning { background: #b45309; }
 
     @keyframes toastIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     /* =========================================================
@@ -921,7 +837,7 @@
 
     @keyframes girar {
       from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      to   { transform: rotate(360deg); }
     }
 
     .sem-registros {
@@ -941,124 +857,40 @@
        ========================================================= */
 
     @media (max-width: 1200px) {
-
-      .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .operational-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .filtros-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .filtro-periodo {
-        grid-column: span 2;
-      }
-
-      .form-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .detalhes-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .operational-grid { grid-template-columns: repeat(3, 1fr); }
+      .filtros-grid { grid-template-columns: repeat(3, 1fr); }
+      .filtro-periodo { grid-column: span 2; }
+      .form-grid { grid-template-columns: repeat(2, 1fr); }
+      .detalhes-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
-
-      body {
-        padding: 12px;
-      }
-
-      .cab-padrao {
-        margin: -12px -12px 15px;
-      }
-
-      .cab-padrao .cab-conteudo {
-        width: calc(100% - 24px);
-      }
-
-      .container-principal {
-        padding: 15px;
-      }
-
-      .cards-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .operational-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .filtros-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .filtro-periodo {
-        grid-column: auto;
-      }
-
-      .periodo-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .form-field.span-2 {
-        grid-column: auto;
-      }
-
-      .form-field.full {
-        grid-column: auto;
-      }
-
-      .detalhes-grid {
-        grid-template-columns: 1fr;
-      }
+      body { padding: 12px; }
+      .cab-padrao { margin: -12px -12px 15px; }
+      .cab-padrao .cab-conteudo { width: calc(100% - 24px); }
+      .container-principal { padding: 15px; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .operational-grid { grid-template-columns: repeat(2, 1fr); }
+      .filtros-grid { grid-template-columns: 1fr; }
+      .filtro-periodo { grid-column: auto; }
+      .periodo-grid { grid-template-columns: 1fr 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-field.span-2 { grid-column: auto; }
+      .form-field.full { grid-column: auto; }
+      .detalhes-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 576px) {
-
-      .cab-padrao .cab-conteudo {
-        padding: 0;
-      }
-
-      .cab-padrao .cab-titulo {
-        font-size: 1rem;
-      }
-
-      .cab-padrao .cab-btn span {
-        display: none;
-      }
-
-      .operational-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .top-bar {
-        align-items: flex-start;
-      }
-
-      .top-actions {
-        width: 100%;
-      }
-
-      .top-actions .btn {
-        flex: 1;
-      }
-
-      .modal-overlay {
-        padding: 8px;
-      }
-
-      .modal-body {
-        padding: 14px;
-      }
+      .cab-padrao .cab-conteudo { padding: 0; }
+      .cab-padrao .cab-titulo { font-size: 1rem; }
+      .cab-padrao .cab-btn span { display: none; }
+      .operational-grid { grid-template-columns: 1fr 1fr; }
+      .top-bar { align-items: flex-start; }
+      .top-actions { width: 100%; }
+      .top-actions .btn { flex: 1; }
+      .modal-overlay { padding: 8px; }
+      .modal-body { padding: 14px; }
     }
 
     /* =========================================================
@@ -1079,13 +911,8 @@
         margin: 0 0 15px;
       }
 
-      .cab-padrao .cab-titulo {
-        color: #000;
-      }
-
-      .cab-padrao .cab-subtitulo {
-        color: #333;
-      }
+      .cab-padrao .cab-titulo { color: #000; }
+      .cab-padrao .cab-subtitulo { color: #333; }
 
       .cab-padrao .cab-acoes,
       .top-actions,
@@ -1106,9 +933,7 @@
         border: none;
       }
 
-      thead tr {
-        position: static;
-      }
+      thead tr { position: static; }
     }
 
   </style>
@@ -1121,63 +946,30 @@
        ========================================================= -->
 
   <header class="cab-padrao">
-
     <div class="cab-conteudo">
 
-      <img
-        class="cab-logo"
-        src="Logo.png"
-        alt=""
-        onerror="this.remove()">
+      <img class="cab-logo" src="Logo.png" alt="" onerror="this.remove()">
 
       <div class="cab-textos">
-
-        <h1 class="cab-titulo">
-          Controle de Pedidos AEGEA
-        </h1>
-
-        <div
-          class="cab-subtitulo"
-          id="ultimaAtualizacaoCabecalho">
-          Carregando…
-        </div>
-
+        <h1 class="cab-titulo">Controle de Pedidos AEGEA</h1>
+        <div class="cab-subtitulo" id="ultimaAtualizacaoCabecalho">Carregando…</div>
       </div>
 
       <div class="cab-acoes">
-
-        <button
-          type="button"
-          class="cab-btn"
-          id="btnSincronizarCabecalho"
-          onclick="sincronizarAgora()"
-          title="Sincronizar dados">
-
+        <button type="button" class="cab-btn" id="btnSincronizarCabecalho" onclick="sincronizarAgora()" title="Sincronizar dados">
           <i class="bi bi-arrow-clockwise"></i>
-
         </button>
-
-        <button
-          type="button"
-          class="cab-btn"
-          onclick="window.print()"
-          title="Imprimir">
-
+        <button type="button" class="cab-btn" onclick="window.print()" title="Imprimir">
           <i class="bi bi-printer"></i>
-
         </button>
-
       </div>
 
     </div>
-
   </header>
 
 
   <div class="page-wrap">
-
     <div class="container-principal">
-
 
       <!-- =====================================================
            TOPO
@@ -1186,40 +978,17 @@
       <div class="top-bar">
 
         <div class="top-bar-title">
-
-          <h2>
-            <i class="bi bi-box-seam"></i>
-            Pedidos AEGEA
-          </h2>
-
-          <p>
-            Acompanhamento comercial, financeiro e logístico
-          </p>
-
+          <h2><i class="bi bi-box-seam"></i> Pedidos AEGEA</h2>
+          <p>Acompanhamento comercial, financeiro e logístico</p>
         </div>
 
         <div class="top-actions">
-
-          <button
-            type="button"
-            class="btn btn-secondary"
-            onclick="sincronizarAgora()">
-
-            <i class="bi bi-arrow-clockwise"></i>
-            Sincronizar
-
+          <button type="button" class="btn btn-secondary" onclick="sincronizarAgora()">
+            <i class="bi bi-arrow-clockwise"></i> Sincronizar
           </button>
-
-          <button
-            type="button"
-            class="btn btn-primary"
-            onclick="abrirNovoPedido()">
-
-            <i class="bi bi-plus-lg"></i>
-            Novo pedido
-
+          <button type="button" class="btn btn-primary" onclick="abrirNovoPedido()">
+            <i class="bi bi-plus-lg"></i> Novo pedido
           </button>
-
         </div>
 
       </div>
@@ -1230,85 +999,33 @@
            ===================================================== -->
 
       <div class="section-title">
-        <i class="bi bi-currency-dollar"></i>
-        Visão financeira
+        <i class="bi bi-currency-dollar"></i> Visão financeira
       </div>
 
       <div class="cards-grid">
 
         <div class="kpi-card">
-
-          <div class="kpi-label">
-            Total em pedidos
-          </div>
-
-          <div
-            class="kpi-value"
-            id="kpiTotalPedidos">
-            R$ 0,00
-          </div>
-
-          <div class="kpi-subtitle">
-            Valor total dos pedidos filtrados
-          </div>
-
+          <div class="kpi-label">Total em pedidos</div>
+          <div class="kpi-value" id="kpiTotalPedidos">R$ 0,00</div>
+          <div class="kpi-subtitle">Valor total dos pedidos filtrados</div>
         </div>
-
 
         <div class="kpi-card success">
-
-          <div class="kpi-label">
-            Total faturado
-          </div>
-
-          <div
-            class="kpi-value"
-            id="kpiTotalFaturado">
-            R$ 0,00
-          </div>
-
-          <div class="kpi-subtitle">
-            Valores já faturados
-          </div>
-
+          <div class="kpi-label">Total faturado</div>
+          <div class="kpi-value" id="kpiTotalFaturado">R$ 0,00</div>
+          <div class="kpi-subtitle">Valores já faturados</div>
         </div>
-
 
         <div class="kpi-card warning">
-
-          <div class="kpi-label">
-            Saldo a faturar
-          </div>
-
-          <div
-            class="kpi-value"
-            id="kpiSaldoFaturar">
-            R$ 0,00
-          </div>
-
-          <div class="kpi-subtitle">
-            Valores ainda não faturados
-          </div>
-
+          <div class="kpi-label">Saldo a faturar</div>
+          <div class="kpi-value" id="kpiSaldoFaturar">R$ 0,00</div>
+          <div class="kpi-subtitle">Valores ainda não faturados</div>
         </div>
 
-
         <div class="kpi-card info">
-
-          <div class="kpi-label">
-            Execução financeira
-          </div>
-
-          <div
-            class="kpi-value"
-            id="kpiExecucao">
-            0,00%
-          </div>
-
-          <div class="kpi-subtitle">
-            Faturado ÷ valor dos pedidos
-          </div>
-
+          <div class="kpi-label">Execução financeira</div>
+          <div class="kpi-value" id="kpiExecucao">0,00%</div>
+          <div class="kpi-subtitle">Faturado ÷ valor dos pedidos</div>
         </div>
 
       </div>
@@ -1319,99 +1036,39 @@
            ===================================================== -->
 
       <div class="section-title">
-        <i class="bi bi-truck"></i>
-        Visão operacional
+        <i class="bi bi-truck"></i> Visão operacional
       </div>
 
       <div class="operational-grid">
 
         <div class="operational-card">
-
-          <div
-            class="numero"
-            id="opTotalPedidos">
-            0
-          </div>
-
-          <div class="descricao">
-            Total de pedidos
-          </div>
-
+          <div class="numero" id="opTotalPedidos">0</div>
+          <div class="descricao">Total de pedidos</div>
         </div>
 
-
         <div class="operational-card">
-
-          <div
-            class="numero"
-            id="opAguardando">
-            0
-          </div>
-
-          <div class="descricao">
-            Aguardando envio
-          </div>
-
+          <div class="numero" id="opAguardando">0</div>
+          <div class="descricao">Aguardando envio</div>
         </div>
 
-
         <div class="operational-card">
-
-          <div
-            class="numero"
-            id="opTransito">
-            0
-          </div>
-
-          <div class="descricao">
-            Em trânsito
-          </div>
-
+          <div class="numero" id="opTransito">0</div>
+          <div class="descricao">Em trânsito</div>
         </div>
 
-
         <div class="operational-card">
-
-          <div
-            class="numero"
-            id="opEntregues">
-            0
-          </div>
-
-          <div class="descricao">
-            Entregues
-          </div>
-
+          <div class="numero" id="opEntregues">0</div>
+          <div class="descricao">Entregues</div>
         </div>
 
-
         <div class="operational-card">
-
-          <div
-            class="numero"
-            id="opProblemas">
-            0
-          </div>
-
-          <div class="descricao">
-            Problemas
-          </div>
-
+          <div class="numero" id="opProblemas">0</div>
+          <div class="descricao">Problemas</div>
         </div>
 
-
         <div class="operational-card">
-
-          <div
-            class="numero"
-            id="opAtrasadas">
-            0
-          </div>
-
-          <div class="descricao">
-            Entregas atrasadas
-          </div>
-
+          <div class="numero" id="opAtrasadas">0</div>
+          <div class="descricao">Entregas atrasadas</div>
         </div>
 
       </div>
@@ -1424,200 +1081,74 @@
       <div class="filtros-container">
 
         <div class="section-title" style="margin-top:0;">
-          <i class="bi bi-funnel"></i>
-          Filtros
+          <i class="bi bi-funnel"></i> Filtros
         </div>
 
         <div class="filtros-grid">
 
-
           <div class="campo">
-
-            <label for="filtroBusca">
-              Buscar
-            </label>
-
-            <input
-              type="text"
-              id="filtroBusca"
-              placeholder="Pedido AEGEA, VANBRO, NF, cidade..."
-              onkeydown="if(event.key === 'Enter') aplicarFiltros()">
-
+            <label for="filtroBusca">Buscar</label>
+            <input type="text" id="filtroBusca" placeholder="Pedido AEGEA, VANBRO, NF, cidade..." onkeydown="if(event.key === 'Enter') aplicarFiltros()">
           </div>
 
-
           <div class="campo">
-
-            <label for="filtroSituacao">
-              Situação
-            </label>
-
-            <select id="filtroSituacao">
-
-              <option value="">
-                Todas
-              </option>
-
-            </select>
-
+            <label for="filtroSituacao">Situação</label>
+            <select id="filtroSituacao"><option value="">Todas</option></select>
           </div>
 
-
           <div class="campo">
-
-            <label for="filtroTransportadora">
-              Transportadora
-            </label>
-
-            <select id="filtroTransportadora">
-
-              <option value="">
-                Todas
-              </option>
-
-            </select>
-
+            <label for="filtroTransportadora">Transportadora</label>
+            <select id="filtroTransportadora"><option value="">Todas</option></select>
           </div>
 
-
           <div class="campo">
-
-            <label for="filtroUF">
-              UF
-            </label>
-
-            <select id="filtroUF">
-
-              <option value="">
-                Todas
-              </option>
-
-            </select>
-
+            <label for="filtroUF">UF</label>
+            <select id="filtroUF"><option value="">Todas</option></select>
           </div>
 
-
           <div class="campo">
-
-            <label for="filtroAgendar">
-              Agendar?
-            </label>
-
+            <label for="filtroAgendar">Agendar?</label>
             <select id="filtroAgendar">
-
-              <option value="">
-                Todos
-              </option>
-
-              <option value="Sim">
-                Sim
-              </option>
-
-              <option value="Não">
-                Não
-              </option>
-
+              <option value="">Todos</option>
+              <option value="Sim">Sim</option>
+              <option value="Não">Não</option>
             </select>
-
           </div>
-
 
           <div class="campo">
-
-            <label for="filtroCidade">
-              Cidade
-            </label>
-
-            <input
-              type="text"
-              id="filtroCidade"
-              placeholder="Cidade">
-
+            <label for="filtroCidade">Cidade</label>
+            <input type="text" id="filtroCidade" placeholder="Cidade">
           </div>
-
 
           <div class="campo filtro-periodo">
-
-            <label>
-              Período
-            </label>
-
+            <label>Período</label>
             <div class="periodo-grid">
-
               <select id="filtroCampoData">
-
-                <option value="pedido">
-                  Data do pedido
-                </option>
-
-                <option value="nf">
-                  Data da NF
-                </option>
-
-                <option value="previsao">
-                  Previsão de entrega
-                </option>
-
-                <option value="entrega">
-                  Data de entrega
-                </option>
-
+                <option value="pedido">Data do pedido</option>
+                <option value="nf">Data da NF</option>
+                <option value="previsao">Previsão de entrega</option>
+                <option value="entrega">Data de entrega</option>
               </select>
-
-              <div
-                style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-
-                <input
-                  type="date"
-                  id="filtroDataInicio"
-                  title="Data inicial">
-
-                <input
-                  type="date"
-                  id="filtroDataFim"
-                  title="Data final">
-
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <input type="date" id="filtroDataInicio" title="Data inicial">
+                <input type="date" id="filtroDataFim" title="Data final">
               </div>
-
             </div>
-
           </div>
 
-
           <div class="campo">
-
-            <label>
-              &nbsp;
-            </label>
-
+            <label>&nbsp;</label>
             <div class="filtro-acoes">
-
-              <button
-                type="button"
-                class="btn btn-primary"
-                onclick="aplicarFiltros()">
-
-                <i class="bi bi-search"></i>
-                Filtrar
-
+              <button type="button" class="btn btn-primary" onclick="aplicarFiltros()">
+                <i class="bi bi-search"></i> Filtrar
               </button>
-
-              <button
-                type="button"
-                class="btn btn-secondary"
-                onclick="limparFiltros()">
-
-                <i class="bi bi-x-lg"></i>
-                Limpar
-
+              <button type="button" class="btn btn-secondary" onclick="limparFiltros()">
+                <i class="bi bi-x-lg"></i> Limpar
               </button>
-
             </div>
-
           </div>
 
         </div>
-
       </div>
 
 
@@ -1626,32 +1157,16 @@
            ===================================================== -->
 
       <div class="table-header-bar">
-
         <div>
-
-          <h3>
-            Pedidos
-          </h3>
-
-          <div
-            class="table-info"
-            id="infoTabela">
-            Carregando...
-          </div>
-
+          <h3>Pedidos</h3>
+          <div class="table-info" id="infoTabela">Carregando...</div>
         </div>
-
       </div>
 
-
       <div class="table-container">
-
         <table>
-
           <thead>
-
             <tr>
-
               <th>Pedido AEGEA</th>
               <th>Pedido VANBRO</th>
               <th>NF</th>
@@ -1666,39 +1181,22 @@
               <th>Saldo</th>
               <th>Execução</th>
               <th>Ações</th>
-
             </tr>
-
           </thead>
-
           <tbody id="tabelaPedidos">
-
             <tr>
-
               <td colspan="14">
-
                 <div class="loading">
-
                   <i class="bi bi-arrow-repeat"></i>
-
-                  <div>
-                    Carregando pedidos...
-                  </div>
-
+                  <div>Carregando pedidos...</div>
                 </div>
-
               </td>
-
             </tr>
-
           </tbody>
-
         </table>
-
       </div>
 
     </div>
-
   </div>
 
 
@@ -1706,418 +1204,157 @@
        MODAL - NOVO / EDITAR PEDIDO
        ========================================================= -->
 
-  <div
-    class="modal-overlay"
-    id="modalPedido">
-
+  <div class="modal-overlay" id="modalPedido">
     <div class="modal">
 
       <div class="modal-header">
-
-        <h3 id="modalPedidoTitulo">
-          Novo pedido
-        </h3>
-
-        <button
-          type="button"
-          class="modal-close"
-          onclick="fecharModal('modalPedido')">
-
+        <h3 id="modalPedidoTitulo">Novo pedido</h3>
+        <button type="button" class="modal-close" onclick="fecharModal('modalPedido')">
           <i class="bi bi-x-lg"></i>
-
         </button>
-
       </div>
 
-
       <form id="formPedido">
-
         <div class="modal-body">
 
-
           <!-- IDENTIFICAÇÃO -->
-
           <div class="form-section">
-
             <div class="form-section-title">
-              <i class="bi bi-file-earmark-text"></i>
-              Identificação do pedido
+              <i class="bi bi-file-earmark-text"></i> Identificação do pedido
             </div>
-
             <div class="form-grid">
-
               <div class="form-field">
-
-                <label for="pedidoAegea">
-                  Pedido AEGEA *
-                </label>
-
-                <input
-                  type="text"
-                  id="pedidoAegea"
-                  required
-                  placeholder="Número do pedido">
-
+                <label for="pedidoAegea">Pedido AEGEA *</label>
+                <input type="text" id="pedidoAegea" required placeholder="Número do pedido">
               </div>
-
-
               <div class="form-field">
-
-                <label for="pedidoVanbro">
-                  Pedido VANBRO
-                </label>
-
-                <input
-                  type="text"
-                  id="pedidoVanbro"
-                  placeholder="Número do pedido">
-
+                <label for="pedidoVanbro">Pedido VANBRO</label>
+                <input type="text" id="pedidoVanbro" placeholder="Número do pedido">
               </div>
-
-
               <div class="form-field">
-
-                <label for="nf">
-                  Nota Fiscal
-                </label>
-
-                <input
-                  type="text"
-                  id="nf"
-                  placeholder="Número da NF">
-
+                <label for="nf">Nota Fiscal</label>
+                <input type="text" id="nf" placeholder="Número da NF">
               </div>
-
-
               <div class="form-field">
-
-                <label for="situacao">
-                  Situação
-                </label>
-
+                <label for="situacao">Situação</label>
                 <select id="situacao"></select>
-
               </div>
-
             </div>
-
           </div>
-
 
           <!-- ENTREGA -->
-
           <div class="form-section">
-
             <div class="form-section-title">
-              <i class="bi bi-truck"></i>
-              Entrega
+              <i class="bi bi-truck"></i> Entrega
             </div>
-
             <div class="form-grid">
-
               <div class="form-field">
-
-                <label for="transportadora">
-                  Transportadora
-                </label>
-
+                <label for="transportadora">Transportadora</label>
                 <select id="transportadora"></select>
-
               </div>
-
-
               <div class="form-field">
-
-                <label for="agendar">
-                  Agendar?
-                </label>
-
+                <label for="agendar">Agendar?</label>
                 <select id="agendar"></select>
-
               </div>
-
-
               <div class="form-field">
-
-                <label for="cidade">
-                  Cidade
-                </label>
-
-                <input
-                  type="text"
-                  id="cidade"
-                  placeholder="Cidade de entrega">
-
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" placeholder="Cidade de entrega">
               </div>
-
-
               <div class="form-field">
-
-                <label for="uf">
-                  UF
-                </label>
-
+                <label for="uf">UF</label>
                 <select id="uf"></select>
-
               </div>
-
-
               <div class="form-field span-2">
-
-                <label for="endereco">
-                  Endereço
-                </label>
-
-                <input
-                  type="text"
-                  id="endereco"
-                  placeholder="Endereço completo">
-
+                <label for="endereco">Endereço</label>
+                <input type="text" id="endereco" placeholder="Endereço completo">
               </div>
-
-
               <div class="form-field">
-
-                <label for="cep">
-                  CEP
-                </label>
-
-                <input
-                  type="text"
-                  id="cep"
-                  placeholder="00000-000">
-
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" placeholder="00000-000">
               </div>
-
-
               <div class="form-field">
-
-                <label for="responsavel">
-                  Responsável pelo recebimento
-                </label>
-
-                <input
-                  type="text"
-                  id="responsavel"
-                  placeholder="Nome do responsável">
-
+                <label for="responsavel">Responsável pelo recebimento</label>
+                <input type="text" id="responsavel" placeholder="Nome do responsável">
               </div>
-
             </div>
-
           </div>
-
 
           <!-- DATAS -->
-
           <div class="form-section">
-
             <div class="form-section-title">
-              <i class="bi bi-calendar3"></i>
-              Datas
+              <i class="bi bi-calendar3"></i> Datas
             </div>
-
             <div class="form-grid">
-
               <div class="form-field">
-
-                <label for="dataPedido">
-                  Data do pedido
-                </label>
-
-                <input
-                  type="date"
-                  id="dataPedido">
-
+                <label for="dataPedido">Data do pedido</label>
+                <input type="date" id="dataPedido">
               </div>
-
-
               <div class="form-field">
-
-                <label for="dataNf">
-                  Data da NF
-                </label>
-
-                <input
-                  type="date"
-                  id="dataNf">
-
+                <label for="dataNf">Data da NF</label>
+                <input type="date" id="dataNf">
               </div>
-
-
               <div class="form-field">
-
-                <label for="previsaoEntrega">
-                  Previsão de entrega
-                </label>
-
-                <input
-                  type="date"
-                  id="previsaoEntrega">
-
+                <label for="previsaoEntrega">Previsão de entrega</label>
+                <input type="date" id="previsaoEntrega">
               </div>
-
-
               <div class="form-field">
-
-                <label for="dataEntrega">
-                  Data de entrega
-                </label>
-
-                <input
-                  type="date"
-                  id="dataEntrega">
-
+                <label for="dataEntrega">Data de entrega</label>
+                <input type="date" id="dataEntrega">
               </div>
-
             </div>
-
           </div>
-
 
           <!-- FINANCEIRO -->
-
           <div class="form-section">
-
             <div class="form-section-title">
-              <i class="bi bi-cash-stack"></i>
-              Financeiro
+              <i class="bi bi-cash-stack"></i> Financeiro
             </div>
-
             <div class="form-grid">
-
               <div class="form-field">
-
-                <label for="valorPedido">
-                  Valor do pedido
-                </label>
-
-                <input
-                  type="number"
-                  id="valorPedido"
-                  min="0"
-                  step="0.01"
-                  placeholder="0,00"
-                  oninput="atualizarPreviewFinanceiro()">
-
+                <label for="valorPedido">Valor do pedido</label>
+                <input type="number" id="valorPedido" min="0" step="0.01" placeholder="0,00" oninput="atualizarPreviewFinanceiro()">
               </div>
-
-
               <div class="form-field">
-
-                <label for="valorFaturado">
-                  Valor faturado
-                </label>
-
-                <input
-                  type="number"
-                  id="valorFaturado"
-                  min="0"
-                  step="0.01"
-                  placeholder="0,00"
-                  oninput="atualizarPreviewFinanceiro()">
-
+                <label for="valorFaturado">Valor faturado</label>
+                <input type="number" id="valorFaturado" min="0" step="0.01" placeholder="0,00" oninput="atualizarPreviewFinanceiro()">
               </div>
-
-
               <div class="form-field">
-
-                <label for="saldoPreview">
-                  Saldo a faturar
-                </label>
-
-                <input
-                  type="text"
-                  id="saldoPreview"
-                  class="campo-automatico"
-                  readonly
-                  value="R$ 0,00">
-
+                <label for="saldoPreview">Saldo a faturar</label>
+                <input type="text" id="saldoPreview" class="campo-automatico" readonly value="R$ 0,00">
               </div>
-
-
               <div class="form-field">
-
-                <label for="execucaoPreview">
-                  Execução financeira
-                </label>
-
-                <input
-                  type="text"
-                  id="execucaoPreview"
-                  class="campo-automatico"
-                  readonly
-                  value="0,00%">
-
+                <label for="execucaoPreview">Execução financeira</label>
+                <input type="text" id="execucaoPreview" class="campo-automatico" readonly value="0,00%">
               </div>
-
             </div>
-
           </div>
-
 
           <!-- OBSERVAÇÕES -->
-
           <div class="form-section">
-
             <div class="form-section-title">
-              <i class="bi bi-chat-left-text"></i>
-              Observações
+              <i class="bi bi-chat-left-text"></i> Observações
             </div>
-
             <div class="form-grid">
-
               <div class="form-field full">
-
-                <label for="observacoes">
-                  Observações
-                </label>
-
-                <textarea
-                  id="observacoes"
-                  placeholder="Informações adicionais sobre o pedido, entrega, transportadora etc."></textarea>
-
+                <label for="observacoes">Observações</label>
+                <textarea id="observacoes" placeholder="Informações adicionais sobre o pedido, entrega, transportadora etc."></textarea>
               </div>
-
             </div>
-
           </div>
 
-
-          <input
-            type="hidden"
-            id="pedidoId">
+          <input type="hidden" id="pedidoId">
 
         </div>
-
 
         <div class="modal-footer">
-
-          <button
-            type="button"
-            class="btn btn-secondary"
-            onclick="fecharModal('modalPedido')">
-
-            Cancelar
-
+          <button type="button" class="btn btn-secondary" onclick="fecharModal('modalPedido')">Cancelar</button>
+          <button type="submit" class="btn btn-primary" id="btnSalvarPedido">
+            <i class="bi bi-check-lg"></i> Salvar pedido
           </button>
-
-          <button
-            type="submit"
-            class="btn btn-primary"
-            id="btnSalvarPedido">
-
-            <i class="bi bi-check-lg"></i>
-            Salvar pedido
-
-          </button>
-
         </div>
-
       </form>
 
     </div>
-
   </div>
 
 
@@ -2125,72 +1362,35 @@
        MODAL - DETALHES
        ========================================================= -->
 
-  <div
-    class="modal-overlay"
-    id="modalDetalhes">
-
+  <div class="modal-overlay" id="modalDetalhes">
     <div class="modal">
 
       <div class="modal-header">
-
-        <h3>
-          <i class="bi bi-info-circle"></i>
-          Detalhes do pedido
-        </h3>
-
-        <button
-          type="button"
-          class="modal-close"
-          onclick="fecharModal('modalDetalhes')">
-
+        <h3><i class="bi bi-info-circle"></i> Detalhes do pedido</h3>
+        <button type="button" class="modal-close" onclick="fecharModal('modalDetalhes')">
           <i class="bi bi-x-lg"></i>
-
         </button>
-
       </div>
-
 
       <div class="modal-body">
 
-        <div
-          id="detalhesPedido"
-          class="detalhes-grid">
-        </div>
-
+        <div id="detalhesPedido" class="detalhes-grid"></div>
 
         <div class="section-title">
-          <i class="bi bi-clock-history"></i>
-          Histórico
+          <i class="bi bi-clock-history"></i> Histórico
         </div>
 
-        <div
-          id="historicoPedido"
-          class="timeline">
-
-          <div class="loading">
-            Carregando histórico...
-          </div>
-
+        <div id="historicoPedido" class="timeline">
+          <div class="loading">Carregando histórico...</div>
         </div>
 
       </div>
 
-
       <div class="modal-footer">
-
-        <button
-          type="button"
-          class="btn btn-secondary"
-          onclick="fecharModal('modalDetalhes')">
-
-          Fechar
-
-        </button>
-
+        <button type="button" class="btn btn-secondary" onclick="fecharModal('modalDetalhes')">Fechar</button>
       </div>
 
     </div>
-
   </div>
 
 
@@ -2198,99 +1398,42 @@
        MODAL - ALTERAÇÃO DE SITUAÇÃO
        ========================================================= -->
 
-  <div
-    class="modal-overlay"
-    id="modalSituacao">
-
+  <div class="modal-overlay" id="modalSituacao">
     <div class="modal modal-pequeno">
 
       <div class="modal-header">
-
-        <h3>
-          <i class="bi bi-arrow-repeat"></i>
-          Alterar situação
-        </h3>
-
-        <button
-          type="button"
-          class="modal-close"
-          onclick="fecharModal('modalSituacao')">
-
+        <h3><i class="bi bi-arrow-repeat"></i> Alterar situação</h3>
+        <button type="button" class="modal-close" onclick="fecharModal('modalSituacao')">
           <i class="bi bi-x-lg"></i>
-
         </button>
-
       </div>
-
 
       <div class="modal-body">
 
-        <div
-          style="margin-bottom:15px;color:var(--text-muted);font-size:.84rem;"
-          id="situacaoPedidoInfo">
-        </div>
-
+        <div style="margin-bottom:15px;color:var(--text-muted);font-size:.84rem;" id="situacaoPedidoInfo"></div>
 
         <div class="campo">
-
-          <label for="novaSituacao">
-            Nova situação
-          </label>
-
+          <label for="novaSituacao">Nova situação</label>
           <select id="novaSituacao"></select>
-
         </div>
 
-
-        <div
-          class="campo"
-          style="margin-top:12px;">
-
-          <label for="observacaoSituacao">
-            Observação
-          </label>
-
-          <textarea
-            id="observacaoSituacao"
-            rows="4"
-            placeholder="Observação sobre a alteração (opcional)"></textarea>
-
+        <div class="campo" style="margin-top:12px;">
+          <label for="observacaoSituacao">Observação</label>
+          <textarea id="observacaoSituacao" rows="4" placeholder="Observação sobre a alteração (opcional)"></textarea>
         </div>
 
-
-        <input
-          type="hidden"
-          id="situacaoPedidoId">
+        <input type="hidden" id="situacaoPedidoId">
 
       </div>
 
-
       <div class="modal-footer">
-
-        <button
-          type="button"
-          class="btn btn-secondary"
-          onclick="fecharModal('modalSituacao')">
-
-          Cancelar
-
+        <button type="button" class="btn btn-secondary" onclick="fecharModal('modalSituacao')">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btnConfirmarSituacao" onclick="confirmarAlteracaoSituacao()">
+          <i class="bi bi-check-lg"></i> Confirmar
         </button>
-
-        <button
-          type="button"
-          class="btn btn-primary"
-          id="btnConfirmarSituacao"
-          onclick="confirmarAlteracaoSituacao()">
-
-          <i class="bi bi-check-lg"></i>
-          Confirmar
-
-        </button>
-
       </div>
 
     </div>
-
   </div>
 
 
@@ -2298,10 +1441,7 @@
        TOASTS
        ========================================================= -->
 
-  <div
-    class="toast-container"
-    id="toastContainer">
-  </div>
+  <div class="toast-container" id="toastContainer"></div>
 
 
   <script>
@@ -2319,6 +1459,7 @@
        ========================================================= */
 
     let pedidos = [];
+
     let listas = {
       situacoes: [],
       transportadoras: [],
@@ -2339,10 +1480,7 @@
       return new Promise((resolve, reject) => {
 
         const callbackName =
-          'callback_' +
-          Date.now() +
-          '_' +
-          Math.floor(Math.random() * 100000);
+          'callback_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
 
         const script = document.createElement('script');
 
@@ -2353,62 +1491,31 @@
         query.set('_t', Date.now());
 
         Object.keys(params).forEach(chave => {
-
           const valor = params[chave];
-
-          if (
-            valor !== undefined &&
-            valor !== null &&
-            valor !== ''
-          ) {
-
+          if (valor !== undefined && valor !== null && valor !== '') {
             query.set(chave, valor);
-
           }
-
         });
 
-
         const timeout = setTimeout(() => {
-
           cleanup();
-
-          reject(
-            new Error('Tempo limite excedido ao acessar a API.')
-          );
-
+          reject(new Error('Tempo limite excedido ao acessar a API.'));
         }, 30000);
 
-
         function cleanup() {
-
           clearTimeout(timeout);
-
           delete window[callbackName];
-
           if (script.parentNode) {
             script.parentNode.removeChild(script);
           }
-
         }
-
 
         window[callbackName] = function(data) {
 
           cleanup();
 
-          if (
-            data &&
-            data.sucesso === false
-          ) {
-
-            reject(
-              new Error(
-                data.mensagem ||
-                'Erro retornado pela API.'
-              )
-            );
-
+          if (data && data.sucesso === false) {
+            reject(new Error(data.mensagem || 'Erro retornado pela API.'));
             return;
           }
 
@@ -2416,24 +1523,12 @@
 
         };
 
-
         script.onerror = function() {
-
           cleanup();
-
-          reject(
-            new Error(
-              'Não foi possível acessar o Apps Script.'
-            )
-          );
-
+          reject(new Error('Não foi possível acessar o Apps Script.'));
         };
 
-
-        script.src =
-          API_URL +
-          '?' +
-          query.toString();
+        script.src = API_URL + '?' + query.toString();
 
         document.body.appendChild(script);
 
@@ -2446,21 +1541,15 @@
        INICIALIZAÇÃO
        ========================================================= */
 
-    document.addEventListener(
-      'DOMContentLoaded',
-      function() {
+    document.addEventListener('DOMContentLoaded', function() {
 
-        carregarSistema();
+      carregarSistema();
 
-        document
-          .getElementById('formPedido')
-          .addEventListener(
-            'submit',
-            salvarPedido
-          );
+      document
+        .getElementById('formPedido')
+        .addEventListener('submit', salvarPedido);
 
-      }
-    );
+    });
 
 
     async function carregarSistema() {
@@ -2468,18 +1557,12 @@
       try {
 
         await carregarListas();
-
         await carregarDados();
 
       } catch (erro) {
 
         console.error(erro);
-
-        mostrarToast(
-          erro.message ||
-          'Erro ao carregar o sistema.',
-          'error'
-        );
+        mostrarToast(erro.message || 'Erro ao carregar o sistema.', 'error');
 
       }
 
@@ -2492,13 +1575,9 @@
 
     async function carregarListas() {
 
-      const resposta =
-        await chamarAPI('listas');
+      const resposta = await chamarAPI('listas');
 
-      listas =
-        resposta.dados ||
-        resposta ||
-        listas;
+      listas = resposta.dados || resposta || listas;
 
       preencherSelects();
 
@@ -2507,93 +1586,39 @@
 
     function preencherSelects() {
 
-      preencherSelect(
-        'filtroSituacao',
-        listas.situacoes,
-        'Todas'
-      );
+      preencherSelect('filtroSituacao', listas.situacoes, 'Todas');
+      preencherSelect('filtroTransportadora', listas.transportadoras, 'Todas');
+      preencherSelect('filtroUF', listas.ufs, 'Todas');
 
-      preencherSelect(
-        'filtroTransportadora',
-        listas.transportadoras,
-        'Todas'
-      );
-
-      preencherSelect(
-        'filtroUF',
-        listas.ufs,
-        'Todas'
-      );
-
-
-      preencherSelect(
-        'situacao',
-        listas.situacoes,
-        null
-      );
-
-      preencherSelect(
-        'transportadora',
-        listas.transportadoras,
-        null
-      );
-
-      preencherSelect(
-        'agendar',
-        listas.agendamento,
-        null
-      );
-
-      preencherSelect(
-        'uf',
-        listas.ufs,
-        null
-      );
-
-      preencherSelect(
-        'novaSituacao',
-        listas.situacoes,
-        null
-      );
+      preencherSelect('situacao', listas.situacoes, null);
+      preencherSelect('transportadora', listas.transportadoras, null);
+      preencherSelect('agendar', listas.agendamento, null);
+      preencherSelect('uf', listas.ufs, null);
+      preencherSelect('novaSituacao', listas.situacoes, null);
 
     }
 
 
-    function preencherSelect(
-      id,
-      valores,
-      primeiraOpcao
-    ) {
+    function preencherSelect(id, valores, primeiraOpcao) {
 
-      const select =
-        document.getElementById(id);
+      const select = document.getElementById(id);
 
       if (!select) return;
 
       select.innerHTML = '';
 
       if (primeiraOpcao !== null) {
-
-        const option =
-          document.createElement('option');
-
+        const option = document.createElement('option');
         option.value = '';
         option.textContent = primeiraOpcao;
-
         select.appendChild(option);
-
       }
 
       (valores || []).forEach(valor => {
-
-        const option =
-          document.createElement('option');
-
+        const option = document.createElement('option');
         option.value = valor;
         option.textContent = valor;
-
         select.appendChild(option);
-
       });
 
     }
@@ -2609,8 +1634,7 @@
 
       carregando = true;
 
-      const tabela =
-        document.getElementById('tabelaPedidos');
+      const tabela = document.getElementById('tabelaPedidos');
 
       tabela.innerHTML = `
         <tr>
@@ -2623,27 +1647,14 @@
         </tr>
       `;
 
-
       try {
 
-        const filtros =
-          obterFiltros();
+        const filtros = obterFiltros();
 
-        const [respostaPedidos, respostaDashboard] =
-          await Promise.all([
-
-            chamarAPI(
-              'dados',
-              filtros
-            ),
-
-            chamarAPI(
-              'dashboard',
-              filtros
-            )
-
-          ]);
-
+        const [respostaPedidos, respostaDashboard] = await Promise.all([
+          chamarAPI('dados', filtros),
+          chamarAPI('dashboard', filtros)
+        ]);
 
         pedidos =
           respostaPedidos.pedidos ||
@@ -2651,11 +1662,7 @@
           [];
 
         renderizarTabela();
-
-        atualizarDashboard(
-          respostaDashboard
-        );
-
+        atualizarDashboard(respostaDashboard);
         atualizarHorarioSincronizacao();
 
       } catch (erro) {
@@ -2673,11 +1680,7 @@
           </tr>
         `;
 
-        mostrarToast(
-          erro.message ||
-          'Erro ao carregar pedidos.',
-          'error'
-        );
+        mostrarToast(erro.message || 'Erro ao carregar pedidos.', 'error');
 
       } finally {
 
@@ -2695,101 +1698,36 @@
     function obterFiltros() {
 
       return {
-
-        situacao:
-          document.getElementById(
-            'filtroSituacao'
-          ).value,
-
-        transportadora:
-          document.getElementById(
-            'filtroTransportadora'
-          ).value,
-
-        cidade:
-          document.getElementById(
-            'filtroCidade'
-          ).value.trim(),
-
-        uf:
-          document.getElementById(
-            'filtroUF'
-          ).value,
-
-        agendar:
-          document.getElementById(
-            'filtroAgendar'
-          ).value,
-
-        busca:
-          document.getElementById(
-            'filtroBusca'
-          ).value.trim(),
-
-        campoData:
-          document.getElementById(
-            'filtroCampoData'
-          ).value,
-
-        dataInicio:
-          document.getElementById(
-            'filtroDataInicio'
-          ).value,
-
-        dataFim:
-          document.getElementById(
-            'filtroDataFim'
-          ).value
-
+        situacao: document.getElementById('filtroSituacao').value,
+        transportadora: document.getElementById('filtroTransportadora').value,
+        cidade: document.getElementById('filtroCidade').value.trim(),
+        uf: document.getElementById('filtroUF').value,
+        agendar: document.getElementById('filtroAgendar').value,
+        busca: document.getElementById('filtroBusca').value.trim(),
+        campoData: document.getElementById('filtroCampoData').value,
+        dataInicio: document.getElementById('filtroDataInicio').value,
+        dataFim: document.getElementById('filtroDataFim').value
       };
 
     }
 
 
     function aplicarFiltros() {
-
       carregarDados();
-
     }
 
 
     function limparFiltros() {
 
-      document.getElementById(
-        'filtroBusca'
-      ).value = '';
-
-      document.getElementById(
-        'filtroSituacao'
-      ).value = '';
-
-      document.getElementById(
-        'filtroTransportadora'
-      ).value = '';
-
-      document.getElementById(
-        'filtroUF'
-      ).value = '';
-
-      document.getElementById(
-        'filtroAgendar'
-      ).value = '';
-
-      document.getElementById(
-        'filtroCidade'
-      ).value = '';
-
-      document.getElementById(
-        'filtroDataInicio'
-      ).value = '';
-
-      document.getElementById(
-        'filtroDataFim'
-      ).value = '';
-
-      document.getElementById(
-        'filtroCampoData'
-      ).value = 'pedido';
+      document.getElementById('filtroBusca').value = '';
+      document.getElementById('filtroSituacao').value = '';
+      document.getElementById('filtroTransportadora').value = '';
+      document.getElementById('filtroUF').value = '';
+      document.getElementById('filtroAgendar').value = '';
+      document.getElementById('filtroCidade').value = '';
+      document.getElementById('filtroDataInicio').value = '';
+      document.getElementById('filtroDataFim').value = '';
+      document.getElementById('filtroCampoData').value = 'pedido';
 
       carregarDados();
 
@@ -2802,78 +1740,37 @@
 
     function atualizarDashboard(data) {
 
-      const financeiro =
-        data.financeiro || {};
+      const financeiro = data.financeiro || {};
+      const operacional = data.operacional || {};
 
-      const operacional =
-        data.operacional || {};
+      document.getElementById('kpiTotalPedidos').textContent =
+        formatarMoeda(financeiro.totalPedidos || 0);
 
+      document.getElementById('kpiTotalFaturado').textContent =
+        formatarMoeda(financeiro.totalFaturado || 0);
 
-      document.getElementById(
-        'kpiTotalPedidos'
-      ).textContent =
-        formatarMoeda(
-          financeiro.totalPedidos || 0
-        );
+      document.getElementById('kpiSaldoFaturar').textContent =
+        formatarMoeda(financeiro.saldoFaturar || 0);
 
+      document.getElementById('kpiExecucao').textContent =
+        formatarPercentual(financeiro.execucao || 0);
 
-      document.getElementById(
-        'kpiTotalFaturado'
-      ).textContent =
-        formatarMoeda(
-          financeiro.totalFaturado || 0
-        );
-
-
-      document.getElementById(
-        'kpiSaldoFaturar'
-      ).textContent =
-        formatarMoeda(
-          financeiro.saldoFaturar || 0
-        );
-
-
-      document.getElementById(
-        'kpiExecucao'
-      ).textContent =
-        formatarPercentual(
-          financeiro.execucao || 0
-        );
-
-
-      document.getElementById(
-        'opTotalPedidos'
-      ).textContent =
+      document.getElementById('opTotalPedidos').textContent =
         operacional.totalPedidos || 0;
 
-
-      document.getElementById(
-        'opAguardando'
-      ).textContent =
+      document.getElementById('opAguardando').textContent =
         operacional.aguardandoEnvio || 0;
 
-
-      document.getElementById(
-        'opTransito'
-      ).textContent =
+      document.getElementById('opTransito').textContent =
         operacional.emTransito || 0;
 
-
-      document.getElementById(
-        'opEntregues'
-      ).textContent =
+      document.getElementById('opEntregues').textContent =
         operacional.entregues || 0;
 
-
-      document.getElementById(
-        'opProblemas'
-      ).textContent =
+      document.getElementById('opProblemas').textContent =
         operacional.problemas || 0;
 
-
-      document.getElementById(
-        'opAtrasadas'
-      ).textContent =
+      document.getElementById('opAtrasadas').textContent =
         operacional.entregasAtrasadas || 0;
 
     }
@@ -2885,19 +1782,12 @@
 
     function renderizarTabela() {
 
-      const tabela =
-        document.getElementById(
-          'tabelaPedidos'
-        );
+      const tabela = document.getElementById('tabelaPedidos');
 
       tabela.innerHTML = '';
 
-
-      document.getElementById(
-        'infoTabela'
-      ).textContent =
+      document.getElementById('infoTabela').textContent =
         `${pedidos.length} pedido(s) encontrado(s)`;
-
 
       if (!pedidos.length) {
 
@@ -2916,212 +1806,84 @@
 
       }
 
-
       pedidos.forEach(pedido => {
 
-        const tr =
-          document.createElement('tr');
+        const tr = document.createElement('tr');
 
-        const situacao =
-          pedido.situacao ||
-          'Aguardando envio';
-
-
-        const classeSituacao =
-          obterClasseSituacao(
-            situacao
-          );
-
-
-        const percentual =
-          Number(
-            pedido.execucao || 0
-          );
-
-
-        const atrasada =
-          verificarAtraso(pedido);
-
+        const situacao = pedido.situacao || 'Aguardando envio';
+        const classeSituacao = obterClasseSituacao(situacao);
+        const percentual = Number(pedido.execucao || 0);
+        const atrasada = verificarAtraso(pedido);
+        const idJS = escaparJS(pedido.id);
 
         tr.innerHTML = `
 
           <td>
-
-            <a
-              href="javascript:void(0)"
-              class="pedido-link"
-              onclick="abrirDetalhes('${escaparJS(pedido.id)}')">
-
-              ${escaparHTML(
-                pedido.pedidoAegea || '-'
-              )}
-
+            <a href="javascript:void(0)" class="pedido-link" onclick="abrirDetalhes('${idJS}')">
+              ${escaparHTML(pedido.pedidoAegea || '-')}
             </a>
-
           </td>
 
+          <td>${escaparHTML(pedido.pedidoVanbro || '-')}</td>
 
-          <td>
-            ${escaparHTML(
-              pedido.pedidoVanbro || '-'
-            )}
-          </td>
-
-
-          <td>
-            ${escaparHTML(
-              pedido.nf || '-'
-            )}
-          </td>
-
+          <td>${escaparHTML(pedido.nf || '-')}</td>
 
           <td class="cidade-col">
-
-            <strong>
-              ${escaparHTML(
-                pedido.cidade || '-'
-              )}
-            </strong>
-
+            <strong>${escaparHTML(pedido.cidade || '-')}</strong>
             ${
               pedido.uf
-                ? `<div style="font-size:.72rem;color:var(--text-muted);">
-                     ${escaparHTML(pedido.uf)}
-                   </div>`
+                ? `<div style="font-size:.72rem;color:var(--text-muted);">${escaparHTML(pedido.uf)}</div>`
                 : ''
             }
-
           </td>
 
-
-          <td class="transportadora-col">
-            ${escaparHTML(
-              pedido.transportadora || '-'
-            )}
-          </td>
-
+          <td class="transportadora-col">${escaparHTML(pedido.transportadora || '-')}</td>
 
           <td>
-
-            <span
-              class="status-badge ${classeSituacao}">
-
-              ${escaparHTML(situacao)}
-
-            </span>
-
+            <span class="status-badge ${classeSituacao}">${escaparHTML(situacao)}</span>
           </td>
 
+          <td>${escaparHTML(pedido.agendar || '-')}</td>
 
           <td>
-            ${escaparHTML(
-              pedido.agendar || '-'
-            )}
-          </td>
-
-
-          <td>
-            ${
-              formatarData(
-                pedido.previsaoEntrega
-              )
-            }
-
+            ${formatarData(pedido.previsaoEntrega)}
             ${
               atrasada
-                ? `<div style="color:#b91c1c;font-size:.7rem;font-weight:700;">
-                     Atrasada
-                   </div>`
+                ? `<div style="color:#b91c1c;font-size:.7rem;font-weight:700;">Atrasada</div>`
                 : ''
             }
-
           </td>
 
+          <td>${formatarData(pedido.dataEntrega)}</td>
+
+          <td class="valor-col">${formatarMoeda(pedido.valorPedido || 0)}</td>
+
+          <td class="valor-col">${formatarMoeda(pedido.valorFaturado || 0)}</td>
+
+          <td class="valor-col">${formatarMoeda(pedido.saldo || 0)}</td>
+
+          <td class="percentual">${formatarPercentual(percentual)}</td>
 
           <td>
-            ${formatarData(
-              pedido.dataEntrega
-            )}
-          </td>
-
-
-          <td class="valor-col">
-            ${formatarMoeda(
-              pedido.valorPedido || 0
-            )}
-          </td>
-
-
-          <td class="valor-col">
-            ${formatarMoeda(
-              pedido.valorFaturado || 0
-            )}
-          </td>
-
-
-          <td class="valor-col">
-            ${formatarMoeda(
-              pedido.saldo || 0
-            )}
-          </td>
-
-
-          <td class="percentual">
-            ${formatarPercentual(
-              percentual
-            )}
-          </td>
-
-
-          <td>
-
             <div class="acoes-tabela">
 
-              <button
-                type="button"
-                class="btn-icon"
-                title="Detalhes"
-                onclick="abrirDetalhes('${escaparJS(pedido.id)}')">
-
+              <button type="button" class="btn-icon" title="Detalhes" onclick="abrirDetalhes('${idJS}')">
                 <i class="bi bi-eye"></i>
-
               </button>
 
-
-              <button
-                type="button"
-                class="btn-icon"
-                title="Editar"
-                onclick="editarPedido('${escaparJS(pedido.id)}')">
-
+              <button type="button" class="btn-icon" title="Editar" onclick="editarPedido('${idJS}')">
                 <i class="bi bi-pencil"></i>
-
               </button>
 
-
-              <button
-                type="button"
-                class="btn-icon"
-                title="Alterar situação"
-                onclick="abrirAlteracaoSituacao('${escaparJS(pedido.id)}')">
-
+              <button type="button" class="btn-icon" title="Alterar situação" onclick="abrirAlteracaoSituacao('${idJS}')">
                 <i class="bi bi-arrow-repeat"></i>
-
               </button>
 
-
-              <button
-                type="button"
-                class="btn-icon excluir"
-                title="Excluir"
-                onclick="excluirPedido('${escaparJS(pedido.id)}')">
-
+              <button type="button" class="btn-icon excluir" title="Excluir" onclick="excluirPedido('${idJS}')">
                 <i class="bi bi-trash"></i>
-
               </button>
 
             </div>
-
           </td>
 
         `;
@@ -3141,35 +1903,20 @@
 
       pedidoEmEdicao = null;
 
-      document.getElementById(
-        'modalPedidoTitulo'
-      ).textContent =
-        'Novo pedido';
+      document.getElementById('modalPedidoTitulo').textContent = 'Novo pedido';
 
+      document.getElementById('formPedido').reset();
 
-      document.getElementById(
-        'formPedido'
-      ).reset();
-
-
-      document.getElementById(
-        'pedidoId'
-      ).value = '';
-
+      document.getElementById('pedidoId').value = '';
 
       if (listas.situacoes.length) {
 
-        document.getElementById(
-          'situacao'
-        ).value =
-          listas.situacoes.includes(
-            'Aguardando envio'
-          )
+        document.getElementById('situacao').value =
+          listas.situacoes.includes('Aguardando envio')
             ? 'Aguardando envio'
             : listas.situacoes[0];
 
       }
-
 
       atualizarPreviewFinanceiro();
 
@@ -3186,49 +1933,29 @@
 
       try {
 
-        const resposta =
-          await chamarAPI(
-            'obter',
-            { id: id }
-          );
-
+        const resposta = await chamarAPI('obter', { id: id });
 
         const pedido =
           resposta.pedido ||
           resposta.dados ||
           resposta;
 
-
         if (!pedido || !pedido.id) {
-
-          throw new Error(
-            'Pedido não encontrado.'
-          );
-
+          throw new Error('Pedido não encontrado.');
         }
-
 
         pedidoEmEdicao = pedido;
 
         preencherFormulario(pedido);
 
-        document.getElementById(
-          'modalPedidoTitulo'
-        ).textContent =
-          'Editar pedido';
-
+        document.getElementById('modalPedidoTitulo').textContent = 'Editar pedido';
 
         abrirModal('modalPedido');
 
       } catch (erro) {
 
         console.error(erro);
-
-        mostrarToast(
-          erro.message ||
-          'Erro ao carregar pedido.',
-          'error'
-        );
+        mostrarToast(erro.message || 'Erro ao carregar pedido.', 'error');
 
       }
 
@@ -3237,127 +1964,27 @@
 
     function preencherFormulario(pedido) {
 
-      document.getElementById(
-        'pedidoId'
-      ).value =
-        pedido.id || '';
+      document.getElementById('pedidoId').value = pedido.id || '';
+      document.getElementById('pedidoAegea').value = pedido.pedidoAegea || '';
+      document.getElementById('pedidoVanbro').value = pedido.pedidoVanbro || '';
+      document.getElementById('nf').value = pedido.nf || '';
+      document.getElementById('situacao').value = pedido.situacao || 'Aguardando envio';
+      document.getElementById('transportadora').value = pedido.transportadora || '';
+      document.getElementById('agendar').value = pedido.agendar || '';
+      document.getElementById('cidade').value = pedido.cidade || '';
+      document.getElementById('uf').value = pedido.uf || '';
+      document.getElementById('endereco').value = pedido.endereco || '';
+      document.getElementById('cep').value = pedido.cep || '';
+      document.getElementById('responsavel').value = pedido.responsavel || '';
 
+      document.getElementById('dataPedido').value = converterParaInputDate(pedido.dataPedido);
+      document.getElementById('dataNf').value = converterParaInputDate(pedido.dataNf);
+      document.getElementById('previsaoEntrega').value = converterParaInputDate(pedido.previsaoEntrega);
+      document.getElementById('dataEntrega').value = converterParaInputDate(pedido.dataEntrega);
 
-      document.getElementById(
-        'pedidoAegea'
-      ).value =
-        pedido.pedidoAegea || '';
-
-
-      document.getElementById(
-        'pedidoVanbro'
-      ).value =
-        pedido.pedidoVanbro || '';
-
-
-      document.getElementById(
-        'nf'
-      ).value =
-        pedido.nf || '';
-
-
-      document.getElementById(
-        'situacao'
-      ).value =
-        pedido.situacao || 'Aguardando envio';
-
-
-      document.getElementById(
-        'transportadora'
-      ).value =
-        pedido.transportadora || '';
-
-
-      document.getElementById(
-        'agendar'
-      ).value =
-        pedido.agendar || '';
-
-
-      document.getElementById(
-        'cidade'
-      ).value =
-        pedido.cidade || '';
-
-
-      document.getElementById(
-        'uf'
-      ).value =
-        pedido.uf || '';
-
-
-      document.getElementById(
-        'endereco'
-      ).value =
-        pedido.endereco || '';
-
-
-      document.getElementById(
-        'cep'
-      ).value =
-        pedido.cep || '';
-
-
-      document.getElementById(
-        'responsavel'
-      ).value =
-        pedido.responsavel || '';
-
-
-      document.getElementById(
-        'dataPedido'
-      ).value =
-        converterParaInputDate(
-          pedido.dataPedido
-        );
-
-
-      document.getElementById(
-        'dataNf'
-      ).value =
-        converterParaInputDate(
-          pedido.dataNf
-        );
-
-
-      document.getElementById(
-        'previsaoEntrega'
-      ).value =
-        converterParaInputDate(
-          pedido.previsaoEntrega
-        );
-
-
-      document.getElementById(
-        'dataEntrega'
-      ).value =
-        converterParaInputDate(
-          pedido.dataEntrega
-        );
-
-
-      document.getElementById(
-        'valorPedido'
-      ).value =
-        pedido.valorPedido || '';
-
-
-      document.getElementById(
-        'valorFaturado'
-      ).value =
-        pedido.valorFaturado || '';
-
-
-      document.getElementById(
-        'observacoes'
-      ).value =
-        pedido.observacoes || '';
-
+      document.getElementById('valorPedido').value = pedido.valorPedido || '';
+      document.getElementById('valorFaturado').value = pedido.valorFaturado || '';
+      document.getElementById('observacoes').value = pedido.observacoes || '';
 
       atualizarPreviewFinanceiro();
 
@@ -3372,135 +1999,41 @@
 
       event.preventDefault();
 
-      const botao =
-        document.getElementById(
-          'btnSalvarPedido'
-        );
+      const botao = document.getElementById('btnSalvarPedido');
 
       botao.disabled = true;
 
-      botao.innerHTML = `
-        <i class="bi bi-arrow-repeat"></i>
-        Salvando...
-      `;
-
+      botao.innerHTML = `<i class="bi bi-arrow-repeat"></i> Salvando...`;
 
       try {
 
         const dados = {
-
-          id:
-            document.getElementById(
-              'pedidoId'
-            ).value,
-
-          pedidoAegea:
-            document.getElementById(
-              'pedidoAegea'
-            ).value.trim(),
-
-          pedidoVanbro:
-            document.getElementById(
-              'pedidoVanbro'
-            ).value.trim(),
-
-          nf:
-            document.getElementById(
-              'nf'
-            ).value.trim(),
-
-          situacao:
-            document.getElementById(
-              'situacao'
-            ).value,
-
-          transportadora:
-            document.getElementById(
-              'transportadora'
-            ).value,
-
-          agendar:
-            document.getElementById(
-              'agendar'
-            ).value,
-
-          cidade:
-            document.getElementById(
-              'cidade'
-            ).value.trim(),
-
-          uf:
-            document.getElementById(
-              'uf'
-            ).value,
-
-          endereco:
-            document.getElementById(
-              'endereco'
-            ).value.trim(),
-
-          cep:
-            document.getElementById(
-              'cep'
-            ).value.trim(),
-
-          responsavel:
-            document.getElementById(
-              'responsavel'
-            ).value.trim(),
-
-          dataPedido:
-            document.getElementById(
-              'dataPedido'
-            ).value,
-
-          dataNf:
-            document.getElementById(
-              'dataNf'
-            ).value,
-
-          previsaoEntrega:
-            document.getElementById(
-              'previsaoEntrega'
-            ).value,
-
-          dataEntrega:
-            document.getElementById(
-              'dataEntrega'
-            ).value,
-
-          valorPedido:
-            document.getElementById(
-              'valorPedido'
-            ).value,
-
-          valorFaturado:
-            document.getElementById(
-              'valorFaturado'
-            ).value,
-
-          observacoes:
-            document.getElementById(
-              'observacoes'
-            ).value.trim()
-
+          id: document.getElementById('pedidoId').value,
+          pedidoAegea: document.getElementById('pedidoAegea').value.trim(),
+          pedidoVanbro: document.getElementById('pedidoVanbro').value.trim(),
+          nf: document.getElementById('nf').value.trim(),
+          situacao: document.getElementById('situacao').value,
+          transportadora: document.getElementById('transportadora').value,
+          agendar: document.getElementById('agendar').value,
+          cidade: document.getElementById('cidade').value.trim(),
+          uf: document.getElementById('uf').value,
+          endereco: document.getElementById('endereco').value.trim(),
+          cep: document.getElementById('cep').value.trim(),
+          responsavel: document.getElementById('responsavel').value.trim(),
+          dataPedido: document.getElementById('dataPedido').value,
+          dataNf: document.getElementById('dataNf').value,
+          previsaoEntrega: document.getElementById('previsaoEntrega').value,
+          dataEntrega: document.getElementById('dataEntrega').value,
+          valorPedido: document.getElementById('valorPedido').value,
+          valorFaturado: document.getElementById('valorFaturado').value,
+          observacoes: document.getElementById('observacoes').value.trim()
         };
 
-
         if (!dados.pedidoAegea) {
-
-          throw new Error(
-            'Informe o Pedido AEGEA.'
-          );
-
+          throw new Error('Informe o Pedido AEGEA.');
         }
 
-
-        await chamarAPI(
-          'salvar',
-          dados
-        );
-
+        await chamarAPI('salvar', dados);
 
         fecharModal('modalPedido');
 
@@ -3511,7 +2044,6 @@
           'success'
         );
 
-
         pedidoEmEdicao = null;
 
         await carregarDados();
@@ -3519,21 +2051,12 @@
       } catch (erro) {
 
         console.error(erro);
-
-        mostrarToast(
-          erro.message ||
-          'Erro ao salvar pedido.',
-          'error'
-        );
+        mostrarToast(erro.message || 'Erro ao salvar pedido.', 'error');
 
       } finally {
 
         botao.disabled = false;
-
-        botao.innerHTML = `
-          <i class="bi bi-check-lg"></i>
-          Salvar pedido
-        `;
+        botao.innerHTML = `<i class="bi bi-check-lg"></i> Salvar pedido`;
 
       }
 
@@ -3548,17 +2071,8 @@
 
       abrirModal('modalDetalhes');
 
-
-      const container =
-        document.getElementById(
-          'detalhesPedido'
-        );
-
-      const historico =
-        document.getElementById(
-          'historicoPedido'
-        );
-
+      const container = document.getElementById('detalhesPedido');
+      const historico = document.getElementById('historicoPedido');
 
       container.innerHTML = `
         <div style="grid-column:1/-1;text-align:center;padding:20px;">
@@ -3567,50 +2081,28 @@
         </div>
       `;
 
-
-      historico.innerHTML = `
-        <div class="loading">
-          Carregando histórico...
-        </div>
-      `;
-
+      historico.innerHTML = `<div class="loading">Carregando histórico...</div>`;
 
       try {
 
-        const resposta =
-          await chamarAPI(
-            'obter',
-            { id: id }
-          );
-
+        const resposta = await chamarAPI('obter', { id: id });
 
         const pedido =
           resposta.pedido ||
           resposta.dados ||
           resposta;
 
+        renderizarDetalhes(pedido);
 
-        renderizarDetalhes(
-          pedido
-        );
-
-
-        const respostaHistorico =
-          await chamarAPI(
-            'historico',
-            { id: id }
-          );
-
+        const respostaHistorico = await chamarAPI('historico', { id: id });
 
         const registros =
           respostaHistorico.historico ||
           respostaHistorico.dados ||
           [];
 
-
-        renderizarHistorico(
-          registros
-        );
+        // Passa o pedido para exibir o número AEGEA em cada evento
+        renderizarHistorico(registros, pedido);
 
       } catch (erro) {
 
@@ -3624,11 +2116,7 @@
 
         historico.innerHTML = '';
 
-        mostrarToast(
-          erro.message ||
-          'Erro ao carregar detalhes.',
-          'error'
-        );
+        mostrarToast(erro.message || 'Erro ao carregar detalhes.', 'error');
 
       }
 
@@ -3637,175 +2125,55 @@
 
     function renderizarDetalhes(p) {
 
-      const container =
-        document.getElementById(
-          'detalhesPedido'
-        );
-
+      const container = document.getElementById('detalhesPedido');
 
       container.innerHTML = `
-
-        ${detalhe(
-          'Pedido AEGEA',
-          p.pedidoAegea
-        )}
-
-        ${detalhe(
-          'Pedido VANBRO',
-          p.pedidoVanbro
-        )}
-
-        ${detalhe(
-          'Nota Fiscal',
-          p.nf
-        )}
-
-        ${detalhe(
-          'Situação',
-          p.situacao,
-          true
-        )}
-
-        ${detalhe(
-          'Transportadora',
-          p.transportadora
-        )}
-
-        ${detalhe(
-          'Agendar?',
-          p.agendar
-        )}
-
-        ${detalhe(
-          'Cidade',
-          p.cidade
-        )}
-
-        ${detalhe(
-          'UF',
-          p.uf
-        )}
-
-        ${detalhe(
-          'Endereço',
-          p.endereco
-        )}
-
-        ${detalhe(
-          'CEP',
-          p.cep
-        )}
-
-        ${detalhe(
-          'Responsável recebimento',
-          p.responsavel
-        )}
-
-        ${detalhe(
-          'Data do pedido',
-          formatarData(p.dataPedido)
-        )}
-
-        ${detalhe(
-          'Data da NF',
-          formatarData(p.dataNf)
-        )}
-
-        ${detalhe(
-          'Previsão de entrega',
-          formatarData(p.previsaoEntrega)
-        )}
-
-        ${detalhe(
-          'Data de entrega',
-          formatarData(p.dataEntrega)
-        )}
-
-        ${detalhe(
-          'Valor do pedido',
-          formatarMoeda(p.valorPedido || 0),
-          false,
-          true
-        )}
-
-        ${detalhe(
-          'Valor faturado',
-          formatarMoeda(p.valorFaturado || 0),
-          false,
-          true
-        )}
-
-        ${detalhe(
-          'Saldo a faturar',
-          formatarMoeda(p.saldo || 0),
-          false,
-          true
-        )}
-
-        ${detalhe(
-          'Execução financeira',
-          formatarPercentual(p.execucao || 0),
-          false,
-          true
-        )}
-
-        ${detalhe(
-          'Última atualização',
-          formatarDataHora(p.ultimaAtualizacao)
-        )}
-
-        ${detalhe(
-          'Atualizado por',
-          p.atualizadoPor
-        )}
+        ${detalhe('Pedido AEGEA', p.pedidoAegea)}
+        ${detalhe('Pedido VANBRO', p.pedidoVanbro)}
+        ${detalhe('Nota Fiscal', p.nf)}
+        ${detalhe('Situação', p.situacao, true)}
+        ${detalhe('Transportadora', p.transportadora)}
+        ${detalhe('Agendar?', p.agendar)}
+        ${detalhe('Cidade', p.cidade)}
+        ${detalhe('UF', p.uf)}
+        ${detalhe('Endereço', p.endereco)}
+        ${detalhe('CEP', p.cep)}
+        ${detalhe('Responsável recebimento', p.responsavel)}
+        ${detalhe('Data do pedido', formatarData(p.dataPedido))}
+        ${detalhe('Data da NF', formatarData(p.dataNf))}
+        ${detalhe('Previsão de entrega', formatarData(p.previsaoEntrega))}
+        ${detalhe('Data de entrega', formatarData(p.dataEntrega))}
+        ${detalhe('Valor do pedido', formatarMoeda(p.valorPedido || 0), false, true)}
+        ${detalhe('Valor faturado', formatarMoeda(p.valorFaturado || 0), false, true)}
+        ${detalhe('Saldo a faturar', formatarMoeda(p.saldo || 0), false, true)}
+        ${detalhe('Execução financeira', formatarPercentual(p.execucao || 0), false, true)}
+        ${detalhe('Última atualização', formatarDataHora(p.ultimaAtualizacao))}
+        ${detalhe('Atualizado por', p.atualizadoPor)}
 
         <div class="detalhe-item" style="grid-column:1/-1;">
-
-          <div class="detalhe-label">
-            Observações
-          </div>
-
+          <div class="detalhe-label">Observações</div>
           <div class="detalhe-valor">
-            ${p.observacoes
-              ? escaparHTML(p.observacoes)
-              : '<span style="color:#94a3b8;">Nenhuma observação.</span>'
+            ${
+              p.observacoes
+                ? escaparHTML(p.observacoes)
+                : '<span style="color:#94a3b8;">Nenhuma observação.</span>'
             }
           </div>
-
         </div>
-
       `;
 
     }
 
 
-    function detalhe(
-      label,
-      valor,
-      destaque = false,
-      financeiro = false
-    ) {
+    function detalhe(label, valor, destaque = false, financeiro = false) {
 
       return `
-
         <div class="detalhe-item ${destaque || financeiro ? 'detalhe-destaque' : ''}">
-
-          <div class="detalhe-label">
-            ${label}
-          </div>
-
+          <div class="detalhe-label">${label}</div>
           <div class="detalhe-valor">
-            ${
-              financeiro
-                ? valor
-                : escaparHTML(
-                    valor || '-'
-                  )
-            }
+            ${financeiro ? valor : escaparHTML(valor || '-')}
           </div>
-
         </div>
-
       `;
 
     }
@@ -3815,13 +2183,9 @@
        HISTÓRICO
        ========================================================= */
 
-    function renderizarHistorico(registros) {
+    function renderizarHistorico(registros, pedido = {}) {
 
-      const container =
-        document.getElementById(
-          'historicoPedido'
-        );
-
+      const container = document.getElementById('historicoPedido');
 
       if (!registros.length) {
 
@@ -3835,67 +2199,56 @@
 
       }
 
+      container.innerHTML = registros.map(item => {
 
-      container.innerHTML =
-        registros.map(item => {
+        const data = formatarDataHora(item.dataHora);
 
-          const data =
-            formatarDataHora(
-              item.dataHora
-            );
+        // Prioriza o número gravado no próprio registro; senão usa o do pedido aberto
+        const numeroAegea = item.pedidoAegea || pedido.pedidoAegea || '';
 
+        // Só mostra a mudança quando a situação realmente mudou
+        const mudanca =
+          item.situacaoAnterior &&
+          item.situacaoNova &&
+          item.situacaoAnterior !== item.situacaoNova
+            ? `${item.situacaoAnterior} → ${item.situacaoNova}`
+            : '';
 
-          const mudanca =
-            item.situacaoAnterior &&
-            item.situacaoNova
-              ? `${item.situacaoAnterior} → ${item.situacaoNova}`
-              : '';
+        return `
+          <div class="timeline-item">
 
-
-          return `
-
-            <div class="timeline-item">
-
-              <div class="timeline-data">
-                ${escaparHTML(data)}
-                ${
-                  item.usuario
-                    ? ` · ${escaparHTML(item.usuario)}`
-                    : ''
-                }
-              </div>
-
-              <div class="timeline-evento">
-                ${escaparHTML(
-                  item.evento || 'Registro'
-                )}
-              </div>
-
-              ${
-                mudanca
-                  ? `
-                    <div class="timeline-observacao">
-                      ${escaparHTML(mudanca)}
-                    </div>
-                  `
-                  : ''
-              }
-
-              ${
-                item.observacao
-                  ? `
-                    <div class="timeline-observacao">
-                      ${escaparHTML(item.observacao)}
-                    </div>
-                  `
-                  : ''
-              }
-
+            <div class="timeline-data">
+              ${escaparHTML(data)}
+              ${item.usuario ? ` · ${escaparHTML(item.usuario)}` : ''}
             </div>
 
-          `;
+            <div class="timeline-evento">
+              ${escaparHTML(item.evento || 'Registro')}
+              ${
+                numeroAegea
+                  ? `<span class="timeline-pedido" title="Pedido AEGEA">
+                       <i class="bi bi-hash"></i>AEGEA ${escaparHTML(numeroAegea)}
+                     </span>`
+                  : ''
+              }
+            </div>
 
-        }).join('');
+            ${
+              mudanca
+                ? `<div class="timeline-observacao">${escaparHTML(mudanca)}</div>`
+                : ''
+            }
+
+            ${
+              item.observacao
+                ? `<div class="timeline-observacao">${escaparHTML(item.observacao)}</div>`
+                : ''
+            }
+
+          </div>
+        `;
+
+      }).join('');
 
     }
 
@@ -3906,133 +2259,60 @@
 
     function abrirAlteracaoSituacao(id) {
 
-      const pedido =
-        pedidos.find(
-          p => p.id === id
-        );
-
+      const pedido = pedidos.find(p => p.id === id);
 
       if (!pedido) {
-
-        mostrarToast(
-          'Pedido não encontrado.',
-          'error'
-        );
-
+        mostrarToast('Pedido não encontrado.', 'error');
         return;
-
       }
 
+      document.getElementById('situacaoPedidoId').value = id;
 
-      document.getElementById(
-        'situacaoPedidoId'
-      ).value = id;
-
-
-      document.getElementById(
-        'situacaoPedidoInfo'
-      ).innerHTML = `
-
+      document.getElementById('situacaoPedidoInfo').innerHTML = `
         Pedido AEGEA:
-        <strong>
-          ${escaparHTML(
-            pedido.pedidoAegea || '-'
-          )}
-        </strong>
-
+        <strong>${escaparHTML(pedido.pedidoAegea || '-')}</strong>
         <br>
-
         Situação atual:
-        <strong>
-          ${escaparHTML(
-            pedido.situacao || '-'
-          )}
-        </strong>
-
+        <strong>${escaparHTML(pedido.situacao || '-')}</strong>
       `;
 
+      document.getElementById('novaSituacao').value = pedido.situacao || '';
 
-      document.getElementById(
-        'novaSituacao'
-      ).value =
-        pedido.situacao || '';
+      document.getElementById('observacaoSituacao').value = '';
 
-
-      document.getElementById(
-        'observacaoSituacao'
-      ).value = '';
-
-
-      abrirModal(
-        'modalSituacao'
-      );
+      abrirModal('modalSituacao');
 
     }
 
 
     async function confirmarAlteracaoSituacao() {
 
-      const id =
-        document.getElementById(
-          'situacaoPedidoId'
-        ).value;
+      const id = document.getElementById('situacaoPedidoId').value;
+      const novaSituacao = document.getElementById('novaSituacao').value;
+      const observacao = document.getElementById('observacaoSituacao').value.trim();
 
-
-      const novaSituacao =
-        document.getElementById(
-          'novaSituacao'
-        ).value;
-
-
-      const observacao =
-        document.getElementById(
-          'observacaoSituacao'
-        ).value.trim();
-
-
-      const botao =
-        document.getElementById(
-          'btnConfirmarSituacao'
-        );
-
+      const botao = document.getElementById('btnConfirmarSituacao');
 
       botao.disabled = true;
 
-
       try {
 
-        await chamarAPI(
-          'situacao',
-          {
-            id: id,
-            novaSituacao: novaSituacao,
-            observacao: observacao
-          }
-        );
+        await chamarAPI('situacao', {
+          id: id,
+          novaSituacao: novaSituacao,
+          observacao: observacao
+        });
 
+        fecharModal('modalSituacao');
 
-        fecharModal(
-          'modalSituacao'
-        );
-
-
-        mostrarToast(
-          'Situação atualizada com sucesso!',
-          'success'
-        );
-
+        mostrarToast('Situação atualizada com sucesso!', 'success');
 
         await carregarDados();
 
       } catch (erro) {
 
         console.error(erro);
-
-        mostrarToast(
-          erro.message ||
-          'Erro ao alterar situação.',
-          'error'
-        );
+        mostrarToast(erro.message || 'Erro ao alterar situação.', 'error');
 
       } finally {
 
@@ -4049,51 +2329,28 @@
 
     async function excluirPedido(id) {
 
-      const pedido =
-        pedidos.find(
-          p => p.id === id
-        );
-
+      const pedido = pedidos.find(p => p.id === id);
 
       if (!pedido) return;
 
-
-      const confirmar =
-        window.confirm(
-          `Deseja realmente excluir o pedido AEGEA ${pedido.pedidoAegea || ''}?`
-        );
-
+      const confirmar = window.confirm(
+        `Deseja realmente excluir o pedido AEGEA ${pedido.pedidoAegea || ''}?`
+      );
 
       if (!confirmar) return;
 
-
       try {
 
-        await chamarAPI(
-          'excluir',
-          {
-            id: id
-          }
-        );
+        await chamarAPI('excluir', { id: id });
 
-
-        mostrarToast(
-          'Pedido excluído com sucesso.',
-          'success'
-        );
-
+        mostrarToast('Pedido excluído com sucesso.', 'success');
 
         await carregarDados();
 
       } catch (erro) {
 
         console.error(erro);
-
-        mostrarToast(
-          erro.message ||
-          'Erro ao excluir pedido.',
-          'error'
-        );
+        mostrarToast(erro.message || 'Erro ao excluir pedido.', 'error');
 
       }
 
@@ -4106,48 +2363,15 @@
 
     function atualizarPreviewFinanceiro() {
 
-      const valorPedido =
-        parseFloat(
-          document.getElementById(
-            'valorPedido'
-          ).value
-        ) || 0;
+      const valorPedido = parseFloat(document.getElementById('valorPedido').value) || 0;
+      const valorFaturado = parseFloat(document.getElementById('valorFaturado').value) || 0;
 
+      const saldo = valorPedido - valorFaturado;
 
-      const valorFaturado =
-        parseFloat(
-          document.getElementById(
-            'valorFaturado'
-          ).value
-        ) || 0;
+      const execucao = valorPedido > 0 ? valorFaturado / valorPedido : 0;
 
-
-      const saldo =
-        valorPedido -
-        valorFaturado;
-
-
-      const execucao =
-        valorPedido > 0
-          ? valorFaturado /
-            valorPedido
-          : 0;
-
-
-      document.getElementById(
-        'saldoPreview'
-      ).value =
-        formatarMoeda(
-          saldo
-        );
-
-
-      document.getElementById(
-        'execucaoPreview'
-      ).value =
-        formatarPercentual(
-          execucao
-        );
+      document.getElementById('saldoPreview').value = formatarMoeda(saldo);
+      document.getElementById('execucaoPreview').value = formatarPercentual(execucao);
 
     }
 
@@ -4157,85 +2381,37 @@
        ========================================================= */
 
     function abrirModal(id) {
-
-      const modal =
-        document.getElementById(id);
-
-      if (modal) {
-
-        modal.classList.add(
-          'aberto'
-        );
-
-      }
-
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.add('aberto');
     }
 
 
     function fecharModal(id) {
-
-      const modal =
-        document.getElementById(id);
-
-      if (modal) {
-
-        modal.classList.remove(
-          'aberto'
-        );
-
-      }
-
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.remove('aberto');
     }
 
 
-    document
-      .querySelectorAll('.modal-overlay')
-      .forEach(modal => {
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
 
-        modal.addEventListener(
-          'click',
-          function(event) {
-
-            if (
-              event.target === modal
-            ) {
-
-              modal.classList.remove(
-                'aberto'
-              );
-
-            }
-
-          }
-        );
-
+      modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.classList.remove('aberto');
+        }
       });
 
+    });
 
-    document.addEventListener(
-      'keydown',
-      function(event) {
 
-        if (
-          event.key === 'Escape'
-        ) {
+    document.addEventListener('keydown', function(event) {
 
-          document
-            .querySelectorAll(
-              '.modal-overlay.aberto'
-            )
-            .forEach(modal => {
-
-              modal.classList.remove(
-                'aberto'
-              );
-
-            });
-
-        }
-
+      if (event.key === 'Escape') {
+        document
+          .querySelectorAll('.modal-overlay.aberto')
+          .forEach(modal => modal.classList.remove('aberto'));
       }
-    );
+
+    });
 
 
     /* =========================================================
@@ -4246,29 +2422,16 @@
 
       if (carregando) return;
 
-
       const botoes = [
-
-        document.getElementById(
-          'btnSincronizarCabecalho'
-        )
-
+        document.getElementById('btnSincronizarCabecalho')
       ];
 
-
       botoes.forEach(btn => {
-
         if (btn) {
-
           btn.disabled = true;
-
-          btn.innerHTML =
-            '<i class="bi bi-arrow-repeat"></i>';
-
+          btn.innerHTML = '<i class="bi bi-arrow-repeat"></i>';
         }
-
       });
-
 
       try {
 
@@ -4277,16 +2440,10 @@
       } finally {
 
         botoes.forEach(btn => {
-
           if (btn) {
-
             btn.disabled = false;
-
-            btn.innerHTML =
-              '<i class="bi bi-arrow-clockwise"></i>';
-
+            btn.innerHTML = '<i class="bi bi-arrow-clockwise"></i>';
           }
-
         });
 
       }
@@ -4296,37 +2453,14 @@
 
     function atualizarHorarioSincronizacao() {
 
-      const agora =
-        new Date();
+      const agora = new Date();
 
+      const dataHora = agora.toLocaleString('pt-BR');
 
-      const dataHora =
-        agora.toLocaleString(
-          'pt-BR'
-        );
-
-
-      const hora =
-        agora.toLocaleTimeString(
-          'pt-BR',
-          {
-            hour: '2-digit',
-            minute: '2-digit'
-          }
-        );
-
-
-      const cabecalho =
-        document.getElementById(
-          'ultimaAtualizacaoCabecalho'
-        );
-
+      const cabecalho = document.getElementById('ultimaAtualizacaoCabecalho');
 
       if (cabecalho) {
-
-        cabecalho.textContent =
-          `Atualizado em ${dataHora}`;
-
+        cabecalho.textContent = `Atualizado em ${dataHora}`;
       }
 
     }
@@ -4338,48 +2472,33 @@
 
     function formatarMoeda(valor) {
 
-      const numero =
-        Number(valor) || 0;
+      const numero = Number(valor) || 0;
 
-
-      return numero.toLocaleString(
-        'pt-BR',
-        {
-          style: 'currency',
-          currency: 'BRL'
-        }
-      );
+      return numero.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      });
 
     }
 
 
     function formatarPercentual(valor) {
 
-      let numero =
-        Number(valor) || 0;
-
+      let numero = Number(valor) || 0;
 
       /*
        * O backend retorna execução como decimal:
        * 0.75 = 75%
        */
 
-      if (
-        Math.abs(numero) <= 1
-      ) {
-
+      if (Math.abs(numero) <= 1) {
         numero *= 100;
-
       }
 
-
-      return numero.toLocaleString(
-        'pt-BR',
-        {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2
-        }
-      ) + '%';
+      return numero.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }) + '%';
 
     }
 
@@ -4388,17 +2507,11 @@
 
       if (!valor) return '-';
 
-
-      const data =
-        criarData(valor);
-
+      const data = criarData(valor);
 
       if (!data) return '-';
 
-
-      return data.toLocaleDateString(
-        'pt-BR'
-      );
+      return data.toLocaleDateString('pt-BR');
 
     }
 
@@ -4407,17 +2520,11 @@
 
       if (!valor) return '-';
 
-
-      const data =
-        criarData(valor);
-
+      const data = criarData(valor);
 
       if (!data) return '-';
 
-
-      return data.toLocaleString(
-        'pt-BR'
-      );
+      return data.toLocaleString('pt-BR');
 
     }
 
@@ -4426,33 +2533,18 @@
 
       if (!valor) return null;
 
+      if (valor instanceof Date) return valor;
 
-      if (
-        valor instanceof Date
-      ) {
-
-        return valor;
-
-      }
-
-
-      const texto =
-        String(valor);
-
+      const texto = String(valor);
 
       /*
-       * Formato:
-       * yyyy-MM-ddTHH:mm:ss
+       * Formato somente data: yyyy-MM-dd
+       * (evita deslocamento de fuso)
        */
 
-      if (
-        /^\d{4}-\d{2}-\d{2}$/.test(
-          texto
-        )
-      ) {
+      if (/^\d{4}-\d{2}-\d{2}$/.test(texto)) {
 
-        const partes =
-          texto.split('-');
+        const partes = texto.split('-');
 
         return new Date(
           Number(partes[0]),
@@ -4462,72 +2554,32 @@
 
       }
 
+      const data = new Date(texto);
 
-      const data =
-        new Date(texto);
-
-
-      if (
-        isNaN(data.getTime())
-      ) {
-
-        return null;
-
-      }
-
+      if (isNaN(data.getTime())) return null;
 
       return data;
 
     }
 
 
-    function converterParaInputDate(
-      valor
-    ) {
+    function converterParaInputDate(valor) {
 
       if (!valor) return '';
 
+      const texto = String(valor);
 
-      const texto =
-        String(valor);
-
-
-      if (
-        /^\d{4}-\d{2}-\d{2}/.test(
-          texto
-        )
-      ) {
-
-        return texto.substring(
-          0,
-          10
-        );
-
+      if (/^\d{4}-\d{2}-\d{2}/.test(texto)) {
+        return texto.substring(0, 10);
       }
 
-
-      const data =
-        criarData(valor);
-
+      const data = criarData(valor);
 
       if (!data) return '';
 
-
-      const ano =
-        data.getFullYear();
-
-
-      const mes =
-        String(
-          data.getMonth() + 1
-        ).padStart(2, '0');
-
-
-      const dia =
-        String(
-          data.getDate()
-        ).padStart(2, '0');
-
+      const ano = data.getFullYear();
+      const mes = String(data.getMonth() + 1).padStart(2, '0');
+      const dia = String(data.getDate()).padStart(2, '0');
 
       return `${ano}-${mes}-${dia}`;
 
@@ -4538,46 +2590,24 @@
        VERIFICAÇÃO DE ATRASO
        ========================================================= */
 
-    function verificarAtraso(
-      pedido
-    ) {
+    function verificarAtraso(pedido) {
 
-      if (!pedido.previsaoEntrega) {
-        return false;
-      }
-
+      if (!pedido.previsaoEntrega) return false;
 
       if (
         pedido.situacao === 'Entregue' ||
         pedido.situacao === 'Cancelado'
       ) {
-
         return false;
-
       }
 
-
-      const previsao =
-        criarData(
-          pedido.previsaoEntrega
-        );
-
+      const previsao = criarData(pedido.previsaoEntrega);
 
       if (!previsao) return false;
 
+      previsao.setHours(23, 59, 59, 999);
 
-      previsao.setHours(
-        23,
-        59,
-        59,
-        999
-      );
-
-
-      return (
-        previsao.getTime() <
-        Date.now()
-      );
+      return previsao.getTime() < Date.now();
 
     }
 
@@ -4586,61 +2616,19 @@
        CLASSE DA SITUAÇÃO
        ========================================================= */
 
-    function obterClasseSituacao(
-      situacao
-    ) {
+    function obterClasseSituacao(situacao) {
 
-      const texto =
-        String(
-          situacao || ''
-        ).toLowerCase();
+      const texto = String(situacao || '').toLowerCase();
 
+      if (texto.includes('aguardando')) return 'status-Aguardando';
 
-      if (
-        texto.includes('aguardando')
-      ) {
+      if (texto.includes('trânsito') || texto.includes('transito')) return 'status-transito';
 
-        return 'status-Aguardando';
+      if (texto.includes('entregue')) return 'status-entregue';
 
-      }
+      if (texto.includes('problema')) return 'status-problema';
 
-
-      if (
-        texto.includes('trânsito') ||
-        texto.includes('transito')
-      ) {
-
-        return 'status-transito';
-
-      }
-
-
-      if (
-        texto.includes('entregue')
-      ) {
-
-        return 'status-entregue';
-
-      }
-
-
-      if (
-        texto.includes('problema')
-      ) {
-
-        return 'status-problema';
-
-      }
-
-
-      if (
-        texto.includes('cancelado')
-      ) {
-
-        return 'status-cancelado';
-
-      }
-
+      if (texto.includes('cancelado')) return 'status-cancelado';
 
       return '';
 
@@ -4651,100 +2639,35 @@
        TOAST
        ========================================================= */
 
-    function mostrarToast(
-      mensagem,
-      tipo = ''
-    ) {
+    function mostrarToast(mensagem, tipo = '') {
 
-      const container =
-        document.getElementById(
-          'toastContainer'
-        );
+      const container = document.getElementById('toastContainer');
 
+      const toast = document.createElement('div');
 
-      const toast =
-        document.createElement(
-          'div'
-        );
+      toast.className = `toast ${tipo}`;
 
+      let icone = 'bi-info-circle';
 
-      toast.className =
-        `toast ${tipo}`;
-
-
-      let icone =
-        'bi-info-circle';
-
-
-      if (
-        tipo === 'success'
-      ) {
-
-        icone =
-          'bi-check-circle';
-
-      }
-
-
-      if (
-        tipo === 'error'
-      ) {
-
-        icone =
-          'bi-exclamation-triangle';
-
-      }
-
-
-      if (
-        tipo === 'warning'
-      ) {
-
-        icone =
-          'bi-exclamation-circle';
-
-      }
-
+      if (tipo === 'success') icone = 'bi-check-circle';
+      if (tipo === 'error') icone = 'bi-exclamation-triangle';
+      if (tipo === 'warning') icone = 'bi-exclamation-circle';
 
       toast.innerHTML = `
-
         <i class="bi ${icone}"></i>
-
-        <span>
-          ${escaparHTML(
-            mensagem
-          )}
-        </span>
-
+        <span>${escaparHTML(mensagem)}</span>
       `;
 
+      container.appendChild(toast);
 
-      container.appendChild(
-        toast
-      );
+      setTimeout(() => {
 
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
 
-      setTimeout(
-        () => {
+        setTimeout(() => toast.remove(), 200);
 
-          toast.style.opacity =
-            '0';
-
-          toast.style.transform =
-            'translateY(10px)';
-
-          setTimeout(
-            () => {
-
-              toast.remove();
-
-            },
-            200
-          );
-
-        },
-        3500
-      );
+      }, 3500);
 
     }
 
@@ -4753,68 +2676,27 @@
        SEGURANÇA / HTML
        ========================================================= */
 
-    function escaparHTML(
-      valor
-    ) {
+    function escaparHTML(valor) {
 
-      if (
-        valor === null ||
-        valor === undefined
-      ) {
-
-        return '';
-
-      }
-
+      if (valor === null || valor === undefined) return '';
 
       return String(valor)
-        .replace(
-          /&/g,
-          '&amp;'
-        )
-        .replace(
-          /</g,
-          '&lt;'
-        )
-        .replace(
-          />/g,
-          '&gt;'
-        )
-        .replace(
-          /"/g,
-          '&quot;'
-        )
-        .replace(
-          /'/g,
-          '&#039;'
-        );
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
 
     }
 
 
-    function escaparJS(
-      valor
-    ) {
+    function escaparJS(valor) {
 
-      return String(
-        valor || ''
-      )
-        .replace(
-          /\\/g,
-          '\\\\'
-        )
-        .replace(
-          /'/g,
-          "\\'"
-        )
-        .replace(
-          /\n/g,
-          '\\n'
-        )
-        .replace(
-          /\r/g,
-          '\\r'
-        );
+      return String(valor || '')
+        .replace(/\\/g, '\\\\')
+        .replace(/'/g, "\\'")
+        .replace(/\n/g, '\\n')
+        .replace(/\r/g, '\\r');
 
     }
 
