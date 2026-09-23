@@ -2,4115 +2,4821 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Controle de Pedidos - AEGEA</title>
-
-    <link rel="icon" type="image/png" href="favicon3.png">
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Fonte -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-
-        :root {
-            --azul: #1b4079;
-            --azul-hover: #15345f;
-            --azul-claro: #eef4fb;
-            --cinza-bg: #f5f7fa;
-            --cinza-borda: #dee2e6;
-            --texto: #263238;
-            --verde: #198754;
-            --amarelo: #ffc107;
-            --vermelho: #dc3545;
-            --laranja: #fd7e14;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            background: var(--cinza-bg);
-            color: var(--texto);
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-        }
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        .topbar {
-            background: var(--azul);
-            color: white;
-            min-height: 68px;
-            display: flex;
-            align-items: center;
-            padding: 0 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,.12);
-        }
-
-        .topbar-title {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .topbar-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 9px;
-            background: rgba(255,255,255,.14);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .topbar-title h1 {
-            font-size: 19px;
-            margin: 0;
-            font-weight: 700;
-        }
-
-        .topbar-title small {
-            opacity: .75;
-            font-size: 11px;
-        }
-
-        .btn-primary {
-            background: var(--azul);
-            border-color: var(--azul);
-        }
-
-        .btn-primary:hover {
-            background: var(--azul-hover);
-            border-color: var(--azul-hover);
-        }
-
-        /* =========================
-           CONTAINER
-        ========================= */
-
-        .page-container {
-            padding: 24px;
-            max-width: 1800px;
-            margin: auto;
-        }
-
-        /* =========================
-           CARDS
-        ========================= */
-
-        .section-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #37474f;
-            margin-bottom: 12px;
-        }
-
-        .kpi-card {
-            background: white;
-            border: 1px solid var(--cinza-borda);
-            border-radius: 10px;
-            padding: 18px;
-            height: 100%;
-            box-shadow: 0 1px 2px rgba(0,0,0,.03);
-        }
-
-        .kpi-label {
-            font-size: 12px;
-            color: #78909c;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: .3px;
-        }
-
-        .kpi-value {
-            font-size: 25px;
-            font-weight: 700;
-            margin-top: 7px;
-            color: #263238;
-        }
-
-        .kpi-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 9px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 19px;
-            background: var(--azul-claro);
-            color: var(--azul);
-        }
-
-        .kpi-footer {
-            font-size: 11px;
-            color: #90a4ae;
-            margin-top: 6px;
-        }
-
-        /* =========================
-           FILTROS
-        ========================= */
-
-        .filter-card,
-        .table-card {
-            background: white;
-            border: 1px solid var(--cinza-borda);
-            border-radius: 10px;
-            box-shadow: 0 1px 2px rgba(0,0,0,.03);
-        }
-
-        .filter-card {
-            padding: 18px;
-        }
-
-        .form-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: #546e7a;
-            margin-bottom: 5px;
-        }
-
-        .form-control,
-        .form-select {
-            font-size: 13px;
-            min-height: 38px;
-        }
-
-        /* =========================
-           TABELA
-        ========================= */
-
-        .table-card {
-            overflow: hidden;
-        }
-
-        .table-header {
-            padding: 15px 18px;
-            border-bottom: 1px solid var(--cinza-borda);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .table-header-title {
-            font-weight: 700;
-            font-size: 15px;
-        }
-
-        .table-responsive {
-            max-height: 68vh;
-            overflow: auto;
-        }
-
-        .table {
-            margin: 0;
-            white-space: nowrap;
-            font-size: 12px;
-        }
-
-        .table thead th {
-            background: var(--azul);
-            color: white;
-            font-weight: 600;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: .2px;
-            padding: 11px 9px;
-            border: none;
-            position: sticky;
-            top: 0;
-            z-index: 5;
-        }
-
-        .table tbody td {
-            padding: 10px 9px;
-            vertical-align: middle;
-            border-color: #edf0f2;
-        }
-
-        .table tbody tr:hover {
-            background: #f8fbff;
-        }
-
-        .pedido-link {
-            color: var(--azul);
-            font-weight: 700;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .pedido-link:hover {
-            text-decoration: underline;
-        }
-
-        /* =========================
-           BADGES
-        ========================= */
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 5px 8px;
-            border-radius: 20px;
-            font-size: 10px;
-            font-weight: 700;
-        }
-
-        .status-aguardando {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .status-transito {
-            background: #cfe2ff;
-            color: #084298;
-        }
-
-        .status-entregue {
-            background: #d1e7dd;
-            color: #0f5132;
-        }
-
-        .status-problema {
-            background: #f8d7da;
-            color: #842029;
-        }
-
-        .status-cancelado {
-            background: #e2e3e5;
-            color: #41464b;
-        }
-
-        .status-padrao {
-            background: #e9ecef;
-            color: #495057;
-        }
-
-        .badge-agendar-sim {
-            color: #856404;
-            background: #fff3cd;
-        }
-
-        .badge-agendar-nao {
-            color: #0f5132;
-            background: #d1e7dd;
-        }
-
-        /* =========================
-           PROGRESSO
-        ========================= */
-
-        .progress-financeiro {
-            height: 7px;
-            border-radius: 10px;
-            background: #e9ecef;
-            min-width: 90px;
-        }
-
-        .progress-financeiro .progress-bar {
-            background: var(--azul);
-        }
-
-        .percentual {
-            font-size: 11px;
-            font-weight: 600;
-            margin-top: 3px;
-        }
-
-        /* =========================
-           MODAIS
-        ========================= */
-
-        .modal-header {
-            background: var(--azul);
-            color: white;
-        }
-
-        .modal-header .btn-close {
-            filter: brightness(0) invert(1);
-        }
-
-        .modal-title {
-            font-size: 16px;
-            font-weight: 700;
-        }
-
-        .modal-section {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--azul);
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 7px;
-            margin-bottom: 14px;
-            margin-top: 5px;
-        }
-
-        /* =========================
-           DETALHES
-        ========================= */
-
-        .detail-label {
-            font-size: 10px;
-            text-transform: uppercase;
-            color: #78909c;
-            font-weight: 700;
-            margin-bottom: 2px;
-        }
-
-        .detail-value {
-            font-size: 13px;
-            font-weight: 500;
-            color: #263238;
-            min-height: 20px;
-        }
-
-        .detail-box {
-            background: #f8fafc;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-            padding: 10px;
-            height: 100%;
-        }
-
-        /* =========================
-           HISTÓRICO
-        ========================= */
-
-        .timeline {
-            position: relative;
-            padding-left: 24px;
-        }
-
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 7px;
-            top: 4px;
-            bottom: 4px;
-            width: 2px;
-            background: #dce4eb;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-bottom: 18px;
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -21px;
-            top: 3px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--azul);
-            border: 2px solid white;
-            box-shadow: 0 0 0 2px #cbd7e2;
-        }
-
-        .timeline-date {
-            font-size: 10px;
-            color: #90a4ae;
-        }
-
-        .timeline-event {
-            font-size: 12px;
-            font-weight: 700;
-            margin-top: 2px;
-        }
-
-        .timeline-description {
-            font-size: 11px;
-            color: #607d8b;
-            margin-top: 2px;
-        }
-
-        /* =========================
-           LOADING
-        ========================= */
-
-        .loading-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(255,255,255,.78);
-            z-index: 9999;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .loading-overlay.show {
-            display: flex;
-        }
-
-        .spinner-border {
-            color: var(--azul);
-        }
-
-        /* =========================
-           TOAST
-        ========================= */
-
-        .toast-container {
-            z-index: 10000;
-        }
-
-        /* =========================
-           RESPONSIVO
-        ========================= */
-
-        @media (max-width: 768px) {
-
-            .topbar {
-                padding: 12px 15px;
-            }
-
-            .page-container {
-                padding: 15px;
-            }
-
-            .topbar-title h1 {
-                font-size: 16px;
-            }
-
-            .kpi-value {
-                font-size: 21px;
-            }
-
-            .table-responsive {
-                max-height: 65vh;
-            }
-        }
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Controle de Pedidos AEGEA</title>
+
+  <link rel="icon" type="image/png" href="favicon2.png">
+
+  <!-- Bootstrap Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet">
+
+  <!-- Fonte Inter -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+
+    :root {
+      --bg-body: #eef2f7;
+      --bg-card: #ffffff;
+      --bg-input: #ffffff;
+      --border-color: #e2e8f0;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+
+      --primary-color: #1b3b63;
+      --primary-hover: #142c4d;
+
+      --header-color: #1e2a4a;
+
+      --table-header: #1b3b63;
+      --table-hover: #f1f5f9;
+
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #3b82f6;
+
+      --logo-plate: #ffffff;
+      --logo-plate-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition:
+        background-color 0.2s,
+        color 0.2s,
+        border-color 0.2s;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      padding: 20px;
+    }
+
+    .page-wrap {
+      max-width: 1800px;
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    /* =========================================================
+       CABEÇALHO PADRÃO
+       ========================================================= */
+
+    .cab-padrao {
+      background: #1e2a4a;
+      color: #fff;
+      padding: .9rem 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      margin: -20px -20px 20px;
+    }
+
+    .cab-padrao .cab-conteudo {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cab-padrao .cab-logo {
+      height: 36px;
+      background: #fff;
+      border-radius: 6px;
+      padding: 3px;
+      object-fit: contain;
+    }
+
+    .cab-padrao .cab-textos {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cab-padrao .cab-titulo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0;
+      line-height: 1.3;
+      color: #fff;
+    }
+
+    .cab-padrao .cab-subtitulo {
+      font-size: .8rem;
+      color: #b9c3dc;
+    }
+
+    .cab-padrao .cab-acoes {
+      display: flex;
+      gap: .5rem;
+      flex-shrink: 0;
+    }
+
+    .cab-padrao .cab-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .35rem;
+      min-width: 32px;
+      height: 32px;
+      padding: 0 .55rem;
+      border: 1px solid rgba(255,255,255,.85);
+      border-radius: 6px;
+      background: transparent;
+      color: #fff;
+      font: 500 .8rem 'Inter', system-ui, sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .15s, color .15s;
+    }
+
+    .cab-padrao .cab-btn:hover {
+      background: #fff;
+      color: #1e2a4a;
+    }
+
+    .cab-padrao .cab-btn:focus-visible {
+      outline: 2px solid #7dd3fc;
+      outline-offset: 2px;
+    }
+
+    .cab-padrao .cab-btn:disabled {
+      opacity: .5;
+      cursor: default;
+    }
+
+    .cab-padrao,
+    .cab-padrao * {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .cab-padrao .cab-conteudo {
+      width: calc((100% - 40px) * .95);
+      max-width: 1800px;
+      padding: 0;
+    }
+
+    /* =========================================================
+       CONTAINER
+       ========================================================= */
+
+    .container-principal {
+      background: var(--bg-card);
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid var(--border-color);
+    }
+
+    /* =========================================================
+       BARRA SUPERIOR
+       ========================================================= */
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .top-bar-title h2 {
+      font-size: 1.25rem;
+      margin: 0;
+      color: var(--text-main);
+    }
+
+    .top-bar-title p {
+      margin: 4px 0 0;
+      color: var(--text-muted);
+      font-size: .85rem;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================================
+       BOTÕES
+       ========================================================= */
+
+    .btn {
+      border: none;
+      border-radius: 6px;
+      padding: 9px 15px;
+      font-size: .85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: .15s;
+    }
+
+    .btn-primary {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: #f1f5f9;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: #e2e8f0;
+    }
+
+    .btn-success {
+      background: var(--success);
+      color: #fff;
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .btn-info {
+      background: var(--info);
+      color: #fff;
+    }
+
+    .btn:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+
+    /* =========================================================
+       DASHBOARD FINANCEIRO
+       ========================================================= */
+
+    .section-title {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin: 20px 0 10px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 18px;
+      min-height: 110px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--primary-color);
+    }
+
+    .kpi-card.success::before {
+      background: var(--success);
+    }
+
+    .kpi-card.warning::before {
+      background: var(--warning);
+    }
+
+    .kpi-card.danger::before {
+      background: var(--danger);
+    }
+
+    .kpi-card.info::before {
+      background: var(--info);
+    }
+
+    .kpi-label {
+      color: var(--text-muted);
+      font-size: .78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .kpi-value {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 8px;
+    }
+
+    .kpi-subtitle {
+      font-size: .75rem;
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+
+    /* =========================================================
+       INDICADORES OPERACIONAIS
+       ========================================================= */
+
+    .operational-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+
+    .operational-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .operational-card .numero {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .operational-card .descricao {
+      font-size: .73rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* =========================================================
+       FILTROS
+       ========================================================= */
+
+    .filtros-container {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    .filtros-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .campo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .campo label {
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    .campo input,
+    .campo select,
+    .campo textarea {
+      width: 100%;
+      padding: 9px 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      background: var(--bg-input);
+      color: var(--text-main);
+      font-size: .84rem;
+      outline: none;
+    }
+
+    .campo input:focus,
+    .campo select:focus,
+    .campo textarea:focus {
+      border-color: var(--primary-color);
+    }
+
+    .filtro-periodo {
+      grid-column: span 2;
+    }
+
+    .periodo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .filtro-acoes {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* =========================================================
+       TABELA
+       ========================================================= */
+
+    .table-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0 10px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .table-header-bar h3 {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .table-info {
+      color: var(--text-muted);
+      font-size: .8rem;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      max-height: 650px;
+      overflow-y: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      width: 100%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .82rem;
+      min-width: 1500px;
+    }
+
+    thead tr {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: var(--primary-color);
+    }
+
+    th {
+      color: #fff !important;
+      font-weight: 600;
+      border-bottom: none !important;
+      white-space: nowrap;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-main);
+      vertical-align: middle;
+    }
+
+    tbody tr:hover {
+      background-color: var(--table-hover);
+    }
+
+    .pedido-link {
+      color: var(--primary-color);
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .pedido-link:hover {
+      text-decoration: underline;
+    }
+
+    .cidade-col {
+      min-width: 150px;
+    }
+
+    .transportadora-col {
+      min-width: 150px;
+    }
+
+    .valor-col {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .percentual {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* =========================================================
+       BADGES DE SITUAÇÃO
+       ========================================================= */
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: .73rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .status-Aguardando {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .status-transito {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    .status-entregue {
+      background: #d1fae5;
+      color: #047857;
+    }
+
+    .status-problema {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .status-cancelado {
+      background: #e2e8f0;
+      color: #475569;
+    }
+
+    .status-select {
+      border: none;
+      border-radius: 20px;
+      padding: 6px 10px;
+      font-size: .75rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: #f1f5f9;
+      color: var(--text-main);
+    }
+
+    /* =========================================================
+       BOTÕES DE AÇÃO DA TABELA
+       ========================================================= */
+
+    .acoes-tabela {
+      display: flex;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    .btn-icon {
+      width: 31px;
+      height: 31px;
+      border-radius: 5px;
+      border: 1px solid var(--border-color);
+      background: #fff;
+      color: var(--text-main);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-icon:hover {
+      background: #f1f5f9;
+    }
+
+    .btn-icon.excluir:hover {
+      color: var(--danger);
+      border-color: #fecaca;
+      background: #fef2f2;
+    }
+
+    /* =========================================================
+       MODAL
+       ========================================================= */
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, .55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-overlay.aberto {
+      display: flex;
+    }
+
+    .modal {
+      width: 100%;
+      max-width: 1050px;
+      max-height: 92vh;
+      overflow-y: auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 15px 50px rgba(0,0,0,.3);
+    }
+
+    .modal-pequeno {
+      max-width: 550px;
+    }
+
+    .modal-header {
+      background: var(--header-color);
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.35rem;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      border-radius: 5px;
+    }
+
+    .modal-close:hover {
+      background: rgba(255,255,255,.12);
+    }
+
+    .modal-body {
+      padding: 20px;
+    }
+
+    .modal-footer {
+      padding: 15px 20px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      position: sticky;
+      bottom: 0;
+      background: #fff;
+    }
+
+    /* =========================================================
+       FORMULÁRIO DO PEDIDO
+       ========================================================= */
+
+    .form-section {
+      margin-bottom: 22px;
+    }
+
+    .form-section-title {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 7px;
+      margin-bottom: 12px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field.span-2 {
+      grid-column: span 2;
+    }
+
+    .form-field label {
+      font-size: .76rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      padding: 9px 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      font-size: .84rem;
+      background: #fff;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--primary-color);
+    }
+
+    .campo-automatico {
+      background: #f8fafc !important;
+      color: var(--text-muted) !important;
+    }
+
+    /* =========================================================
+       DETALHES
+       ========================================================= */
+
+    .detalhes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .detalhe-item {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 11px;
+    }
+
+    .detalhe-label {
+      font-size: .7rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .detalhe-valor {
+      font-size: .86rem;
+      font-weight: 600;
+      margin-top: 4px;
+      word-break: break-word;
+    }
+
+    .detalhe-destaque {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+    }
+
+    /* =========================================================
+       HISTÓRICO
+       ========================================================= */
+
+    .timeline {
+      position: relative;
+      margin-top: 15px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 18px 25px;
+      border-left: 2px solid #dbeafe;
+      margin-left: 7px;
+    }
+
+    .timeline-item:last-child {
+      border-left-color: transparent;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary-color);
+    }
+
+    .timeline-data {
+      font-size: .7rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-evento {
+      font-size: .83rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .timeline-observacao {
+      font-size: .78rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* =========================================================
+       TOAST
+       ========================================================= */
+
+    .toast-container {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .toast {
+      min-width: 280px;
+      max-width: 380px;
+      padding: 12px 15px;
+      border-radius: 7px;
+      background: #1e293b;
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(0,0,0,.2);
+      font-size: .82rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: toastIn .2s ease;
+    }
+
+    .toast.success {
+      background: #047857;
+    }
+
+    .toast.error {
+      background: #b91c1c;
+    }
+
+    .toast.warning {
+      background: #b45309;
+    }
+
+    @keyframes toastIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================================================
+       LOADING
+       ========================================================= */
+
+    .loading {
+      text-align: center;
+      padding: 35px;
+      color: var(--text-muted);
+    }
+
+    .loading i {
+      font-size: 1.5rem;
+      animation: girar 1s linear infinite;
+    }
+
+    @keyframes girar {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .sem-registros {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+    }
+
+    .sem-registros i {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    /* =========================================================
+       RESPONSIVIDADE
+       ========================================================= */
+
+    @media (max-width: 1200px) {
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .operational-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .filtros-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .filtro-periodo {
+        grid-column: span 2;
+      }
+
+      .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .detalhes-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      body {
+        padding: 12px;
+      }
+
+      .cab-padrao {
+        margin: -12px -12px 15px;
+      }
+
+      .cab-padrao .cab-conteudo {
+        width: calc(100% - 24px);
+      }
+
+      .container-principal {
+        padding: 15px;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .operational-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .filtros-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .filtro-periodo {
+        grid-column: auto;
+      }
+
+      .periodo-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-field.span-2 {
+        grid-column: auto;
+      }
+
+      .form-field.full {
+        grid-column: auto;
+      }
+
+      .detalhes-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+
+      .cab-padrao .cab-conteudo {
+        padding: 0;
+      }
+
+      .cab-padrao .cab-titulo {
+        font-size: 1rem;
+      }
+
+      .cab-padrao .cab-btn span {
+        display: none;
+      }
+
+      .operational-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .top-bar {
+        align-items: flex-start;
+      }
+
+      .top-actions {
+        width: 100%;
+      }
+
+      .top-actions .btn {
+        flex: 1;
+      }
+
+      .modal-overlay {
+        padding: 8px;
+      }
+
+      .modal-body {
+        padding: 14px;
+      }
+    }
+
+    /* =========================================================
+       IMPRESSÃO
+       ========================================================= */
+
+    @media print {
+
+      body {
+        background: #fff;
+        padding: 0;
+      }
+
+      .cab-padrao {
+        background: #fff;
+        color: #000;
+        border-bottom: 2px solid #000;
+        margin: 0 0 15px;
+      }
+
+      .cab-padrao .cab-titulo {
+        color: #000;
+      }
+
+      .cab-padrao .cab-subtitulo {
+        color: #333;
+      }
+
+      .cab-padrao .cab-acoes,
+      .top-actions,
+      .filtros-container,
+      .acoes-tabela {
+        display: none !important;
+      }
+
+      .container-principal {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+      }
+
+      .table-container {
+        max-height: none;
+        overflow: visible;
+        border: none;
+      }
+
+      thead tr {
+        position: static;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
 
-<!-- =========================
-     LOADING
-========================= -->
+  <!-- =========================================================
+       CABEÇALHO PADRÃO
+       ========================================================= -->
 
-<div class="loading-overlay" id="loadingOverlay">
-    <div class="spinner-border" role="status"></div>
-    <div id="loadingText">Carregando...</div>
-</div>
+  <header class="cab-padrao">
 
+    <div class="cab-conteudo">
 
-<!-- =========================
-     HEADER
-========================= -->
+      <img
+        class="cab-logo"
+        src="Logo.png"
+        alt=""
+        onerror="this.remove()">
 
-<header class="topbar">
+      <div class="cab-textos">
 
-    <div class="topbar-title">
+        <h1 class="cab-titulo">
+          Controle de Pedidos AEGEA
+        </h1>
 
-        <div class="topbar-icon">
-            <i class="bi bi-truck"></i>
+        <div
+          class="cab-subtitulo"
+          id="ultimaAtualizacaoCabecalho">
+          Carregando…
         </div>
 
-        <div>
-            <h1>Controle de Pedidos AEGEA</h1>
-            <small>Gestão de pedidos, entregas e execução financeira</small>
-        </div>
+      </div>
 
-    </div>
-
-    <div class="ms-auto d-flex gap-2">
+      <div class="cab-acoes">
 
         <button
-            class="btn btn-light btn-sm"
-            onclick="carregarDados()"
-            title="Atualizar dados">
+          type="button"
+          class="cab-btn"
+          id="btnSincronizarCabecalho"
+          onclick="sincronizarAgora()"
+          title="Sincronizar dados">
 
-            <i class="bi bi-arrow-clockwise"></i>
-            <span class="d-none d-md-inline">Atualizar</span>
+          <i class="bi bi-arrow-clockwise"></i>
 
         </button>
 
         <button
-            class="btn btn-light btn-sm"
-            onclick="abrirModalNovoPedido()">
+          type="button"
+          class="cab-btn"
+          onclick="window.print()"
+          title="Imprimir">
+
+          <i class="bi bi-printer"></i>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <div class="page-wrap">
+
+    <div class="container-principal">
+
+
+      <!-- =====================================================
+           TOPO
+           ===================================================== -->
+
+      <div class="top-bar">
+
+        <div class="top-bar-title">
+
+          <h2>
+            <i class="bi bi-box-seam"></i>
+            Pedidos AEGEA
+          </h2>
+
+          <p>
+            Acompanhamento comercial, financeiro e logístico
+          </p>
+
+        </div>
+
+        <div class="top-actions">
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="sincronizarAgora()">
+
+            <i class="bi bi-arrow-clockwise"></i>
+            Sincronizar
+
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="abrirNovoPedido()">
 
             <i class="bi bi-plus-lg"></i>
             Novo pedido
 
-        </button>
+          </button>
 
-    </div>
+        </div>
 
-</header>
+      </div>
 
 
-<main class="page-container">
+      <!-- =====================================================
+           DASHBOARD FINANCEIRO
+           ===================================================== -->
 
-    <!-- =========================
-         FINANCEIRO
-    ========================= -->
-
-    <div class="section-title">
-        <i class="bi bi-cash-stack me-1"></i>
+      <div class="section-title">
+        <i class="bi bi-currency-dollar"></i>
         Visão financeira
-    </div>
+      </div>
 
-    <div class="row g-3 mb-4">
+      <div class="cards-grid">
 
-        <div class="col-12 col-md-6 col-xl-3">
+        <div class="kpi-card">
 
-            <div class="kpi-card">
+          <div class="kpi-label">
+            Total em pedidos
+          </div>
 
-                <div class="d-flex justify-content-between">
+          <div
+            class="kpi-value"
+            id="kpiTotalPedidos">
+            R$ 0,00
+          </div>
 
-                    <div>
-                        <div class="kpi-label">Total em pedidos</div>
-                        <div class="kpi-value" id="kpiTotalPedidos">R$ 0,00</div>
-                        <div class="kpi-footer">Valor total dos pedidos filtrados</div>
-                    </div>
-
-                    <div class="kpi-icon">
-                        <i class="bi bi-receipt"></i>
-                    </div>
-
-                </div>
-
-            </div>
+          <div class="kpi-subtitle">
+            Valor total dos pedidos filtrados
+          </div>
 
         </div>
 
 
-        <div class="col-12 col-md-6 col-xl-3">
+        <div class="kpi-card success">
 
-            <div class="kpi-card">
+          <div class="kpi-label">
+            Total faturado
+          </div>
 
-                <div class="d-flex justify-content-between">
+          <div
+            class="kpi-value"
+            id="kpiTotalFaturado">
+            R$ 0,00
+          </div>
 
-                    <div>
-                        <div class="kpi-label">Total faturado</div>
-                        <div class="kpi-value text-success" id="kpiTotalFaturado">
-                            R$ 0,00
-                        </div>
-                        <div class="kpi-footer">Valor já faturado</div>
-                    </div>
-
-                    <div class="kpi-icon">
-                        <i class="bi bi-check-circle"></i>
-                    </div>
-
-                </div>
-
-            </div>
+          <div class="kpi-subtitle">
+            Valores já faturados
+          </div>
 
         </div>
 
 
-        <div class="col-12 col-md-6 col-xl-3">
+        <div class="kpi-card warning">
 
-            <div class="kpi-card">
+          <div class="kpi-label">
+            Saldo a faturar
+          </div>
 
-                <div class="d-flex justify-content-between">
+          <div
+            class="kpi-value"
+            id="kpiSaldoFaturar">
+            R$ 0,00
+          </div>
 
-                    <div>
-                        <div class="kpi-label">Saldo a faturar</div>
-                        <div class="kpi-value text-warning" id="kpiSaldoFaturar">
-                            R$ 0,00
-                        </div>
-                        <div class="kpi-footer">Valor ainda não faturado</div>
-                    </div>
-
-                    <div class="kpi-icon">
-                        <i class="bi bi-hourglass-split"></i>
-                    </div>
-
-                </div>
-
-            </div>
+          <div class="kpi-subtitle">
+            Valores ainda não faturados
+          </div>
 
         </div>
 
 
-        <div class="col-12 col-md-6 col-xl-3">
+        <div class="kpi-card info">
 
-            <div class="kpi-card">
+          <div class="kpi-label">
+            Execução financeira
+          </div>
 
-                <div class="d-flex justify-content-between">
+          <div
+            class="kpi-value"
+            id="kpiExecucao">
+            0,00%
+          </div>
 
-                    <div>
-                        <div class="kpi-label">Execução financeira</div>
-                        <div class="kpi-value" id="kpiExecucao">0%</div>
-                        <div class="kpi-footer">Faturado / valor dos pedidos</div>
-                    </div>
-
-                    <div class="kpi-icon">
-                        <i class="bi bi-graph-up-arrow"></i>
-                    </div>
-
-                </div>
-
-            </div>
+          <div class="kpi-subtitle">
+            Faturado ÷ valor dos pedidos
+          </div>
 
         </div>
 
-    </div>
+      </div>
 
 
-    <!-- =========================
-         OPERACIONAL
-    ========================= -->
+      <!-- =====================================================
+           INDICADORES OPERACIONAIS
+           ===================================================== -->
 
-    <div class="section-title">
-        <i class="bi bi-box-seam me-1"></i>
+      <div class="section-title">
+        <i class="bi bi-truck"></i>
         Visão operacional
-    </div>
+      </div>
 
-    <div class="row g-3 mb-4">
+      <div class="operational-grid">
 
-        <div class="col-6 col-md-4 col-xl">
+        <div class="operational-card">
 
-            <div class="kpi-card">
+          <div
+            class="numero"
+            id="opTotalPedidos">
+            0
+          </div>
 
-                <div class="kpi-label">Total</div>
-
-                <div class="kpi-value" id="kpiOperacionalTotal">
-                    0
-                </div>
-
-                <div class="kpi-footer">Pedidos</div>
-
-            </div>
+          <div class="descricao">
+            Total de pedidos
+          </div>
 
         </div>
 
 
-        <div class="col-6 col-md-4 col-xl">
+        <div class="operational-card">
 
-            <div class="kpi-card">
+          <div
+            class="numero"
+            id="opAguardando">
+            0
+          </div>
 
-                <div class="kpi-label">Aguardando</div>
-
-                <div class="kpi-value text-warning" id="kpiAguardando">
-                    0
-                </div>
-
-                <div class="kpi-footer">Aguardando envio</div>
-
-            </div>
+          <div class="descricao">
+            Aguardando envio
+          </div>
 
         </div>
 
 
-        <div class="col-6 col-md-4 col-xl">
+        <div class="operational-card">
 
-            <div class="kpi-card">
+          <div
+            class="numero"
+            id="opTransito">
+            0
+          </div>
 
-                <div class="kpi-label">Em trânsito</div>
-
-                <div class="kpi-value text-primary" id="kpiTransito">
-                    0
-                </div>
-
-                <div class="kpi-footer">Em transporte</div>
-
-            </div>
+          <div class="descricao">
+            Em trânsito
+          </div>
 
         </div>
 
 
-        <div class="col-6 col-md-4 col-xl">
+        <div class="operational-card">
 
-            <div class="kpi-card">
+          <div
+            class="numero"
+            id="opEntregues">
+            0
+          </div>
 
-                <div class="kpi-label">Entregues</div>
-
-                <div class="kpi-value text-success" id="kpiEntregues">
-                    0
-                </div>
-
-                <div class="kpi-footer">Pedidos entregues</div>
-
-            </div>
+          <div class="descricao">
+            Entregues
+          </div>
 
         </div>
 
 
-        <div class="col-6 col-md-4 col-xl">
+        <div class="operational-card">
 
-            <div class="kpi-card">
+          <div
+            class="numero"
+            id="opProblemas">
+            0
+          </div>
 
-                <div class="kpi-label">Problemas</div>
-
-                <div class="kpi-value text-danger" id="kpiProblemas">
-                    0
-                </div>
-
-                <div class="kpi-footer">Problemas na entrega</div>
-
-            </div>
+          <div class="descricao">
+            Problemas
+          </div>
 
         </div>
 
 
-        <div class="col-6 col-md-4 col-xl">
+        <div class="operational-card">
 
-            <div class="kpi-card">
+          <div
+            class="numero"
+            id="opAtrasadas">
+            0
+          </div>
 
-                <div class="kpi-label">Atrasadas</div>
-
-                <div class="kpi-value text-danger" id="kpiAtrasadas">
-                    0
-                </div>
-
-                <div class="kpi-footer">Fora do prazo</div>
-
-            </div>
+          <div class="descricao">
+            Entregas atrasadas
+          </div>
 
         </div>
 
-    </div>
+      </div>
 
 
-    <!-- =========================
-         FILTROS
-    ========================= -->
+      <!-- =====================================================
+           FILTROS
+           ===================================================== -->
 
-    <div class="filter-card mb-4">
+      <div class="filtros-container">
 
-        <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="section-title" style="margin-top:0;">
+          <i class="bi bi-funnel"></i>
+          Filtros
+        </div>
 
-            <div class="section-title mb-0">
-                <i class="bi bi-funnel me-1"></i>
-                Filtros
+        <div class="filtros-grid">
+
+
+          <div class="campo">
+
+            <label for="filtroBusca">
+              Buscar
+            </label>
+
+            <input
+              type="text"
+              id="filtroBusca"
+              placeholder="Pedido AEGEA, VANBRO, NF, cidade..."
+              onkeydown="if(event.key === 'Enter') aplicarFiltros()">
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="filtroSituacao">
+              Situação
+            </label>
+
+            <select id="filtroSituacao">
+
+              <option value="">
+                Todas
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="filtroTransportadora">
+              Transportadora
+            </label>
+
+            <select id="filtroTransportadora">
+
+              <option value="">
+                Todas
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="filtroUF">
+              UF
+            </label>
+
+            <select id="filtroUF">
+
+              <option value="">
+                Todas
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="filtroAgendar">
+              Agendar?
+            </label>
+
+            <select id="filtroAgendar">
+
+              <option value="">
+                Todos
+              </option>
+
+              <option value="Sim">
+                Sim
+              </option>
+
+              <option value="Não">
+                Não
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="filtroCidade">
+              Cidade
+            </label>
+
+            <input
+              type="text"
+              id="filtroCidade"
+              placeholder="Cidade">
+
+          </div>
+
+
+          <div class="campo filtro-periodo">
+
+            <label>
+              Período
+            </label>
+
+            <div class="periodo-grid">
+
+              <select id="filtroCampoData">
+
+                <option value="pedido">
+                  Data do pedido
+                </option>
+
+                <option value="nf">
+                  Data da NF
+                </option>
+
+                <option value="previsao">
+                  Previsão de entrega
+                </option>
+
+                <option value="entrega">
+                  Data de entrega
+                </option>
+
+              </select>
+
+              <div
+                style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+
+                <input
+                  type="date"
+                  id="filtroDataInicio"
+                  title="Data inicial">
+
+                <input
+                  type="date"
+                  id="filtroDataFim"
+                  title="Data final">
+
+              </div>
+
             </div>
 
-            <button
-                class="btn btn-sm btn-outline-secondary"
+          </div>
+
+
+          <div class="campo">
+
+            <label>
+              &nbsp;
+            </label>
+
+            <div class="filtro-acoes">
+
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="aplicarFiltros()">
+
+                <i class="bi bi-search"></i>
+                Filtrar
+
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-secondary"
                 onclick="limparFiltros()">
 
-                <i class="bi bi-x-circle"></i>
-                Limpar filtros
+                <i class="bi bi-x-lg"></i>
+                Limpar
 
-            </button>
+              </button>
+
+            </div>
+
+          </div>
 
         </div>
 
+      </div>
 
-        <div class="row g-3">
 
-            <!-- Busca -->
+      <!-- =====================================================
+           TABELA
+           ===================================================== -->
 
-            <div class="col-12 col-lg-3">
+      <div class="table-header-bar">
 
-                <label class="form-label">Busca</label>
+        <div>
+
+          <h3>
+            Pedidos
+          </h3>
+
+          <div
+            class="table-info"
+            id="infoTabela">
+            Carregando...
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="table-container">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Pedido AEGEA</th>
+              <th>Pedido VANBRO</th>
+              <th>NF</th>
+              <th>Cidade / UF</th>
+              <th>Transportadora</th>
+              <th>Situação</th>
+              <th>Agendar?</th>
+              <th>Previsão</th>
+              <th>Entrega</th>
+              <th>Valor pedido</th>
+              <th>Faturado</th>
+              <th>Saldo</th>
+              <th>Execução</th>
+              <th>Ações</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody id="tabelaPedidos">
+
+            <tr>
+
+              <td colspan="14">
+
+                <div class="loading">
+
+                  <i class="bi bi-arrow-repeat"></i>
+
+                  <div>
+                    Carregando pedidos...
+                  </div>
+
+                </div>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       MODAL - NOVO / EDITAR PEDIDO
+       ========================================================= -->
+
+  <div
+    class="modal-overlay"
+    id="modalPedido">
+
+    <div class="modal">
+
+      <div class="modal-header">
+
+        <h3 id="modalPedidoTitulo">
+          Novo pedido
+        </h3>
+
+        <button
+          type="button"
+          class="modal-close"
+          onclick="fecharModal('modalPedido')">
+
+          <i class="bi bi-x-lg"></i>
+
+        </button>
+
+      </div>
+
+
+      <form id="formPedido">
+
+        <div class="modal-body">
+
+
+          <!-- IDENTIFICAÇÃO -->
+
+          <div class="form-section">
+
+            <div class="form-section-title">
+              <i class="bi bi-file-earmark-text"></i>
+              Identificação do pedido
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-field">
+
+                <label for="pedidoAegea">
+                  Pedido AEGEA *
+                </label>
 
                 <input
-                    type="text"
-                    id="filtroBusca"
-                    class="form-control"
-                    placeholder="Pedido, NF, cidade, endereço...">
+                  type="text"
+                  id="pedidoAegea"
+                  required
+                  placeholder="Número do pedido">
 
-            </div>
-
-
-            <!-- Situação -->
-
-            <div class="col-6 col-lg-2">
-
-                <label class="form-label">Situação</label>
-
-                <select id="filtroSituacao" class="form-select">
-
-                    <option value="">Todas</option>
-
-                </select>
-
-            </div>
+              </div>
 
 
-            <!-- Transportadora -->
+              <div class="form-field">
 
-            <div class="col-6 col-lg-2">
-
-                <label class="form-label">Transportadora</label>
-
-                <select id="filtroTransportadora" class="form-select">
-
-                    <option value="">Todas</option>
-
-                </select>
-
-            </div>
-
-
-            <!-- UF -->
-
-            <div class="col-6 col-lg-1">
-
-                <label class="form-label">UF</label>
-
-                <select id="filtroUF" class="form-select">
-
-                    <option value="">Todas</option>
-
-                </select>
-
-            </div>
-
-
-            <!-- Cidade -->
-
-            <div class="col-6 col-lg-2">
-
-                <label class="form-label">Cidade</label>
+                <label for="pedidoVanbro">
+                  Pedido VANBRO
+                </label>
 
                 <input
-                    type="text"
-                    id="filtroCidade"
-                    class="form-control"
-                    placeholder="Cidade">
+                  type="text"
+                  id="pedidoVanbro"
+                  placeholder="Número do pedido">
 
-            </div>
-
-
-            <!-- Agendar -->
-
-            <div class="col-6 col-lg-2">
-
-                <label class="form-label">Agendar?</label>
-
-                <select id="filtroAgendar" class="form-select">
-
-                    <option value="">Todos</option>
-
-                </select>
-
-            </div>
+              </div>
 
 
-            <!-- Campo de data -->
+              <div class="form-field">
 
-            <div class="col-6 col-lg-2">
-
-                <label class="form-label">Período baseado em</label>
-
-                <select id="filtroCampoData" class="form-select">
-
-                    <option value="">Sem período</option>
-                    <option value="pedido">Data do pedido</option>
-                    <option value="nf">Data da NF</option>
-                    <option value="previsao">Previsão de entrega</option>
-                    <option value="entrega">Data de entrega</option>
-
-                </select>
-
-            </div>
-
-
-            <!-- Data inicial -->
-
-            <div class="col-6 col-lg-2">
-
-                <label class="form-label">Data inicial</label>
+                <label for="nf">
+                  Nota Fiscal
+                </label>
 
                 <input
-                    type="date"
-                    id="filtroDataInicio"
-                    class="form-control">
+                  type="text"
+                  id="nf"
+                  placeholder="Número da NF">
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="situacao">
+                  Situação
+                </label>
+
+                <select id="situacao"></select>
+
+              </div>
 
             </div>
 
+          </div>
 
-            <!-- Data final -->
 
-            <div class="col-6 col-lg-2">
+          <!-- ENTREGA -->
 
-                <label class="form-label">Data final</label>
+          <div class="form-section">
+
+            <div class="form-section-title">
+              <i class="bi bi-truck"></i>
+              Entrega
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-field">
+
+                <label for="transportadora">
+                  Transportadora
+                </label>
+
+                <select id="transportadora"></select>
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="agendar">
+                  Agendar?
+                </label>
+
+                <select id="agendar"></select>
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="cidade">
+                  Cidade
+                </label>
 
                 <input
-                    type="date"
-                    id="filtroDataFim"
-                    class="form-control">
+                  type="text"
+                  id="cidade"
+                  placeholder="Cidade de entrega">
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="uf">
+                  UF
+                </label>
+
+                <select id="uf"></select>
+
+              </div>
+
+
+              <div class="form-field span-2">
+
+                <label for="endereco">
+                  Endereço
+                </label>
+
+                <input
+                  type="text"
+                  id="endereco"
+                  placeholder="Endereço completo">
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="cep">
+                  CEP
+                </label>
+
+                <input
+                  type="text"
+                  id="cep"
+                  placeholder="00000-000">
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="responsavel">
+                  Responsável pelo recebimento
+                </label>
+
+                <input
+                  type="text"
+                  id="responsavel"
+                  placeholder="Nome do responsável">
+
+              </div>
 
             </div>
 
+          </div>
 
-            <!-- Botão -->
 
-            <div class="col-12 col-lg-2 d-flex align-items-end">
+          <!-- DATAS -->
 
-                <button
-                    class="btn btn-primary w-100"
-                    onclick="aplicarFiltros()">
+          <div class="form-section">
 
-                    <i class="bi bi-search"></i>
-                    Filtrar
+            <div class="form-section-title">
+              <i class="bi bi-calendar3"></i>
+              Datas
+            </div>
 
-                </button>
+            <div class="form-grid">
+
+              <div class="form-field">
+
+                <label for="dataPedido">
+                  Data do pedido
+                </label>
+
+                <input
+                  type="date"
+                  id="dataPedido">
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="dataNf">
+                  Data da NF
+                </label>
+
+                <input
+                  type="date"
+                  id="dataNf">
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="previsaoEntrega">
+                  Previsão de entrega
+                </label>
+
+                <input
+                  type="date"
+                  id="previsaoEntrega">
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="dataEntrega">
+                  Data de entrega
+                </label>
+
+                <input
+                  type="date"
+                  id="dataEntrega">
+
+              </div>
 
             </div>
+
+          </div>
+
+
+          <!-- FINANCEIRO -->
+
+          <div class="form-section">
+
+            <div class="form-section-title">
+              <i class="bi bi-cash-stack"></i>
+              Financeiro
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-field">
+
+                <label for="valorPedido">
+                  Valor do pedido
+                </label>
+
+                <input
+                  type="number"
+                  id="valorPedido"
+                  min="0"
+                  step="0.01"
+                  placeholder="0,00"
+                  oninput="atualizarPreviewFinanceiro()">
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="valorFaturado">
+                  Valor faturado
+                </label>
+
+                <input
+                  type="number"
+                  id="valorFaturado"
+                  min="0"
+                  step="0.01"
+                  placeholder="0,00"
+                  oninput="atualizarPreviewFinanceiro()">
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="saldoPreview">
+                  Saldo a faturar
+                </label>
+
+                <input
+                  type="text"
+                  id="saldoPreview"
+                  class="campo-automatico"
+                  readonly
+                  value="R$ 0,00">
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="execucaoPreview">
+                  Execução financeira
+                </label>
+
+                <input
+                  type="text"
+                  id="execucaoPreview"
+                  class="campo-automatico"
+                  readonly
+                  value="0,00%">
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- OBSERVAÇÕES -->
+
+          <div class="form-section">
+
+            <div class="form-section-title">
+              <i class="bi bi-chat-left-text"></i>
+              Observações
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-field full">
+
+                <label for="observacoes">
+                  Observações
+                </label>
+
+                <textarea
+                  id="observacoes"
+                  placeholder="Informações adicionais sobre o pedido, entrega, transportadora etc."></textarea>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <input
+            type="hidden"
+            id="pedidoId">
 
         </div>
+
+
+        <div class="modal-footer">
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="fecharModal('modalPedido')">
+
+            Cancelar
+
+          </button>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="btnSalvarPedido">
+
+            <i class="bi bi-check-lg"></i>
+            Salvar pedido
+
+          </button>
+
+        </div>
+
+      </form>
 
     </div>
 
+  </div>
 
-    <!-- =========================
-         TABELA
-    ========================= -->
 
-    <div class="table-card">
+  <!-- =========================================================
+       MODAL - DETALHES
+       ========================================================= -->
 
-        <div class="table-header">
+  <div
+    class="modal-overlay"
+    id="modalDetalhes">
 
-            <div>
+    <div class="modal">
 
-                <div class="table-header-title">
-                    Pedidos AEGEA
-                </div>
+      <div class="modal-header">
 
-                <small class="text-muted" id="contadorPedidos">
-                    0 pedidos
-                </small>
+        <h3>
+          <i class="bi bi-info-circle"></i>
+          Detalhes do pedido
+        </h3>
 
-            </div>
+        <button
+          type="button"
+          class="modal-close"
+          onclick="fecharModal('modalDetalhes')">
 
-            <button
-                class="btn btn-primary btn-sm"
-                onclick="abrirModalNovoPedido()">
+          <i class="bi bi-x-lg"></i>
 
-                <i class="bi bi-plus-lg"></i>
-                Novo pedido
+        </button>
 
-            </button>
+      </div>
 
+
+      <div class="modal-body">
+
+        <div
+          id="detalhesPedido"
+          class="detalhes-grid">
         </div>
 
 
-        <div class="table-responsive">
+        <div class="section-title">
+          <i class="bi bi-clock-history"></i>
+          Histórico
+        </div>
 
-            <table class="table table-hover">
+        <div
+          id="historicoPedido"
+          class="timeline">
 
-                <thead>
-
-                    <tr>
-
-                        <th>Pedido AEGEA</th>
-                        <th>Pedido VANBRO</th>
-                        <th>NF</th>
-                        <th>Cidade / UF</th>
-                        <th>Transportadora</th>
-                        <th>Situação</th>
-                        <th>Agendar</th>
-                        <th>Previsão</th>
-                        <th>Entrega</th>
-                        <th>Valor</th>
-                        <th>Faturado</th>
-                        <th>Saldo</th>
-                        <th>Execução</th>
-                        <th>Ações</th>
-
-                    </tr>
-
-                </thead>
-
-                <tbody id="tabelaPedidos">
-
-                </tbody>
-
-            </table>
+          <div class="loading">
+            Carregando histórico...
+          </div>
 
         </div>
+
+      </div>
+
+
+      <div class="modal-footer">
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="fecharModal('modalDetalhes')">
+
+          Fechar
+
+        </button>
+
+      </div>
 
     </div>
 
-</main>
+  </div>
 
 
-<!-- =========================================================
-     MODAL - CADASTRO / EDIÇÃO
-========================================================= -->
+  <!-- =========================================================
+       MODAL - ALTERAÇÃO DE SITUAÇÃO
+       ========================================================= -->
 
-<div class="modal fade" id="modalPedido" tabindex="-1">
+  <div
+    class="modal-overlay"
+    id="modalSituacao">
 
-    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal modal-pequeno">
 
-        <div class="modal-content">
+      <div class="modal-header">
 
-            <div class="modal-header">
+        <h3>
+          <i class="bi bi-arrow-repeat"></i>
+          Alterar situação
+        </h3>
 
-                <h5 class="modal-title" id="modalPedidoTitulo">
-                    Novo pedido
-                </h5>
+        <button
+          type="button"
+          class="modal-close"
+          onclick="fecharModal('modalSituacao')">
 
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal">
-                </button>
+          <i class="bi bi-x-lg"></i>
 
-            </div>
+        </button>
 
+      </div>
 
-            <div class="modal-body">
 
-                <input type="hidden" id="pedidoId">
+      <div class="modal-body">
 
+        <div
+          style="margin-bottom:15px;color:var(--text-muted);font-size:.84rem;"
+          id="situacaoPedidoInfo">
+        </div>
 
-                <!-- IDENTIFICAÇÃO -->
 
-                <div class="modal-section">
-                    <i class="bi bi-file-earmark-text me-1"></i>
-                    Identificação
-                </div>
+        <div class="campo">
 
-                <div class="row g-3 mb-4">
+          <label for="novaSituacao">
+            Nova situação
+          </label>
 
-                    <div class="col-md-4">
-
-                        <label class="form-label">
-                            Pedido AEGEA *
-                        </label>
-
-                        <input
-                            type="text"
-                            id="formPedidoAegea"
-                            class="form-control"
-                            required>
-
-                    </div>
-
-
-                    <div class="col-md-4">
-
-                        <label class="form-label">
-                            Pedido VANBRO
-                        </label>
-
-                        <input
-                            type="text"
-                            id="formPedidoVanbro"
-                            class="form-control">
-
-                    </div>
-
-
-                    <div class="col-md-4">
-
-                        <label class="form-label">
-                            NF
-                        </label>
-
-                        <input
-                            type="text"
-                            id="formNf"
-                            class="form-control">
-
-                    </div>
-
-                </div>
-
-
-                <!-- SITUAÇÃO -->
-
-                <div class="row g-3 mb-4">
-
-                    <div class="col-md-4">
-
-                        <label class="form-label">
-                            Situação
-                        </label>
-
-                        <select
-                            id="formSituacao"
-                            class="form-select">
-                        </select>
-
-                    </div>
-
-
-                    <div class="col-md-4">
-
-                        <label class="form-label">
-                            Transportadora
-                        </label>
-
-                        <select
-                            id="formTransportadora"
-                            class="form-select">
-                        </select>
-
-                    </div>
-
-
-                    <div class="col-md-4">
-
-                        <label class="form-label">
-                            Agendar?
-                        </label>
-
-                        <select
-                            id="formAgendar"
-                            class="form-select">
-                        </select>
-
-                    </div>
-
-                </div>
-
-
-                <!-- ENTREGA -->
-
-                <div class="modal-section">
-                    <i class="bi bi-geo-alt me-1"></i>
-                    Local de entrega
-                </div>
-
-                <div class="row g-3 mb-4">
-
-                    <div class="col-md-5">
-
-                        <label class="form-label">
-                            Cidade
-                        </label>
-
-                        <input
-                            type="text"
-                            id="formCidade"
-                            class="form-control">
-
-                    </div>
-
-
-                    <div class="col-md-2">
-
-                        <label class="form-label">
-                            UF
-                        </label>
-
-                        <select
-                            id="formUF"
-                            class="form-select">
-                        </select>
-
-                    </div>
-
-
-                    <div class="col-md-5">
-
-                        <label class="form-label">
-                            CEP
-                        </label>
-
-                        <input
-                            type="text"
-                            id="formCep"
-                            class="form-control">
-
-                    </div>
-
-
-                    <div class="col-12">
-
-                        <label class="form-label">
-                            Endereço
-                        </label>
-
-                        <input
-                            type="text"
-                            id="formEndereco"
-                            class="form-control">
-
-                    </div>
-
-
-                    <div class="col-12">
-
-                        <label class="form-label">
-                            Responsável pelo recebimento
-                        </label>
-
-                        <input
-                            type="text"
-                            id="formResponsavel"
-                            class="form-control">
-
-                    </div>
-
-                </div>
-
-
-                <!-- DATAS -->
-
-                <div class="modal-section">
-                    <i class="bi bi-calendar3 me-1"></i>
-                    Datas
-                </div>
-
-                <div class="row g-3 mb-4">
-
-                    <div class="col-md-3">
-
-                        <label class="form-label">
-                            Data do pedido
-                        </label>
-
-                        <input
-                            type="date"
-                            id="formDataPedido"
-                            class="form-control">
-
-                    </div>
-
-
-                    <div class="col-md-3">
-
-                        <label class="form-label">
-                            Data da NF
-                        </label>
-
-                        <input
-                            type="date"
-                            id="formDataNf"
-                            class="form-control">
-
-                    </div>
-
-
-                    <div class="col-md-3">
-
-                        <label class="form-label">
-                            Previsão de entrega
-                        </label>
-
-                        <input
-                            type="date"
-                            id="formPrevisaoEntrega"
-                            class="form-control">
-
-                    </div>
-
-
-                    <div class="col-md-3">
-
-                        <label class="form-label">
-                            Data de entrega
-                        </label>
-
-                        <input
-                            type="date"
-                            id="formDataEntrega"
-                            class="form-control">
-
-                    </div>
-
-                </div>
-
-
-                <!-- FINANCEIRO -->
-
-                <div class="modal-section">
-                    <i class="bi bi-currency-dollar me-1"></i>
-                    Financeiro
-                </div>
-
-                <div class="row g-3 mb-4">
-
-                    <div class="col-md-4">
-
-                        <label class="form-label">
-                            Valor do pedido
-                        </label>
-
-                        <input
-                            type="number"
-                            id="formValorPedido"
-                            class="form-control"
-                            min="0"
-                            step="0.01"
-                            value="0">
-
-                    </div>
-
-
-                    <div class="col-md-4">
-
-                        <label class="form-label">
-                            Valor faturado
-                        </label>
-
-                        <input
-                            type="number"
-                            id="formValorFaturado"
-                            class="form-control"
-                            min="0"
-                            step="0.01"
-                            value="0">
-
-                    </div>
-
-
-                    <div class="col-md-4">
-
-                        <label class="form-label">
-                            Saldo a faturar
-                        </label>
-
-                        <input
-                            type="text"
-                            id="formSaldo"
-                            class="form-control"
-                            readonly>
-
-                    </div>
-
-                </div>
-
-
-                <!-- OBSERVAÇÕES -->
-
-                <div class="modal-section">
-                    <i class="bi bi-chat-left-text me-1"></i>
-                    Observações
-                </div>
-
-                <div class="mb-2">
-
-                    <textarea
-                        id="formObservacoes"
-                        class="form-control"
-                        rows="4"
-                        placeholder="Informações adicionais sobre o pedido, entrega ou faturamento...">
-                    </textarea>
-
-                </div>
-
-            </div>
-
-
-            <div class="modal-footer">
-
-                <button
-                    type="button"
-                    class="btn btn-outline-secondary"
-                    data-bs-dismiss="modal">
-
-                    Cancelar
-
-                </button>
-
-                <button
-                    type="button"
-                    class="btn btn-primary"
-                    onclick="salvarPedido()">
-
-                    <i class="bi bi-check-lg"></i>
-                    Salvar pedido
-
-                </button>
-
-            </div>
+          <select id="novaSituacao"></select>
 
         </div>
 
-    </div>
 
-</div>
+        <div
+          class="campo"
+          style="margin-top:12px;">
 
+          <label for="observacaoSituacao">
+            Observação
+          </label>
 
-<!-- =========================================================
-     MODAL - DETALHES
-========================================================= -->
-
-<div class="modal fade" id="modalDetalhes" tabindex="-1">
-
-    <div class="modal-dialog modal-xl modal-dialog-scrollable">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-
-                <div>
-
-                    <h5 class="modal-title" id="detalheTitulo">
-                        Pedido
-                    </h5>
-
-                    <small id="detalheSubtitulo"></small>
-
-                </div>
-
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal">
-                </button>
-
-            </div>
-
-
-            <div class="modal-body">
-
-                <div id="detalhesConteudo"></div>
-
-            </div>
-
-
-            <div class="modal-footer">
-
-                <button
-                    class="btn btn-outline-secondary"
-                    data-bs-dismiss="modal">
-
-                    Fechar
-
-                </button>
-
-                <button
-                    class="btn btn-outline-primary"
-                    id="btnEditarDetalhe">
-
-                    <i class="bi bi-pencil"></i>
-                    Editar
-
-                </button>
-
-                <button
-                    class="btn btn-primary"
-                    id="btnSituacaoDetalhe">
-
-                    <i class="bi bi-arrow-repeat"></i>
-                    Alterar situação
-
-                </button>
-
-            </div>
+          <textarea
+            id="observacaoSituacao"
+            rows="4"
+            placeholder="Observação sobre a alteração (opcional)"></textarea>
 
         </div>
 
-    </div>
 
-</div>
+        <input
+          type="hidden"
+          id="situacaoPedidoId">
 
-
-<!-- =========================================================
-     MODAL - SITUAÇÃO
-========================================================= -->
-
-<div class="modal fade" id="modalSituacao" tabindex="-1">
-
-    <div class="modal-dialog">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-
-                <h5 class="modal-title">
-                    Alterar situação
-                </h5>
-
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal">
-                </button>
-
-            </div>
+      </div>
 
 
-            <div class="modal-body">
+      <div class="modal-footer">
 
-                <input type="hidden" id="situacaoPedidoId">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="fecharModal('modalSituacao')">
 
-                <div class="mb-3">
+          Cancelar
 
-                    <label class="form-label">
-                        Nova situação
-                    </label>
+        </button>
 
-                    <select
-                        id="novaSituacao"
-                        class="form-select">
-                    </select>
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="btnConfirmarSituacao"
+          onclick="confirmarAlteracaoSituacao()">
 
-                </div>
+          <i class="bi bi-check-lg"></i>
+          Confirmar
 
+        </button>
 
-                <div>
-
-                    <label class="form-label">
-                        Observação
-                    </label>
-
-                    <textarea
-                        id="observacaoSituacao"
-                        class="form-control"
-                        rows="3"
-                        placeholder="Opcional">
-                    </textarea>
-
-                </div>
-
-            </div>
-
-
-            <div class="modal-footer">
-
-                <button
-                    class="btn btn-outline-secondary"
-                    data-bs-dismiss="modal">
-
-                    Cancelar
-
-                </button>
-
-                <button
-                    class="btn btn-primary"
-                    onclick="salvarSituacao()">
-
-                    <i class="bi bi-check-lg"></i>
-                    Confirmar
-
-                </button>
-
-            </div>
-
-        </div>
+      </div>
 
     </div>
 
-</div>
+  </div>
 
 
-<!-- =========================================================
-     MODAL - HISTÓRICO
-========================================================= -->
+  <!-- =========================================================
+       TOASTS
+       ========================================================= -->
 
-<div class="modal fade" id="modalHistorico" tabindex="-1">
-
-    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-
-                <h5 class="modal-title">
-                    <i class="bi bi-clock-history me-1"></i>
-                    Histórico do pedido
-                </h5>
-
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal">
-                </button>
-
-            </div>
+  <div
+    class="toast-container"
+    id="toastContainer">
+  </div>
 
 
-            <div class="modal-body">
+  <script>
 
-                <div id="historicoConteudo"></div>
+    /* =========================================================
+       CONFIGURAÇÃO
+       ========================================================= */
 
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
+    const API_URL =
+      "https://script.google.com/macros/s/AKfycbxHUh3VU0x7-bKCNrTJDazVFVK1eP4w1EEDd9oUqAA-mpm-flYUX0Jl5gfDB32fcOoRvw/exec";
 
 
-<!-- =========================================================
-     TOAST
-========================================================= -->
+    /* =========================================================
+       VARIÁVEIS GLOBAIS
+       ========================================================= */
 
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    let pedidos = [];
+    let listas = {
+      situacoes: [],
+      transportadoras: [],
+      agendamento: [],
+      ufs: []
+    };
 
-    <div
-        id="toastMensagem"
-        class="toast"
-        role="alert">
-
-        <div class="toast-header">
-
-            <i class="bi bi-info-circle me-2" id="toastIcon"></i>
-
-            <strong class="me-auto" id="toastTitulo">
-                Sistema
-            </strong>
-
-            <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="toast">
-            </button>
-
-        </div>
-
-        <div class="toast-body" id="toastTexto"></div>
-
-    </div>
-
-</div>
+    let pedidoEmEdicao = null;
+    let carregando = false;
 
 
-<!-- Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    /* =========================================================
+       API JSONP
+       ========================================================= */
 
+    function chamarAPI(acao, params = {}) {
 
-<script>
-
-/* =========================================================
-   CONFIGURAÇÃO
-========================================================= */
-
-const API_URL =
-    'https://script.google.com/macros/s/AKfycbxHUh3VU0x7-bKCNrTJDazVFVK1eP4w1EEDd9oUqAA-mpm-flYUX0Jl5gfDB32fcOoRvw/exec';
-
-
-let pedidos = [];
-let listas = {
-    situacoes: [],
-    transportadoras: [],
-    agendamento: [],
-    ufs: []
-};
-
-let pedidoSelecionado = null;
-
-
-/* =========================================================
-   INICIALIZAÇÃO
-========================================================= */
-
-document.addEventListener('DOMContentLoaded', async function () {
-
-    configurarEventos();
-
-    await carregarListas();
-
-    await carregarDados();
-
-});
-
-
-/* =========================================================
-   EVENTOS
-========================================================= */
-
-function configurarEventos() {
-
-    document
-        .getElementById('filtroBusca')
-        .addEventListener('keydown', function (e) {
-
-            if (e.key === 'Enter') {
-                aplicarFiltros();
-            }
-
-        });
-
-
-    document
-        .getElementById('formValorPedido')
-        .addEventListener('input', calcularSaldoFormulario);
-
-
-    document
-        .getElementById('formValorFaturado')
-        .addEventListener('input', calcularSaldoFormulario);
-
-}
-
-
-/* =========================================================
-   API JSONP
-========================================================= */
-
-function api(acao, params = {}) {
-
-    return new Promise((resolve, reject) => {
+      return new Promise((resolve, reject) => {
 
         const callbackName =
-            'jsonp_' +
-            Date.now() +
-            '_' +
-            Math.floor(Math.random() * 100000);
-
+          'callback_' +
+          Date.now() +
+          '_' +
+          Math.floor(Math.random() * 100000);
 
         const script = document.createElement('script');
 
         const query = new URLSearchParams();
 
-        query.append('acao', acao);
-        query.append('callback', callbackName);
+        query.set('acao', acao);
+        query.set('callback', callbackName);
+        query.set('_t', Date.now());
 
+        Object.keys(params).forEach(chave => {
 
-        Object.keys(params).forEach(key => {
+          const valor = params[chave];
 
-            const valor = params[key];
+          if (
+            valor !== undefined &&
+            valor !== null &&
+            valor !== ''
+          ) {
 
-            if (
-                valor !== undefined &&
-                valor !== null &&
-                valor !== ''
-            ) {
+            query.set(chave, valor);
 
-                query.append(key, valor);
-
-            }
+          }
 
         });
 
 
         const timeout = setTimeout(() => {
 
-            cleanup();
+          cleanup();
 
-            reject(
-                new Error('Tempo limite excedido ao acessar o servidor.')
-            );
+          reject(
+            new Error('Tempo limite excedido ao acessar a API.')
+          );
 
         }, 30000);
 
 
         function cleanup() {
 
-            clearTimeout(timeout);
+          clearTimeout(timeout);
 
-            if (script.parentNode) {
-                script.parentNode.removeChild(script);
-            }
+          delete window[callbackName];
 
-            try {
-                delete window[callbackName];
-            } catch (e) {
-                window[callbackName] = undefined;
-            }
+          if (script.parentNode) {
+            script.parentNode.removeChild(script);
+          }
 
         }
 
 
-        window[callbackName] = function (resposta) {
+        window[callbackName] = function(data) {
 
-            cleanup();
+          cleanup();
 
-            if (!resposta) {
+          if (
+            data &&
+            data.sucesso === false
+          ) {
 
-                reject(
-                    new Error('Resposta vazia do servidor.')
-                );
+            reject(
+              new Error(
+                data.mensagem ||
+                'Erro retornado pela API.'
+              )
+            );
 
-                return;
-            }
+            return;
+          }
 
-
-            if (resposta.sucesso === false) {
-
-                reject(
-                    new Error(
-                        resposta.mensagem ||
-                        'O servidor retornou um erro.'
-                    )
-                );
-
-                return;
-            }
-
-
-            resolve(resposta);
+          resolve(data);
 
         };
 
 
-        script.onerror = function () {
+        script.onerror = function() {
 
-            cleanup();
+          cleanup();
 
-            reject(
-                new Error(
-                    'Não foi possível conectar ao Apps Script.'
-                )
-            );
+          reject(
+            new Error(
+              'Não foi possível acessar o Apps Script.'
+            )
+          );
 
         };
 
 
         script.src =
-            API_URL +
-            '?' +
-            query.toString();
-
+          API_URL +
+          '?' +
+          query.toString();
 
         document.body.appendChild(script);
 
-    });
+      });
 
-}
+    }
 
 
-/* =========================================================
-   CARREGAR LISTAS
-========================================================= */
+    /* =========================================================
+       INICIALIZAÇÃO
+       ========================================================= */
 
-async function carregarListas() {
+    document.addEventListener(
+      'DOMContentLoaded',
+      function() {
 
-    try {
+        carregarSistema();
 
-        const resposta = await api('listas');
+        document
+          .getElementById('formPedido')
+          .addEventListener(
+            'submit',
+            salvarPedido
+          );
 
-        listas = resposta.dados || listas;
+      }
+    );
 
-        preencherSelects();
 
-    } catch (erro) {
+    async function carregarSistema() {
+
+      try {
+
+        await carregarListas();
+
+        await carregarDados();
+
+      } catch (erro) {
 
         console.error(erro);
 
         mostrarToast(
-            'Erro',
-            'Não foi possível carregar as listas.',
-            'danger'
+          erro.message ||
+          'Erro ao carregar o sistema.',
+          'error'
         );
+
+      }
 
     }
 
-}
+
+    /* =========================================================
+       LISTAS
+       ========================================================= */
+
+    async function carregarListas() {
+
+      const resposta =
+        await chamarAPI('listas');
+
+      listas = resposta || listas;
+
+      preencherSelects();
+
+    }
 
 
-/* =========================================================
-   PREENCHER SELECTS
-========================================================= */
+    function preencherSelects() {
 
-function preencherSelects() {
-
-    preencherSelect(
+      preencherSelect(
         'filtroSituacao',
         listas.situacoes,
         'Todas'
-    );
+      );
 
-    preencherSelect(
+      preencherSelect(
         'filtroTransportadora',
         listas.transportadoras,
         'Todas'
-    );
+      );
 
-    preencherSelect(
-        'filtroAgendar',
-        listas.agendamento,
-        'Todos'
-    );
-
-    preencherSelect(
+      preencherSelect(
         'filtroUF',
         listas.ufs,
         'Todas'
-    );
+      );
 
 
-    preencherSelect(
-        'formSituacao',
+      preencherSelect(
+        'situacao',
         listas.situacoes,
         null
-    );
+      );
 
-    preencherSelect(
-        'formTransportadora',
+      preencherSelect(
+        'transportadora',
         listas.transportadoras,
         null
-    );
+      );
 
-    preencherSelect(
-        'formAgendar',
+      preencherSelect(
+        'agendar',
         listas.agendamento,
         null
-    );
+      );
 
-    preencherSelect(
-        'formUF',
+      preencherSelect(
+        'uf',
         listas.ufs,
         null
-    );
+      );
 
-
-    preencherSelect(
+      preencherSelect(
         'novaSituacao',
         listas.situacoes,
         null
-    );
-
-}
-
-
-function preencherSelect(id, valores, textoInicial) {
-
-    const select = document.getElementById(id);
-
-    if (!select) return;
-
-    select.innerHTML = '';
-
-    if (textoInicial !== null) {
-
-        const option = document.createElement('option');
-
-        option.value = '';
-        option.textContent = textoInicial;
-
-        select.appendChild(option);
+      );
 
     }
 
 
-    (valores || []).forEach(valor => {
+    function preencherSelect(
+      id,
+      valores,
+      primeiraOpcao
+    ) {
 
-        const option = document.createElement('option');
+      const select =
+        document.getElementById(id);
+
+      if (!select) return;
+
+      select.innerHTML = '';
+
+      if (primeiraOpcao !== null) {
+
+        const option =
+          document.createElement('option');
+
+        option.value = '';
+        option.textContent = primeiraOpcao;
+
+        select.appendChild(option);
+
+      }
+
+      (valores || []).forEach(valor => {
+
+        const option =
+          document.createElement('option');
 
         option.value = valor;
         option.textContent = valor;
 
         select.appendChild(option);
 
-    });
-
-}
-
-
-/* =========================================================
-   FILTROS
-========================================================= */
-
-function obterFiltros() {
-
-    return {
-
-        busca:
-            document.getElementById('filtroBusca').value.trim(),
-
-        situacao:
-            document.getElementById('filtroSituacao').value,
-
-        transportadora:
-            document.getElementById('filtroTransportadora').value,
-
-        cidade:
-            document.getElementById('filtroCidade').value.trim(),
-
-        uf:
-            document.getElementById('filtroUF').value,
-
-        agendar:
-            document.getElementById('filtroAgendar').value,
-
-        campoData:
-            document.getElementById('filtroCampoData').value,
-
-        dataInicio:
-            document.getElementById('filtroDataInicio').value,
-
-        dataFim:
-            document.getElementById('filtroDataFim').value
-
-    };
-
-}
-
-
-async function aplicarFiltros() {
-
-    await carregarDados();
-
-}
-
-
-function limparFiltros() {
-
-    document.getElementById('filtroBusca').value = '';
-    document.getElementById('filtroSituacao').value = '';
-    document.getElementById('filtroTransportadora').value = '';
-    document.getElementById('filtroCidade').value = '';
-    document.getElementById('filtroUF').value = '';
-    document.getElementById('filtroAgendar').value = '';
-    document.getElementById('filtroCampoData').value = '';
-    document.getElementById('filtroDataInicio').value = '';
-    document.getElementById('filtroDataFim').value = '';
-
-    carregarDados();
-
-}
-
-
-/* =========================================================
-   CARREGAR PEDIDOS + DASHBOARD
-========================================================= */
-
-async function carregarDados() {
-
-    mostrarLoading(true, 'Carregando pedidos...');
-
-    try {
-
-        const filtros = obterFiltros();
-
-        const [resPedidos, resDashboard] = await Promise.all([
-
-            api('dados', filtros),
-
-            api('dashboard', filtros)
-
-        ]);
-
-
-        pedidos = resPedidos.dados || [];
-
-        atualizarTabela();
-
-        atualizarDashboard(
-            resDashboard.dados
-        );
-
-    } catch (erro) {
-
-        console.error(erro);
-
-        mostrarToast(
-            'Erro',
-            erro.message ||
-            'Não foi possível carregar os dados.',
-            'danger'
-        );
-
-    } finally {
-
-        mostrarLoading(false);
+      });
 
     }
 
-}
+
+    /* =========================================================
+       CARREGAR PEDIDOS
+       ========================================================= */
+
+    async function carregarDados() {
+
+      if (carregando) return;
+
+      carregando = true;
+
+      const tabela =
+        document.getElementById('tabelaPedidos');
+
+      tabela.innerHTML = `
+        <tr>
+          <td colspan="14">
+            <div class="loading">
+              <i class="bi bi-arrow-repeat"></i>
+              <div>Carregando pedidos...</div>
+            </div>
+          </td>
+        </tr>
+      `;
 
 
-/* =========================================================
-   DASHBOARD
-========================================================= */
+      try {
 
-function atualizarDashboard(dados) {
+        const filtros =
+          obterFiltros();
 
-    if (!dados) return;
+        const [respostaPedidos, respostaDashboard] =
+          await Promise.all([
+
+            chamarAPI(
+              'dados',
+              filtros
+            ),
+
+            chamarAPI(
+              'dashboard',
+              filtros
+            )
+
+          ]);
 
 
-    const financeiro =
-        dados.financeiro || {};
+        pedidos =
+          respostaPedidos.pedidos ||
+          respostaPedidos.dados ||
+          [];
 
-    const operacional =
-        dados.operacional || {};
+        renderizarTabela();
+
+        atualizarDashboard(
+          respostaDashboard
+        );
+
+        atualizarHorarioSincronizacao();
+
+      } catch (erro) {
+
+        console.error(erro);
+
+        tabela.innerHTML = `
+          <tr>
+            <td colspan="14">
+              <div class="sem-registros">
+                <i class="bi bi-exclamation-triangle"></i>
+                Não foi possível carregar os pedidos.
+              </div>
+            </td>
+          </tr>
+        `;
+
+        mostrarToast(
+          erro.message ||
+          'Erro ao carregar pedidos.',
+          'error'
+        );
+
+      } finally {
+
+        carregando = false;
+
+      }
+
+    }
 
 
-    document.getElementById('kpiTotalPedidos').textContent =
+    /* =========================================================
+       FILTROS
+       ========================================================= */
+
+    function obterFiltros() {
+
+      return {
+
+        situacao:
+          document.getElementById(
+            'filtroSituacao'
+          ).value,
+
+        transportadora:
+          document.getElementById(
+            'filtroTransportadora'
+          ).value,
+
+        cidade:
+          document.getElementById(
+            'filtroCidade'
+          ).value.trim(),
+
+        uf:
+          document.getElementById(
+            'filtroUF'
+          ).value,
+
+        agendar:
+          document.getElementById(
+            'filtroAgendar'
+          ).value,
+
+        busca:
+          document.getElementById(
+            'filtroBusca'
+          ).value.trim(),
+
+        campoData:
+          document.getElementById(
+            'filtroCampoData'
+          ).value,
+
+        dataInicio:
+          document.getElementById(
+            'filtroDataInicio'
+          ).value,
+
+        dataFim:
+          document.getElementById(
+            'filtroDataFim'
+          ).value
+
+      };
+
+    }
+
+
+    function aplicarFiltros() {
+
+      carregarDados();
+
+    }
+
+
+    function limparFiltros() {
+
+      document.getElementById(
+        'filtroBusca'
+      ).value = '';
+
+      document.getElementById(
+        'filtroSituacao'
+      ).value = '';
+
+      document.getElementById(
+        'filtroTransportadora'
+      ).value = '';
+
+      document.getElementById(
+        'filtroUF'
+      ).value = '';
+
+      document.getElementById(
+        'filtroAgendar'
+      ).value = '';
+
+      document.getElementById(
+        'filtroCidade'
+      ).value = '';
+
+      document.getElementById(
+        'filtroDataInicio'
+      ).value = '';
+
+      document.getElementById(
+        'filtroDataFim'
+      ).value = '';
+
+      document.getElementById(
+        'filtroCampoData'
+      ).value = 'pedido';
+
+      carregarDados();
+
+    }
+
+
+    /* =========================================================
+       DASHBOARD
+       ========================================================= */
+
+    function atualizarDashboard(data) {
+
+      const financeiro =
+        data.financeiro || {};
+
+      const operacional =
+        data.operacional || {};
+
+
+      document.getElementById(
+        'kpiTotalPedidos'
+      ).textContent =
         formatarMoeda(
-            financeiro.totalPedidos || 0
+          financeiro.totalPedidos || 0
         );
 
 
-    document.getElementById('kpiTotalFaturado').textContent =
+      document.getElementById(
+        'kpiTotalFaturado'
+      ).textContent =
         formatarMoeda(
-            financeiro.totalFaturado || 0
+          financeiro.totalFaturado || 0
         );
 
 
-    document.getElementById('kpiSaldoFaturar').textContent =
+      document.getElementById(
+        'kpiSaldoFaturar'
+      ).textContent =
         formatarMoeda(
-            financeiro.saldoFaturar || 0
+          financeiro.saldoFaturar || 0
         );
 
 
-    document.getElementById('kpiExecucao').textContent =
+      document.getElementById(
+        'kpiExecucao'
+      ).textContent =
         formatarPercentual(
-            financeiro.execucao || 0
+          financeiro.execucao || 0
         );
 
 
-    document.getElementById('kpiOperacionalTotal').textContent =
+      document.getElementById(
+        'opTotalPedidos'
+      ).textContent =
         operacional.totalPedidos || 0;
 
 
-    document.getElementById('kpiAguardando').textContent =
+      document.getElementById(
+        'opAguardando'
+      ).textContent =
         operacional.aguardandoEnvio || 0;
 
 
-    document.getElementById('kpiTransito').textContent =
+      document.getElementById(
+        'opTransito'
+      ).textContent =
         operacional.emTransito || 0;
 
 
-    document.getElementById('kpiEntregues').textContent =
+      document.getElementById(
+        'opEntregues'
+      ).textContent =
         operacional.entregues || 0;
 
 
-    document.getElementById('kpiProblemas').textContent =
+      document.getElementById(
+        'opProblemas'
+      ).textContent =
         operacional.problemas || 0;
 
 
-    document.getElementById('kpiAtrasadas').textContent =
+      document.getElementById(
+        'opAtrasadas'
+      ).textContent =
         operacional.entregasAtrasadas || 0;
 
-}
+    }
 
 
-/* =========================================================
-   TABELA
-========================================================= */
+    /* =========================================================
+       RENDERIZAR TABELA
+       ========================================================= */
 
-function atualizarTabela() {
+    function renderizarTabela() {
 
-    const tbody =
-        document.getElementById('tabelaPedidos');
+      const tabela =
+        document.getElementById(
+          'tabelaPedidos'
+        );
 
-    tbody.innerHTML = '';
-
-
-    document.getElementById('contadorPedidos').textContent =
-        `${pedidos.length} pedido${pedidos.length === 1 ? '' : 's'}`;
+      tabela.innerHTML = '';
 
 
-    if (!pedidos.length) {
+      document.getElementById(
+        'infoTabela'
+      ).textContent =
+        `${pedidos.length} pedido(s) encontrado(s)`;
 
-        tbody.innerHTML = `
 
-            <tr>
+      if (!pedidos.length) {
 
-                <td
-                    colspan="14"
-                    class="text-center py-5 text-muted">
-
-                    <i class="bi bi-inbox fs-2 d-block mb-2"></i>
-
-                    Nenhum pedido encontrado.
-
-                </td>
-
-            </tr>
-
+        tabela.innerHTML = `
+          <tr>
+            <td colspan="14">
+              <div class="sem-registros">
+                <i class="bi bi-inbox"></i>
+                Nenhum pedido encontrado.
+              </div>
+            </td>
+          </tr>
         `;
 
         return;
 
-    }
+      }
 
 
-    pedidos.forEach(pedido => {
+      pedidos.forEach(pedido => {
 
         const tr =
-            document.createElement('tr');
+          document.createElement('tr');
+
+        const situacao =
+          pedido.situacao ||
+          'Aguardando envio';
 
 
-        const execucao =
-            Number(pedido.execucao || 0);
+        const classeSituacao =
+          obterClasseSituacao(
+            situacao
+          );
+
+
+        const percentual =
+          Number(
+            pedido.execucao || 0
+          );
+
+
+        const atrasada =
+          verificarAtraso(pedido);
 
 
         tr.innerHTML = `
 
-            <td>
+          <td>
 
-                <a
-                    class="pedido-link"
-                    onclick="abrirDetalhes('${escaparJs(pedido.id)}')">
+            <a
+              href="javascript:void(0)"
+              class="pedido-link"
+              onclick="abrirDetalhes('${escaparJS(pedido.id)}')">
 
-                    ${escaparHtml(pedido.pedidoAegea || '-')}
+              ${escaparHTML(
+                pedido.pedidoAegea || '-'
+              )}
 
-                </a>
+            </a>
 
-            </td>
-
-
-            <td>
-                ${escaparHtml(pedido.pedidoVanbro || '-')}
-            </td>
+          </td>
 
 
-            <td>
-                ${escaparHtml(pedido.nf || '-')}
-            </td>
+          <td>
+            ${escaparHTML(
+              pedido.pedidoVanbro || '-'
+            )}
+          </td>
 
 
-            <td>
-
-                <strong>
-                    ${escaparHtml(pedido.cidade || '-')}
-                </strong>
-
-                <br>
-
-                <small class="text-muted">
-                    ${escaparHtml(pedido.uf || '')}
-                </small>
-
-            </td>
+          <td>
+            ${escaparHTML(
+              pedido.nf || '-'
+            )}
+          </td>
 
 
-            <td>
-                ${escaparHtml(pedido.transportadora || '-')}
-            </td>
+          <td class="cidade-col">
+
+            <strong>
+              ${escaparHTML(
+                pedido.cidade || '-'
+              )}
+            </strong>
+
+            ${
+              pedido.uf
+                ? `<div style="font-size:.72rem;color:var(--text-muted);">
+                     ${escaparHTML(pedido.uf)}
+                   </div>`
+                : ''
+            }
+
+          </td>
 
 
-            <td>
-                ${criarBadgeSituacao(pedido.situacao)}
-            </td>
+          <td class="transportadora-col">
+            ${escaparHTML(
+              pedido.transportadora || '-'
+            )}
+          </td>
 
 
-            <td>
-                ${criarBadgeAgendar(pedido.agendar)}
-            </td>
+          <td>
+
+            <span
+              class="status-badge ${classeSituacao}">
+
+              ${escaparHTML(situacao)}
+
+            </span>
+
+          </td>
 
 
-            <td>
-                ${formatarData(pedido.previsaoEntrega)}
-            </td>
+          <td>
+            ${escaparHTML(
+              pedido.agendar || '-'
+            )}
+          </td>
 
 
-            <td>
-                ${formatarData(pedido.dataEntrega)}
-            </td>
+          <td>
+            ${
+              formatarData(
+                pedido.previsaoEntrega
+              )
+            }
+
+            ${
+              atrasada
+                ? `<div style="color:#b91c1c;font-size:.7rem;font-weight:700;">
+                     Atrasada
+                   </div>`
+                : ''
+            }
+
+          </td>
 
 
-            <td>
-                ${formatarMoeda(pedido.valorPedido)}
-            </td>
+          <td>
+            ${formatarData(
+              pedido.dataEntrega
+            )}
+          </td>
 
 
-            <td>
-                ${formatarMoeda(pedido.valorFaturado)}
-            </td>
+          <td class="valor-col">
+            ${formatarMoeda(
+              pedido.valorPedido || 0
+            )}
+          </td>
 
 
-            <td>
-                ${formatarMoeda(pedido.saldo)}
-            </td>
+          <td class="valor-col">
+            ${formatarMoeda(
+              pedido.valorFaturado || 0
+            )}
+          </td>
 
 
-            <td style="min-width:110px;">
-
-                <div class="progress-financeiro">
-
-                    <div
-                        class="progress-bar"
-                        style="width:${Math.min(execucao * 100, 100)}%">
-                    </div>
-
-                </div>
-
-                <div class="percentual">
-                    ${formatarPercentual(execucao)}
-                </div>
-
-            </td>
+          <td class="valor-col">
+            ${formatarMoeda(
+              pedido.saldo || 0
+            )}
+          </td>
 
 
-            <td>
-
-                <div class="btn-group btn-group-sm">
-
-                    <button
-                        class="btn btn-outline-primary"
-                        title="Detalhes"
-                        onclick="abrirDetalhes('${escaparJs(pedido.id)}')">
-
-                        <i class="bi bi-eye"></i>
-
-                    </button>
+          <td class="percentual">
+            ${formatarPercentual(
+              percentual
+            )}
+          </td>
 
 
-                    <button
-                        class="btn btn-outline-secondary"
-                        title="Editar"
-                        onclick="editarPedido('${escaparJs(pedido.id)}')">
+          <td>
 
-                        <i class="bi bi-pencil"></i>
+            <div class="acoes-tabela">
 
-                    </button>
+              <button
+                type="button"
+                class="btn-icon"
+                title="Detalhes"
+                onclick="abrirDetalhes('${escaparJS(pedido.id)}')">
 
+                <i class="bi bi-eye"></i>
 
-                    <button
-                        class="btn btn-outline-primary"
-                        title="Alterar situação"
-                        onclick="abrirModalSituacao('${escaparJs(pedido.id)}')">
-
-                        <i class="bi bi-arrow-repeat"></i>
-
-                    </button>
+              </button>
 
 
-                    <button
-                        class="btn btn-outline-secondary"
-                        title="Histórico"
-                        onclick="abrirHistorico('${escaparJs(pedido.id)}')">
+              <button
+                type="button"
+                class="btn-icon"
+                title="Editar"
+                onclick="editarPedido('${escaparJS(pedido.id)}')">
 
-                        <i class="bi bi-clock-history"></i>
+                <i class="bi bi-pencil"></i>
 
-                    </button>
+              </button>
 
 
-                    <button
-                        class="btn btn-outline-danger"
-                        title="Excluir"
-                        onclick="excluirPedido('${escaparJs(pedido.id)}')">
+              <button
+                type="button"
+                class="btn-icon"
+                title="Alterar situação"
+                onclick="abrirAlteracaoSituacao('${escaparJS(pedido.id)}')">
 
-                        <i class="bi bi-trash"></i>
+                <i class="bi bi-arrow-repeat"></i>
 
-                    </button>
+              </button>
 
-                </div>
 
-            </td>
+              <button
+                type="button"
+                class="btn-icon excluir"
+                title="Excluir"
+                onclick="excluirPedido('${escaparJS(pedido.id)}')">
+
+                <i class="bi bi-trash"></i>
+
+              </button>
+
+            </div>
+
+          </td>
 
         `;
 
+        tabela.appendChild(tr);
 
-        tbody.appendChild(tr);
+      });
 
-    });
-
-}
+    }
 
 
-/* =========================================================
-   NOVO PEDIDO
-========================================================= */
+    /* =========================================================
+       NOVO PEDIDO
+       ========================================================= */
 
-function abrirModalNovoPedido() {
+    function abrirNovoPedido() {
 
-    pedidoSelecionado = null;
+      pedidoEmEdicao = null;
 
-    document.getElementById('modalPedidoTitulo').textContent =
+      document.getElementById(
+        'modalPedidoTitulo'
+      ).textContent =
         'Novo pedido';
 
-    limparFormularioPedido();
+
+      document.getElementById(
+        'formPedido'
+      ).reset();
 
 
-    if (listas.situacoes.length) {
+      document.getElementById(
+        'pedidoId'
+      ).value = '';
 
-        document.getElementById('formSituacao').value =
-            listas.situacoes.includes('Aguardando envio')
-                ? 'Aguardando envio'
-                : listas.situacoes[0];
+
+      if (listas.situacoes.length) {
+
+        document.getElementById(
+          'situacao'
+        ).value =
+          listas.situacoes.includes(
+            'Aguardando envio'
+          )
+            ? 'Aguardando envio'
+            : listas.situacoes[0];
+
+      }
+
+
+      atualizarPreviewFinanceiro();
+
+      abrirModal('modalPedido');
 
     }
 
 
-    if (listas.agendamento.length) {
+    /* =========================================================
+       EDITAR PEDIDO
+       ========================================================= */
 
-        document.getElementById('formAgendar').value =
-            listas.agendamento.includes('Não')
-                ? 'Não'
-                : listas.agendamento[0];
+    async function editarPedido(id) {
 
-    }
-
-
-    const modal =
-        bootstrap.Modal.getOrCreateInstance(
-            document.getElementById('modalPedido')
-        );
-
-    modal.show();
-
-}
-
-
-/* =========================================================
-   EDITAR PEDIDO
-========================================================= */
-
-async function editarPedido(id) {
-
-    mostrarLoading(true, 'Carregando pedido...');
-
-    try {
+      try {
 
         const resposta =
-            await api('obter', { id });
+          await chamarAPI(
+            'obter',
+            { id: id }
+          );
+
 
         const pedido =
-            resposta.dados;
+          resposta.pedido ||
+          resposta.dados ||
+          resposta;
 
 
-        if (!pedido) {
+        if (!pedido || !pedido.id) {
 
-            throw new Error(
-                'Pedido não encontrado.'
-            );
+          throw new Error(
+            'Pedido não encontrado.'
+          );
 
         }
 
 
-        pedidoSelecionado = pedido;
+        pedidoEmEdicao = pedido;
 
-        preencherFormularioPedido(pedido);
+        preencherFormulario(pedido);
 
+        document.getElementById(
+          'modalPedidoTitulo'
+        ).textContent =
+          'Editar pedido';
 
-        document.getElementById('modalPedidoTitulo').textContent =
-            'Editar pedido';
 
+        abrirModal('modalPedido');
 
-        const modalDetalhes =
-            bootstrap.Modal.getInstance(
-                document.getElementById('modalDetalhes')
-            );
-
-        if (modalDetalhes) {
-            modalDetalhes.hide();
-        }
-
-
-        const modal =
-            bootstrap.Modal.getOrCreateInstance(
-                document.getElementById('modalPedido')
-            );
-
-        modal.show();
-
-    } catch (erro) {
-
-        mostrarToast(
-            'Erro',
-            erro.message,
-            'danger'
-        );
-
-    } finally {
-
-        mostrarLoading(false);
-
-    }
-
-}
-
-
-/* =========================================================
-   PREENCHER FORMULÁRIO
-========================================================= */
-
-function preencherFormularioPedido(p) {
-
-    document.getElementById('pedidoId').value =
-        p.id || '';
-
-    document.getElementById('formPedidoAegea').value =
-        p.pedidoAegea || '';
-
-    document.getElementById('formPedidoVanbro').value =
-        p.pedidoVanbro || '';
-
-    document.getElementById('formNf').value =
-        p.nf || '';
-
-    document.getElementById('formSituacao').value =
-        p.situacao || '';
-
-    document.getElementById('formTransportadora').value =
-        p.transportadora || '';
-
-    document.getElementById('formAgendar').value =
-        p.agendar || '';
-
-    document.getElementById('formCidade').value =
-        p.cidade || '';
-
-    document.getElementById('formUF').value =
-        p.uf || '';
-
-    document.getElementById('formEndereco').value =
-        p.endereco || '';
-
-    document.getElementById('formCep').value =
-        p.cep || '';
-
-    document.getElementById('formResponsavel').value =
-        p.responsavel || '';
-
-    document.getElementById('formDataPedido').value =
-        paraInputDate(p.dataPedido);
-
-    document.getElementById('formDataNf').value =
-        paraInputDate(p.dataNf);
-
-    document.getElementById('formPrevisaoEntrega').value =
-        paraInputDate(p.previsaoEntrega);
-
-    document.getElementById('formDataEntrega').value =
-        paraInputDate(p.dataEntrega);
-
-    document.getElementById('formValorPedido').value =
-        Number(p.valorPedido || 0);
-
-    document.getElementById('formValorFaturado').value =
-        Number(p.valorFaturado || 0);
-
-    document.getElementById('formObservacoes').value =
-        p.observacoes || '';
-
-    calcularSaldoFormulario();
-
-}
-
-
-/* =========================================================
-   LIMPAR FORMULÁRIO
-========================================================= */
-
-function limparFormularioPedido() {
-
-    document.getElementById('pedidoId').value = '';
-
-    document.getElementById('formPedidoAegea').value = '';
-    document.getElementById('formPedidoVanbro').value = '';
-    document.getElementById('formNf').value = '';
-
-    document.getElementById('formTransportadora').value = '';
-
-    document.getElementById('formCidade').value = '';
-    document.getElementById('formUF').value = '';
-    document.getElementById('formEndereco').value = '';
-    document.getElementById('formCep').value = '';
-    document.getElementById('formResponsavel').value = '';
-
-    document.getElementById('formDataPedido').value = '';
-    document.getElementById('formDataNf').value = '';
-    document.getElementById('formPrevisaoEntrega').value = '';
-    document.getElementById('formDataEntrega').value = '';
-
-    document.getElementById('formValorPedido').value = '0';
-    document.getElementById('formValorFaturado').value = '0';
-
-    document.getElementById('formSaldo').value =
-        formatarMoeda(0);
-
-    document.getElementById('formObservacoes').value = '';
-
-}
-
-
-/* =========================================================
-   CALCULAR SALDO
-========================================================= */
-
-function calcularSaldoFormulario() {
-
-    const valorPedido =
-        Number(
-            document.getElementById('formValorPedido').value
-        ) || 0;
-
-
-    const valorFaturado =
-        Number(
-            document.getElementById('formValorFaturado').value
-        ) || 0;
-
-
-    const saldo =
-        valorPedido - valorFaturado;
-
-
-    document.getElementById('formSaldo').value =
-        formatarMoeda(saldo);
-
-}
-
-
-/* =========================================================
-   SALVAR PEDIDO
-========================================================= */
-
-async function salvarPedido() {
-
-    const pedidoAegea =
-        document
-            .getElementById('formPedidoAegea')
-            .value
-            .trim();
-
-
-    if (!pedidoAegea) {
-
-        mostrarToast(
-            'Atenção',
-            'Informe o Pedido AEGEA.',
-            'warning'
-        );
-
-        return;
-
-    }
-
-
-    const id =
-        document.getElementById('pedidoId').value;
-
-
-    const dados = {
-
-        id: id,
-
-        pedidoAegea: pedidoAegea,
-
-        pedidoVanbro:
-            document.getElementById('formPedidoVanbro').value.trim(),
-
-        nf:
-            document.getElementById('formNf').value.trim(),
-
-        situacao:
-            document.getElementById('formSituacao').value,
-
-        transportadora:
-            document.getElementById('formTransportadora').value,
-
-        agendar:
-            document.getElementById('formAgendar').value,
-
-        cidade:
-            document.getElementById('formCidade').value.trim(),
-
-        uf:
-            document.getElementById('formUF').value,
-
-        endereco:
-            document.getElementById('formEndereco').value.trim(),
-
-        cep:
-            document.getElementById('formCep').value.trim(),
-
-        responsavel:
-            document.getElementById('formResponsavel').value.trim(),
-
-        dataPedido:
-            document.getElementById('formDataPedido').value,
-
-        dataNf:
-            document.getElementById('formDataNf').value,
-
-        previsaoEntrega:
-            document.getElementById('formPrevisaoEntrega').value,
-
-        dataEntrega:
-            document.getElementById('formDataEntrega').value,
-
-        valorPedido:
-            document.getElementById('formValorPedido').value,
-
-        valorFaturado:
-            document.getElementById('formValorFaturado').value,
-
-        observacoes:
-            document.getElementById('formObservacoes').value.trim()
-
-    };
-
-
-    mostrarLoading(true, 'Salvando pedido...');
-
-
-    try {
-
-        const resposta =
-            await api('salvar', dados);
-
-
-        mostrarToast(
-            'Sucesso',
-            resposta.mensagem ||
-            'Pedido salvo com sucesso.',
-            'success'
-        );
-
-
-        const modal =
-            bootstrap.Modal.getInstance(
-                document.getElementById('modalPedido')
-            );
-
-        if (modal) {
-            modal.hide();
-        }
-
-
-        await carregarDados();
-
-    } catch (erro) {
+      } catch (erro) {
 
         console.error(erro);
 
         mostrarToast(
-            'Erro',
-            erro.message ||
-            'Não foi possível salvar o pedido.',
-            'danger'
+          erro.message ||
+          'Erro ao carregar pedido.',
+          'error'
         );
 
-    } finally {
-
-        mostrarLoading(false);
+      }
 
     }
 
-}
+
+    function preencherFormulario(pedido) {
+
+      document.getElementById(
+        'pedidoId'
+      ).value =
+        pedido.id || '';
 
 
-/* =========================================================
-   DETALHES
-========================================================= */
-
-async function abrirDetalhes(id) {
-
-    mostrarLoading(true, 'Carregando detalhes...');
-
-    try {
-
-        const resposta =
-            await api('obter', { id });
+      document.getElementById(
+        'pedidoAegea'
+      ).value =
+        pedido.pedidoAegea || '';
 
 
-        pedidoSelecionado =
-            resposta.dados;
+      document.getElementById(
+        'pedidoVanbro'
+      ).value =
+        pedido.pedidoVanbro || '';
 
 
-        if (!pedidoSelecionado) {
+      document.getElementById(
+        'nf'
+      ).value =
+        pedido.nf || '';
 
-            throw new Error(
-                'Pedido não encontrado.'
-            );
+
+      document.getElementById(
+        'situacao'
+      ).value =
+        pedido.situacao || 'Aguardando envio';
+
+
+      document.getElementById(
+        'transportadora'
+      ).value =
+        pedido.transportadora || '';
+
+
+      document.getElementById(
+        'agendar'
+      ).value =
+        pedido.agendar || '';
+
+
+      document.getElementById(
+        'cidade'
+      ).value =
+        pedido.cidade || '';
+
+
+      document.getElementById(
+        'uf'
+      ).value =
+        pedido.uf || '';
+
+
+      document.getElementById(
+        'endereco'
+      ).value =
+        pedido.endereco || '';
+
+
+      document.getElementById(
+        'cep'
+      ).value =
+        pedido.cep || '';
+
+
+      document.getElementById(
+        'responsavel'
+      ).value =
+        pedido.responsavel || '';
+
+
+      document.getElementById(
+        'dataPedido'
+      ).value =
+        converterParaInputDate(
+          pedido.dataPedido
+        );
+
+
+      document.getElementById(
+        'dataNf'
+      ).value =
+        converterParaInputDate(
+          pedido.dataNf
+        );
+
+
+      document.getElementById(
+        'previsaoEntrega'
+      ).value =
+        converterParaInputDate(
+          pedido.previsaoEntrega
+        );
+
+
+      document.getElementById(
+        'dataEntrega'
+      ).value =
+        converterParaInputDate(
+          pedido.dataEntrega
+        );
+
+
+      document.getElementById(
+        'valorPedido'
+      ).value =
+        pedido.valorPedido || '';
+
+
+      document.getElementById(
+        'valorFaturado'
+      ).value =
+        pedido.valorFaturado || '';
+
+
+      document.getElementById(
+        'observacoes'
+      ).value =
+        pedido.observacoes || '';
+
+
+      atualizarPreviewFinanceiro();
+
+    }
+
+
+    /* =========================================================
+       SALVAR PEDIDO
+       ========================================================= */
+
+    async function salvarPedido(event) {
+
+      event.preventDefault();
+
+      const botao =
+        document.getElementById(
+          'btnSalvarPedido'
+        );
+
+      botao.disabled = true;
+
+      botao.innerHTML = `
+        <i class="bi bi-arrow-repeat"></i>
+        Salvando...
+      `;
+
+
+      try {
+
+        const dados = {
+
+          id:
+            document.getElementById(
+              'pedidoId'
+            ).value,
+
+          pedidoAegea:
+            document.getElementById(
+              'pedidoAegea'
+            ).value.trim(),
+
+          pedidoVanbro:
+            document.getElementById(
+              'pedidoVanbro'
+            ).value.trim(),
+
+          nf:
+            document.getElementById(
+              'nf'
+            ).value.trim(),
+
+          situacao:
+            document.getElementById(
+              'situacao'
+            ).value,
+
+          transportadora:
+            document.getElementById(
+              'transportadora'
+            ).value,
+
+          agendar:
+            document.getElementById(
+              'agendar'
+            ).value,
+
+          cidade:
+            document.getElementById(
+              'cidade'
+            ).value.trim(),
+
+          uf:
+            document.getElementById(
+              'uf'
+            ).value,
+
+          endereco:
+            document.getElementById(
+              'endereco'
+            ).value.trim(),
+
+          cep:
+            document.getElementById(
+              'cep'
+            ).value.trim(),
+
+          responsavel:
+            document.getElementById(
+              'responsavel'
+            ).value.trim(),
+
+          dataPedido:
+            document.getElementById(
+              'dataPedido'
+            ).value,
+
+          dataNf:
+            document.getElementById(
+              'dataNf'
+            ).value,
+
+          previsaoEntrega:
+            document.getElementById(
+              'previsaoEntrega'
+            ).value,
+
+          dataEntrega:
+            document.getElementById(
+              'dataEntrega'
+            ).value,
+
+          valorPedido:
+            document.getElementById(
+              'valorPedido'
+            ).value,
+
+          valorFaturado:
+            document.getElementById(
+              'valorFaturado'
+            ).value,
+
+          observacoes:
+            document.getElementById(
+              'observacoes'
+            ).value.trim()
+
+        };
+
+
+        if (!dados.pedidoAegea) {
+
+          throw new Error(
+            'Informe o Pedido AEGEA.'
+          );
 
         }
+
+
+        await chamarAPI(
+          'salvar',
+          dados
+        );
+
+
+        fecharModal('modalPedido');
+
+        mostrarToast(
+          pedidoEmEdicao
+            ? 'Pedido atualizado com sucesso!'
+            : 'Pedido cadastrado com sucesso!',
+          'success'
+        );
+
+
+        pedidoEmEdicao = null;
+
+        await carregarDados();
+
+      } catch (erro) {
+
+        console.error(erro);
+
+        mostrarToast(
+          erro.message ||
+          'Erro ao salvar pedido.',
+          'error'
+        );
+
+      } finally {
+
+        botao.disabled = false;
+
+        botao.innerHTML = `
+          <i class="bi bi-check-lg"></i>
+          Salvar pedido
+        `;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       DETALHES DO PEDIDO
+       ========================================================= */
+
+    async function abrirDetalhes(id) {
+
+      abrirModal('modalDetalhes');
+
+
+      const container =
+        document.getElementById(
+          'detalhesPedido'
+        );
+
+      const historico =
+        document.getElementById(
+          'historicoPedido'
+        );
+
+
+      container.innerHTML = `
+        <div style="grid-column:1/-1;text-align:center;padding:20px;">
+          <i class="bi bi-arrow-repeat"></i>
+          Carregando...
+        </div>
+      `;
+
+
+      historico.innerHTML = `
+        <div class="loading">
+          Carregando histórico...
+        </div>
+      `;
+
+
+      try {
+
+        const resposta =
+          await chamarAPI(
+            'obter',
+            { id: id }
+          );
+
+
+        const pedido =
+          resposta.pedido ||
+          resposta.dados ||
+          resposta;
 
 
         renderizarDetalhes(
-            pedidoSelecionado
+          pedido
         );
 
 
-        const modal =
-            bootstrap.Modal.getOrCreateInstance(
-                document.getElementById('modalDetalhes')
-            );
+        const respostaHistorico =
+          await chamarAPI(
+            'historico',
+            { id: id }
+          );
 
 
-        modal.show();
+        const registros =
+          respostaHistorico.historico ||
+          respostaHistorico.dados ||
+          [];
 
-    } catch (erro) {
+
+        renderizarHistorico(
+          registros
+        );
+
+      } catch (erro) {
+
+        console.error(erro);
+
+        container.innerHTML = `
+          <div style="grid-column:1/-1;color:#b91c1c;">
+            Erro ao carregar os detalhes.
+          </div>
+        `;
+
+        historico.innerHTML = '';
 
         mostrarToast(
-            'Erro',
-            erro.message,
-            'danger'
+          erro.message ||
+          'Erro ao carregar detalhes.',
+          'error'
         );
 
-    } finally {
-
-        mostrarLoading(false);
+      }
 
     }
 
-}
 
-
-/* =========================================================
-   RENDERIZAR DETALHES
-========================================================= */
-
-function renderizarDetalhes(p) {
-
-    document.getElementById('detalheTitulo').textContent =
-        'Pedido AEGEA ' +
-        (p.pedidoAegea || '-');
-
-
-    document.getElementById('detalheSubtitulo').textContent =
-        p.id || '';
-
-
-    const execucao =
-        Number(p.execucao || 0);
-
-
-    document.getElementById('detalhesConteudo').innerHTML = `
-
-        <div class="row g-3 mb-4">
-
-            <div class="col-md-3">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Situação
-                    </div>
-
-                    <div class="detail-value mt-1">
-                        ${criarBadgeSituacao(p.situacao)}
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-3">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Pedido VANBRO
-                    </div>
-
-                    <div class="detail-value">
-                        ${escaparHtml(p.pedidoVanbro || '-')}
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-3">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        NF
-                    </div>
-
-                    <div class="detail-value">
-                        ${escaparHtml(p.nf || '-')}
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-3">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Agendar?
-                    </div>
-
-                    <div class="detail-value mt-1">
-                        ${criarBadgeAgendar(p.agendar)}
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="modal-section">
-            <i class="bi bi-geo-alt me-1"></i>
-            Local de entrega
-        </div>
-
-
-        <div class="row g-3 mb-4">
-
-            <div class="col-md-4">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Cidade / UF
-                    </div>
-
-                    <div class="detail-value">
-
-                        ${escaparHtml(p.cidade || '-')}
-                        /
-                        ${escaparHtml(p.uf || '-')}
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-8">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Endereço
-                    </div>
-
-                    <div class="detail-value">
-                        ${escaparHtml(p.endereco || '-')}
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-4">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        CEP
-                    </div>
-
-                    <div class="detail-value">
-                        ${escaparHtml(p.cep || '-')}
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-8">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Responsável pelo recebimento
-                    </div>
-
-                    <div class="detail-value">
-                        ${escaparHtml(p.responsavel || '-')}
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-12">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Transportadora
-                    </div>
-
-                    <div class="detail-value">
-                        ${escaparHtml(p.transportadora || '-')}
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="modal-section">
-            <i class="bi bi-calendar3 me-1"></i>
-            Datas
-        </div>
-
-
-        <div class="row g-3 mb-4">
-
-            <div class="col-md-3">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Data do pedido
-                    </div>
-
-                    <div class="detail-value">
-                        ${formatarData(p.dataPedido)}
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-3">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Data da NF
-                    </div>
-
-                    <div class="detail-value">
-                        ${formatarData(p.dataNf)}
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-3">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Previsão de entrega
-                    </div>
-
-                    <div class="detail-value">
-                        ${formatarData(p.previsaoEntrega)}
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-3">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Data de entrega
-                    </div>
-
-                    <div class="detail-value">
-                        ${formatarData(p.dataEntrega)}
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="modal-section">
-            <i class="bi bi-currency-dollar me-1"></i>
-            Financeiro
-        </div>
-
-
-        <div class="row g-3 mb-4">
-
-            <div class="col-md-3">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Valor do pedido
-                    </div>
-
-                    <div class="detail-value">
-                        ${formatarMoeda(p.valorPedido)}
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-3">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Valor faturado
-                    </div>
-
-                    <div class="detail-value text-success">
-                        ${formatarMoeda(p.valorFaturado)}
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-3">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Saldo a faturar
-                    </div>
-
-                    <div class="detail-value text-warning">
-                        ${formatarMoeda(p.saldo)}
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-3">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Execução financeira
-                    </div>
-
-                    <div class="detail-value">
-
-                        ${formatarPercentual(execucao)}
-
-                    </div>
-
-                    <div class="progress-financeiro mt-2">
-
-                        <div
-                            class="progress-bar"
-                            style="width:${Math.min(execucao * 100, 100)}%">
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="modal-section">
-            <i class="bi bi-chat-left-text me-1"></i>
+    function renderizarDetalhes(p) {
+
+      const container =
+        document.getElementById(
+          'detalhesPedido'
+        );
+
+
+      container.innerHTML = `
+
+        ${detalhe(
+          'Pedido AEGEA',
+          p.pedidoAegea
+        )}
+
+        ${detalhe(
+          'Pedido VANBRO',
+          p.pedidoVanbro
+        )}
+
+        ${detalhe(
+          'Nota Fiscal',
+          p.nf
+        )}
+
+        ${detalhe(
+          'Situação',
+          p.situacao,
+          true
+        )}
+
+        ${detalhe(
+          'Transportadora',
+          p.transportadora
+        )}
+
+        ${detalhe(
+          'Agendar?',
+          p.agendar
+        )}
+
+        ${detalhe(
+          'Cidade',
+          p.cidade
+        )}
+
+        ${detalhe(
+          'UF',
+          p.uf
+        )}
+
+        ${detalhe(
+          'Endereço',
+          p.endereco
+        )}
+
+        ${detalhe(
+          'CEP',
+          p.cep
+        )}
+
+        ${detalhe(
+          'Responsável recebimento',
+          p.responsavel
+        )}
+
+        ${detalhe(
+          'Data do pedido',
+          formatarData(p.dataPedido)
+        )}
+
+        ${detalhe(
+          'Data da NF',
+          formatarData(p.dataNf)
+        )}
+
+        ${detalhe(
+          'Previsão de entrega',
+          formatarData(p.previsaoEntrega)
+        )}
+
+        ${detalhe(
+          'Data de entrega',
+          formatarData(p.dataEntrega)
+        )}
+
+        ${detalhe(
+          'Valor do pedido',
+          formatarMoeda(p.valorPedido || 0),
+          false,
+          true
+        )}
+
+        ${detalhe(
+          'Valor faturado',
+          formatarMoeda(p.valorFaturado || 0),
+          false,
+          true
+        )}
+
+        ${detalhe(
+          'Saldo a faturar',
+          formatarMoeda(p.saldo || 0),
+          false,
+          true
+        )}
+
+        ${detalhe(
+          'Execução financeira',
+          formatarPercentual(p.execucao || 0),
+          false,
+          true
+        )}
+
+        ${detalhe(
+          'Última atualização',
+          formatarDataHora(p.ultimaAtualizacao)
+        )}
+
+        ${detalhe(
+          'Atualizado por',
+          p.atualizadoPor
+        )}
+
+        <div class="detalhe-item" style="grid-column:1/-1;">
+
+          <div class="detalhe-label">
             Observações
+          </div>
+
+          <div class="detalhe-valor">
+            ${p.observacoes
+              ? escaparHTML(p.observacoes)
+              : '<span style="color:#94a3b8;">Nenhuma observação.</span>'
+            }
+          </div>
+
         </div>
 
+      `;
 
-        <div class="detail-box mb-4">
+    }
 
-            <div class="detail-value">
 
+    function detalhe(
+      label,
+      valor,
+      destaque = false,
+      financeiro = false
+    ) {
+
+      return `
+
+        <div class="detalhe-item ${destaque || financeiro ? 'detalhe-destaque' : ''}">
+
+          <div class="detalhe-label">
+            ${label}
+          </div>
+
+          <div class="detalhe-valor">
+            ${
+              financeiro
+                ? valor
+                : escaparHTML(
+                    valor || '-'
+                  )
+            }
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =========================================================
+       HISTÓRICO
+       ========================================================= */
+
+    function renderizarHistorico(registros) {
+
+      const container =
+        document.getElementById(
+          'historicoPedido'
+        );
+
+
+      if (!registros.length) {
+
+        container.innerHTML = `
+          <div style="color:var(--text-muted);font-size:.82rem;">
+            Nenhum registro no histórico.
+          </div>
+        `;
+
+        return;
+
+      }
+
+
+      container.innerHTML =
+        registros.map(item => {
+
+          const data =
+            formatarDataHora(
+              item.dataHora
+            );
+
+
+          const mudanca =
+            item.situacaoAnterior &&
+            item.situacaoNova
+              ? `${item.situacaoAnterior} → ${item.situacaoNova}`
+              : '';
+
+
+          return `
+
+            <div class="timeline-item">
+
+              <div class="timeline-data">
+                ${escaparHTML(data)}
                 ${
-                    p.observacoes
-                        ? nl2br(escaparHtml(p.observacoes))
-                        : '<span class="text-muted">Nenhuma observação registrada.</span>'
+                  item.usuario
+                    ? ` · ${escaparHTML(item.usuario)}`
+                    : ''
                 }
+              </div>
+
+              <div class="timeline-evento">
+                ${escaparHTML(
+                  item.evento || 'Registro'
+                )}
+              </div>
+
+              ${
+                mudanca
+                  ? `
+                    <div class="timeline-observacao">
+                      ${escaparHTML(mudanca)}
+                    </div>
+                  `
+                  : ''
+              }
+
+              ${
+                item.observacao
+                  ? `
+                    <div class="timeline-observacao">
+                      ${escaparHTML(item.observacao)}
+                    </div>
+                  `
+                  : ''
+              }
 
             </div>
 
-        </div>
+          `;
 
-
-        <div class="modal-section">
-            <i class="bi bi-clock-history me-1"></i>
-            Controle
-        </div>
-
-
-        <div class="row g-3">
-
-            <div class="col-md-6">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Última atualização
-                    </div>
-
-                    <div class="detail-value">
-                        ${formatarDataHora(p.ultimaAtualizacao)}
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-6">
-
-                <div class="detail-box">
-
-                    <div class="detail-label">
-                        Atualizado por
-                    </div>
-
-                    <div class="detail-value">
-                        ${escaparHtml(p.atualizadoPor || '-')}
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    `;
-
-
-    document.getElementById('btnEditarDetalhe').onclick =
-        function () {
-
-            editarPedido(p.id);
-
-        };
-
-
-    document.getElementById('btnSituacaoDetalhe').onclick =
-        function () {
-
-            abrirModalSituacao(p.id);
-
-        };
-
-}
-
-
-/* =========================================================
-   SITUAÇÃO
-========================================================= */
-
-async function abrirModalSituacao(id) {
-
-    try {
-
-        const resposta =
-            await api('obter', { id });
-
-
-        pedidoSelecionado =
-            resposta.dados;
-
-
-        document.getElementById('situacaoPedidoId').value =
-            id;
-
-
-        document.getElementById('novaSituacao').value =
-            pedidoSelecionado.situacao || '';
-
-
-        document.getElementById('observacaoSituacao').value =
-            '';
-
-
-        const modalDetalhes =
-            bootstrap.Modal.getInstance(
-                document.getElementById('modalDetalhes')
-            );
-
-        if (modalDetalhes) {
-            modalDetalhes.hide();
-        }
-
-
-        const modal =
-            bootstrap.Modal.getOrCreateInstance(
-                document.getElementById('modalSituacao')
-            );
-
-        modal.show();
-
-    } catch (erro) {
-
-        mostrarToast(
-            'Erro',
-            erro.message,
-            'danger'
-        );
+        }).join('');
 
     }
 
-}
+
+    /* =========================================================
+       ALTERAR SITUAÇÃO
+       ========================================================= */
+
+    function abrirAlteracaoSituacao(id) {
+
+      const pedido =
+        pedidos.find(
+          p => p.id === id
+        );
 
 
-/* =========================================================
-   SALVAR SITUAÇÃO
-========================================================= */
-
-async function salvarSituacao() {
-
-    const id =
-        document.getElementById('situacaoPedidoId').value;
-
-
-    const situacao =
-        document.getElementById('novaSituacao').value;
-
-
-    const observacao =
-        document
-            .getElementById('observacaoSituacao')
-            .value
-            .trim();
-
-
-    if (!id || !situacao) {
+      if (!pedido) {
 
         mostrarToast(
-            'Atenção',
-            'Informe a nova situação.',
-            'warning'
+          'Pedido não encontrado.',
+          'error'
         );
 
         return;
 
-    }
+      }
 
 
-    mostrarLoading(true, 'Atualizando situação...');
+      document.getElementById(
+        'situacaoPedidoId'
+      ).value = id;
 
 
-    try {
+      document.getElementById(
+        'situacaoPedidoInfo'
+      ).innerHTML = `
 
-        const resposta =
-            await api('situacao', {
+        Pedido AEGEA:
+        <strong>
+          ${escaparHTML(
+            pedido.pedidoAegea || '-'
+          )}
+        </strong>
 
-                id: id,
+        <br>
 
-                novaSituacao: situacao,
+        Situação atual:
+        <strong>
+          ${escaparHTML(
+            pedido.situacao || '-'
+          )}
+        </strong>
 
-                observacao: observacao
-
-            });
-
-
-        mostrarToast(
-            'Sucesso',
-            resposta.mensagem ||
-            'Situação atualizada.',
-            'success'
-        );
-
-
-        const modal =
-            bootstrap.Modal.getInstance(
-                document.getElementById('modalSituacao')
-            );
-
-        if (modal) {
-            modal.hide();
-        }
+      `;
 
 
-        await carregarDados();
+      document.getElementById(
+        'novaSituacao'
+      ).value =
+        pedido.situacao || '';
 
-    } catch (erro) {
 
-        mostrarToast(
-            'Erro',
-            erro.message,
-            'danger'
-        );
+      document.getElementById(
+        'observacaoSituacao'
+      ).value = '';
 
-    } finally {
 
-        mostrarLoading(false);
+      abrirModal(
+        'modalSituacao'
+      );
 
     }
 
-}
+
+    async function confirmarAlteracaoSituacao() {
+
+      const id =
+        document.getElementById(
+          'situacaoPedidoId'
+        ).value;
 
 
-/* =========================================================
-   EXCLUIR
-========================================================= */
-
-async function excluirPedido(id) {
-
-    const pedido =
-        pedidos.find(p => p.id === id);
+      const novaSituacao =
+        document.getElementById(
+          'novaSituacao'
+        ).value;
 
 
-    const identificacao =
-        pedido
-            ? pedido.pedidoAegea
-            : id;
+      const observacao =
+        document.getElementById(
+          'observacaoSituacao'
+        ).value.trim();
 
 
-    const confirmar =
-        confirm(
-            `Deseja realmente excluir o pedido AEGEA ${identificacao}?\n\n` +
-            `Esta operação não poderá ser desfeita.`
+      const botao =
+        document.getElementById(
+          'btnConfirmarSituacao'
         );
 
 
-    if (!confirmar) {
-        return;
-    }
+      botao.disabled = true;
 
 
-    mostrarLoading(true, 'Excluindo pedido...');
+      try {
+
+        await chamarAPI(
+          'situacao',
+          {
+            id: id,
+            novaSituacao: novaSituacao,
+            observacao: observacao
+          }
+        );
 
 
-    try {
-
-        const resposta =
-            await api('excluir', {
-
-                id: id
-
-            });
+        fecharModal(
+          'modalSituacao'
+        );
 
 
         mostrarToast(
-            'Sucesso',
-            resposta.mensagem ||
-            'Pedido excluído.',
-            'success'
+          'Situação atualizada com sucesso!',
+          'success'
         );
 
 
         await carregarDados();
 
-    } catch (erro) {
+      } catch (erro) {
+
+        console.error(erro);
 
         mostrarToast(
-            'Erro',
-            erro.message,
-            'danger'
+          erro.message ||
+          'Erro ao alterar situação.',
+          'error'
         );
 
-    } finally {
+      } finally {
 
-        mostrarLoading(false);
+        botao.disabled = false;
+
+      }
 
     }
 
-}
 
+    /* =========================================================
+       EXCLUIR PEDIDO
+       ========================================================= */
 
-/* =========================================================
-   HISTÓRICO
-========================================================= */
+    async function excluirPedido(id) {
 
-async function abrirHistorico(id) {
-
-    const container =
-        document.getElementById('historicoConteudo');
-
-
-    container.innerHTML = `
-
-        <div class="text-center py-4">
-
-            <div class="spinner-border spinner-border-sm"></div>
-
-            <div class="mt-2 text-muted">
-                Carregando histórico...
-            </div>
-
-        </div>
-
-    `;
-
-
-    const modal =
-        bootstrap.Modal.getOrCreateInstance(
-            document.getElementById('modalHistorico')
+      const pedido =
+        pedidos.find(
+          p => p.id === id
         );
 
 
-    modal.show();
+      if (!pedido) return;
 
 
-    try {
+      const confirmar =
+        window.confirm(
+          `Deseja realmente excluir o pedido AEGEA ${pedido.pedidoAegea || ''}?`
+        );
 
-        const resposta =
-            await api('historico', {
 
-                idPedido: id
+      if (!confirmar) return;
+
+
+      try {
+
+        await chamarAPI(
+          'excluir',
+          {
+            id: id
+          }
+        );
+
+
+        mostrarToast(
+          'Pedido excluído com sucesso.',
+          'success'
+        );
+
+
+        await carregarDados();
+
+      } catch (erro) {
+
+        console.error(erro);
+
+        mostrarToast(
+          erro.message ||
+          'Erro ao excluir pedido.',
+          'error'
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       FINANCEIRO NO FORMULÁRIO
+       ========================================================= */
+
+    function atualizarPreviewFinanceiro() {
+
+      const valorPedido =
+        parseFloat(
+          document.getElementById(
+            'valorPedido'
+          ).value
+        ) || 0;
+
+
+      const valorFaturado =
+        parseFloat(
+          document.getElementById(
+            'valorFaturado'
+          ).value
+        ) || 0;
+
+
+      const saldo =
+        valorPedido -
+        valorFaturado;
+
+
+      const execucao =
+        valorPedido > 0
+          ? valorFaturado /
+            valorPedido
+          : 0;
+
+
+      document.getElementById(
+        'saldoPreview'
+      ).value =
+        formatarMoeda(
+          saldo
+        );
+
+
+      document.getElementById(
+        'execucaoPreview'
+      ).value =
+        formatarPercentual(
+          execucao
+        );
+
+    }
+
+
+    /* =========================================================
+       MODAIS
+       ========================================================= */
+
+    function abrirModal(id) {
+
+      const modal =
+        document.getElementById(id);
+
+      if (modal) {
+
+        modal.classList.add(
+          'aberto'
+        );
+
+      }
+
+    }
+
+
+    function fecharModal(id) {
+
+      const modal =
+        document.getElementById(id);
+
+      if (modal) {
+
+        modal.classList.remove(
+          'aberto'
+        );
+
+      }
+
+    }
+
+
+    document
+      .querySelectorAll('.modal-overlay')
+      .forEach(modal => {
+
+        modal.addEventListener(
+          'click',
+          function(event) {
+
+            if (
+              event.target === modal
+            ) {
+
+              modal.classList.remove(
+                'aberto'
+              );
+
+            }
+
+          }
+        );
+
+      });
+
+
+    document.addEventListener(
+      'keydown',
+      function(event) {
+
+        if (
+          event.key === 'Escape'
+        ) {
+
+          document
+            .querySelectorAll(
+              '.modal-overlay.aberto'
+            )
+            .forEach(modal => {
+
+              modal.classList.remove(
+                'aberto'
+              );
 
             });
 
-
-        const historico =
-            resposta.dados || [];
-
-
-        if (!historico.length) {
-
-            container.innerHTML = `
-
-                <div class="text-center py-5 text-muted">
-
-                    <i class="bi bi-clock-history fs-2 d-block mb-2"></i>
-
-                    Nenhum histórico registrado.
-
-                </div>
-
-            `;
-
-            return;
-
         }
 
-
-        container.innerHTML = `
-
-            <div class="timeline">
-
-                ${historico.map(item => `
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-date">
-
-                            ${formatarDataHora(item.dataHora)}
-
-                        </div>
-
-
-                        <div class="timeline-event">
-
-                            ${escaparHtml(item.evento || '-')}
-
-                        </div>
-
-
-                        <div class="timeline-description">
-
-                            ${
-                                item.situacaoAnterior
-                                    ? `Situação: ${escaparHtml(item.situacaoAnterior)} → ${escaparHtml(item.situacaoNova || '')}`
-                                    : ''
-                            }
-
-                        </div>
-
-
-                        ${
-                            item.observacao
-                                ? `
-                                    <div class="timeline-description mt-1">
-                                        <strong>Obs.:</strong>
-                                        ${nl2br(escaparHtml(item.observacao))}
-                                    </div>
-                                  `
-                                : ''
-                        }
-
-
-                        ${
-                            item.usuario
-                                ? `
-                                    <div class="timeline-date mt-1">
-                                        Usuário: ${escaparHtml(item.usuario)}
-                                    </div>
-                                  `
-                                : ''
-                        }
-
-                    </div>
-
-                `).join('')}
-
-            </div>
-
-        `;
-
-    } catch (erro) {
-
-        container.innerHTML = `
-
-            <div class="alert alert-danger">
-
-                <i class="bi bi-exclamation-triangle me-1"></i>
-
-                ${escaparHtml(erro.message)}
-
-            </div>
-
-        `;
-
-    }
-
-}
-
-
-/* =========================================================
-   BADGE SITUAÇÃO
-========================================================= */
-
-function criarBadgeSituacao(situacao) {
-
-    if (!situacao) {
-
-        return `
-            <span class="status-badge status-padrao">
-                -
-            </span>
-        `;
-
-    }
-
-
-    let classe =
-        'status-padrao';
-
-
-    const texto =
-        situacao.toLowerCase();
-
-
-    if (texto.includes('aguardando')) {
-
-        classe =
-            'status-aguardando';
-
-    } else if (
-        texto.includes('trânsito') ||
-        texto.includes('transito')
-    ) {
-
-        classe =
-            'status-transito';
-
-    } else if (
-        texto.includes('entregue')
-    ) {
-
-        classe =
-            'status-entregue';
-
-    } else if (
-        texto.includes('problema')
-    ) {
-
-        classe =
-            'status-problema';
-
-    } else if (
-        texto.includes('cancelado')
-    ) {
-
-        classe =
-            'status-cancelado';
-
-    }
-
-
-    return `
-
-        <span class="status-badge ${classe}">
-
-            ${escaparHtml(situacao)}
-
-        </span>
-
-    `;
-
-}
-
-
-/* =========================================================
-   BADGE AGENDAR
-========================================================= */
-
-function criarBadgeAgendar(valor) {
-
-    if (!valor) {
-        return '-';
-    }
-
-
-    const classe =
-        String(valor).toLowerCase() === 'sim'
-            ? 'badge-agendar-sim'
-            : 'badge-agendar-nao';
-
-
-    return `
-
-        <span class="status-badge ${classe}">
-
-            ${escaparHtml(valor)}
-
-        </span>
-
-    `;
-
-}
-
-
-/* =========================================================
-   FORMATAÇÕES
-========================================================= */
-
-function formatarMoeda(valor) {
-
-    const numero =
-        Number(valor || 0);
-
-
-    return numero.toLocaleString(
-        'pt-BR',
-        {
-            style: 'currency',
-            currency: 'BRL'
-        }
+      }
     );
 
-}
+
+    /* =========================================================
+       SINCRONIZAÇÃO
+       ========================================================= */
+
+    async function sincronizarAgora() {
+
+      if (carregando) return;
 
 
-function formatarPercentual(valor) {
+      const botoes = [
 
-    let numero =
-        Number(valor || 0);
+        document.getElementById(
+          'btnSincronizarCabecalho'
+        )
 
-
-    if (numero <= 1) {
-        numero *= 100;
-    }
+      ];
 
 
-    return numero.toLocaleString(
-        'pt-BR',
-        {
-            minimumFractionDigits: 1,
-            maximumFractionDigits: 1
+      botoes.forEach(btn => {
+
+        if (btn) {
+
+          btn.disabled = true;
+
+          btn.innerHTML =
+            '<i class="bi bi-arrow-repeat"></i>';
+
         }
-    ) + '%';
 
-}
+      });
 
 
-function formatarData(valor) {
+      try {
 
-    if (!valor) {
-        return '-';
+        await carregarDados();
+
+      } finally {
+
+        botoes.forEach(btn => {
+
+          if (btn) {
+
+            btn.disabled = false;
+
+            btn.innerHTML =
+              '<i class="bi bi-arrow-clockwise"></i>';
+
+          }
+
+        });
+
+      }
+
     }
 
 
-    const data =
-        converterData(valor);
+    function atualizarHorarioSincronizacao() {
+
+      const agora =
+        new Date();
 
 
-    if (!data) {
-        return '-';
-    }
+      const dataHora =
+        agora.toLocaleString(
+          'pt-BR'
+        );
 
 
-    return data.toLocaleDateString(
-        'pt-BR'
-    );
-
-}
-
-
-function formatarDataHora(valor) {
-
-    if (!valor) {
-        return '-';
-    }
-
-
-    const data =
-        converterData(valor);
-
-
-    if (!data) {
-        return '-';
-    }
-
-
-    return data.toLocaleDateString(
-        'pt-BR'
-    ) +
-    ' ' +
-    data.toLocaleTimeString(
-        'pt-BR',
-        {
+      const hora =
+        agora.toLocaleTimeString(
+          'pt-BR',
+          {
             hour: '2-digit',
             minute: '2-digit'
+          }
+        );
+
+
+      const cabecalho =
+        document.getElementById(
+          'ultimaAtualizacaoCabecalho'
+        );
+
+
+      if (cabecalho) {
+
+        cabecalho.textContent =
+          `Atualizado em ${dataHora}`;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       FORMATAÇÃO
+       ========================================================= */
+
+    function formatarMoeda(valor) {
+
+      const numero =
+        Number(valor) || 0;
+
+
+      return numero.toLocaleString(
+        'pt-BR',
+        {
+          style: 'currency',
+          currency: 'BRL'
         }
-    );
+      );
 
-}
-
-
-function converterData(valor) {
-
-    if (!valor) {
-        return null;
     }
 
 
-    if (valor instanceof Date) {
+    function formatarPercentual(valor) {
+
+      let numero =
+        Number(valor) || 0;
+
+
+      /*
+       * O backend retorna execução como decimal:
+       * 0.75 = 75%
+       */
+
+      if (
+        Math.abs(numero) <= 1
+      ) {
+
+        numero *= 100;
+
+      }
+
+
+      return numero.toLocaleString(
+        'pt-BR',
+        {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        }
+      ) + '%';
+
+    }
+
+
+    function formatarData(valor) {
+
+      if (!valor) return '-';
+
+
+      const data =
+        criarData(valor);
+
+
+      if (!data) return '-';
+
+
+      return data.toLocaleDateString(
+        'pt-BR'
+      );
+
+    }
+
+
+    function formatarDataHora(valor) {
+
+      if (!valor) return '-';
+
+
+      const data =
+        criarData(valor);
+
+
+      if (!data) return '-';
+
+
+      return data.toLocaleString(
+        'pt-BR'
+      );
+
+    }
+
+
+    function criarData(valor) {
+
+      if (!valor) return null;
+
+
+      if (
+        valor instanceof Date
+      ) {
+
         return valor;
-    }
+
+      }
 
 
-    let texto =
+      const texto =
         String(valor);
 
 
-    /*
-       Trata o formato:
-       yyyy-MM-dd'T'HH:mm:ss
-    */
+      /*
+       * Formato:
+       * yyyy-MM-ddTHH:mm:ss
+       */
 
-    if (
-        /^\d{4}-\d{2}-\d{2}T/.test(texto)
-    ) {
-
-        const data =
-            new Date(texto);
-
-        if (!isNaN(data.getTime())) {
-            return data;
-        }
-
-    }
-
-
-    /*
-       Trata yyyy-MM-dd
-    */
-
-    if (
-        /^\d{4}-\d{2}-\d{2}$/.test(texto)
-    ) {
+      if (
+        /^\d{4}-\d{2}-\d{2}$/.test(
+          texto
+        )
+      ) {
 
         const partes =
-            texto.split('-');
+          texto.split('-');
 
         return new Date(
-            Number(partes[0]),
-            Number(partes[1]) - 1,
-            Number(partes[2])
+          Number(partes[0]),
+          Number(partes[1]) - 1,
+          Number(partes[2])
         );
 
-    }
+      }
 
 
-    const data =
+      const data =
         new Date(texto);
 
 
-    if (isNaN(data.getTime())) {
+      if (
+        isNaN(data.getTime())
+      ) {
+
         return null;
+
+      }
+
+
+      return data;
+
     }
 
 
-    return data;
+    function converterParaInputDate(
+      valor
+    ) {
 
-}
-
-
-function paraInputDate(valor) {
-
-    if (!valor) {
-        return '';
-    }
+      if (!valor) return '';
 
 
-    const data =
-        converterData(valor);
+      const texto =
+        String(valor);
 
 
-    if (!data) {
-        return '';
-    }
+      if (
+        /^\d{4}-\d{2}-\d{2}/.test(
+          texto
+        )
+      ) {
+
+        return texto.substring(
+          0,
+          10
+        );
+
+      }
 
 
-    const ano =
+      const data =
+        criarData(valor);
+
+
+      if (!data) return '';
+
+
+      const ano =
         data.getFullYear();
 
 
-    const mes =
+      const mes =
         String(
-            data.getMonth() + 1
+          data.getMonth() + 1
         ).padStart(2, '0');
 
 
-    const dia =
+      const dia =
         String(
-            data.getDate()
+          data.getDate()
         ).padStart(2, '0');
 
 
-    return `${ano}-${mes}-${dia}`;
-
-}
-
-
-/* =========================================================
-   UTILITÁRIOS
-========================================================= */
-
-function escaparHtml(valor) {
-
-    return String(valor ?? '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-
-}
-
-
-function escaparJs(valor) {
-
-    return String(valor ?? '')
-        .replace(/\\/g, '\\\\')
-        .replace(/'/g, "\\'")
-        .replace(/"/g, '\\"')
-        .replace(/\n/g, '\\n')
-        .replace(/\r/g, '\\r');
-
-}
-
-
-function nl2br(texto) {
-
-    return String(texto)
-        .replace(/\n/g, '<br>');
-
-}
-
-
-/* =========================================================
-   LOADING
-========================================================= */
-
-function mostrarLoading(exibir, texto = 'Carregando...') {
-
-    const overlay =
-        document.getElementById('loadingOverlay');
-
-
-    document.getElementById('loadingText').textContent =
-        texto;
-
-
-    if (exibir) {
-
-        overlay.classList.add('show');
-
-    } else {
-
-        overlay.classList.remove('show');
-
-    }
-
-}
-
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-function mostrarToast(
-    titulo,
-    texto,
-    tipo = 'info'
-) {
-
-    const toastElement =
-        document.getElementById('toastMensagem');
-
-
-    const tituloElement =
-        document.getElementById('toastTitulo');
-
-
-    const textoElement =
-        document.getElementById('toastTexto');
-
-
-    const icon =
-        document.getElementById('toastIcon');
-
-
-    tituloElement.textContent =
-        titulo;
-
-
-    textoElement.textContent =
-        texto;
-
-
-    toastElement.classList.remove(
-        'text-bg-success',
-        'text-bg-danger',
-        'text-bg-warning',
-        'text-bg-info'
-    );
-
-
-    icon.className =
-        'bi me-2';
-
-
-    if (tipo === 'success') {
-
-        toastElement.classList.add(
-            'text-bg-success'
-        );
-
-        icon.classList.add(
-            'bi-check-circle'
-        );
-
-    } else if (tipo === 'danger') {
-
-        toastElement.classList.add(
-            'text-bg-danger'
-        );
-
-        icon.classList.add(
-            'bi-exclamation-triangle'
-        );
-
-    } else if (tipo === 'warning') {
-
-        toastElement.classList.add(
-            'text-bg-warning'
-        );
-
-        icon.classList.add(
-            'bi-exclamation-circle'
-        );
-
-    } else {
-
-        toastElement.classList.add(
-            'text-bg-info'
-        );
-
-        icon.classList.add(
-            'bi-info-circle'
-        );
+      return `${ano}-${mes}-${dia}`;
 
     }
 
 
-    const toast =
-        bootstrap.Toast.getOrCreateInstance(
-            toastElement,
-            {
-                delay: 3500
-            }
+    /* =========================================================
+       VERIFICAÇÃO DE ATRASO
+       ========================================================= */
+
+    function verificarAtraso(
+      pedido
+    ) {
+
+      if (!pedido.previsaoEntrega) {
+        return false;
+      }
+
+
+      if (
+        pedido.situacao === 'Entregue' ||
+        pedido.situacao === 'Cancelado'
+      ) {
+
+        return false;
+
+      }
+
+
+      const previsao =
+        criarData(
+          pedido.previsaoEntrega
         );
 
 
-    toast.show();
+      if (!previsao) return false;
 
-}
 
-</script>
+      previsao.setHours(
+        23,
+        59,
+        59,
+        999
+      );
+
+
+      return (
+        previsao.getTime() <
+        Date.now()
+      );
+
+    }
+
+
+    /* =========================================================
+       CLASSE DA SITUAÇÃO
+       ========================================================= */
+
+    function obterClasseSituacao(
+      situacao
+    ) {
+
+      const texto =
+        String(
+          situacao || ''
+        ).toLowerCase();
+
+
+      if (
+        texto.includes('aguardando')
+      ) {
+
+        return 'status-Aguardando';
+
+      }
+
+
+      if (
+        texto.includes('trânsito') ||
+        texto.includes('transito')
+      ) {
+
+        return 'status-transito';
+
+      }
+
+
+      if (
+        texto.includes('entregue')
+      ) {
+
+        return 'status-entregue';
+
+      }
+
+
+      if (
+        texto.includes('problema')
+      ) {
+
+        return 'status-problema';
+
+      }
+
+
+      if (
+        texto.includes('cancelado')
+      ) {
+
+        return 'status-cancelado';
+
+      }
+
+
+      return '';
+
+    }
+
+
+    /* =========================================================
+       TOAST
+       ========================================================= */
+
+    function mostrarToast(
+      mensagem,
+      tipo = ''
+    ) {
+
+      const container =
+        document.getElementById(
+          'toastContainer'
+        );
+
+
+      const toast =
+        document.createElement(
+          'div'
+        );
+
+
+      toast.className =
+        `toast ${tipo}`;
+
+
+      let icone =
+        'bi-info-circle';
+
+
+      if (
+        tipo === 'success'
+      ) {
+
+        icone =
+          'bi-check-circle';
+
+      }
+
+
+      if (
+        tipo === 'error'
+      ) {
+
+        icone =
+          'bi-exclamation-triangle';
+
+      }
+
+
+      if (
+        tipo === 'warning'
+      ) {
+
+        icone =
+          'bi-exclamation-circle';
+
+      }
+
+
+      toast.innerHTML = `
+
+        <i class="bi ${icone}"></i>
+
+        <span>
+          ${escaparHTML(
+            mensagem
+          )}
+        </span>
+
+      `;
+
+
+      container.appendChild(
+        toast
+      );
+
+
+      setTimeout(
+        () => {
+
+          toast.style.opacity =
+            '0';
+
+          toast.style.transform =
+            'translateY(10px)';
+
+          setTimeout(
+            () => {
+
+              toast.remove();
+
+            },
+            200
+          );
+
+        },
+        3500
+      );
+
+    }
+
+
+    /* =========================================================
+       SEGURANÇA / HTML
+       ========================================================= */
+
+    function escaparHTML(
+      valor
+    ) {
+
+      if (
+        valor === null ||
+        valor === undefined
+      ) {
+
+        return '';
+
+      }
+
+
+      return String(valor)
+        .replace(
+          /&/g,
+          '&amp;'
+        )
+        .replace(
+          /</g,
+          '&lt;'
+        )
+        .replace(
+          />/g,
+          '&gt;'
+        )
+        .replace(
+          /"/g,
+          '&quot;'
+        )
+        .replace(
+          /'/g,
+          '&#039;'
+        );
+
+    }
+
+
+    function escaparJS(
+      valor
+    ) {
+
+      return String(
+        valor || ''
+      )
+        .replace(
+          /\\/g,
+          '\\\\'
+        )
+        .replace(
+          /'/g,
+          "\\'"
+        )
+        .replace(
+          /\n/g,
+          '\\n'
+        )
+        .replace(
+          /\r/g,
+          '\\r'
+        );
+
+    }
+
+  </script>
 
 </body>
+
 </html>
