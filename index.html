@@ -765,21 +765,29 @@
       margin-top: 3px;
     }
 
-    /* Selo com o número do Pedido AEGEA no histórico */
-    .timeline-pedido {
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      margin-left: 6px;
-      padding: 1px 7px;
-      font-size: .7rem;
-      font-weight: 700;
-      color: var(--primary-color);
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      border-radius: 4px;
-      vertical-align: middle;
-      white-space: nowrap;
+    /* Lista de campos alterados em um evento do histórico */
+    .timeline-alteracoes {
+      list-style: none;
+      margin-top: 5px;
+      padding: 6px 10px;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: .76rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-alteracoes li {
+      padding: 2px 0;
+    }
+
+    .timeline-alteracoes li + li {
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .timeline-alteracoes strong {
+      color: var(--text-main);
+      font-weight: 600;
     }
 
     /* =========================================================
@@ -2101,8 +2109,7 @@
           respostaHistorico.dados ||
           [];
 
-        // Passa o pedido para exibir o número AEGEA em cada evento
-        renderizarHistorico(registros, pedido);
+        renderizarHistorico(registros);
 
       } catch (erro) {
 
@@ -2183,7 +2190,7 @@
        HISTÓRICO
        ========================================================= */
 
-    function renderizarHistorico(registros, pedido = {}) {
+    function renderizarHistorico(registros) {
 
       const container = document.getElementById('historicoPedido');
 
@@ -2203,16 +2210,27 @@
 
         const data = formatarDataHora(item.dataHora);
 
-        // Prioriza o número gravado no próprio registro; senão usa o do pedido aberto
-        const numeroAegea = item.pedidoAegea || pedido.pedidoAegea || '';
-
         // Só mostra a mudança quando a situação realmente mudou
         const mudanca =
           item.situacaoAnterior &&
           item.situacaoNova &&
           item.situacaoAnterior !== item.situacaoNova
-            ? `${item.situacaoAnterior} → ${item.situacaoNova}`
+            ? `Situação: ${item.situacaoAnterior} → ${item.situacaoNova}`
             : '';
+
+        // Em "Pedido alterado", a observação traz uma linha por campo alterado
+        const ehAlteracao =
+          String(item.evento || '').toLowerCase() === 'pedido alterado';
+
+        let blocoObservacao = '';
+
+        if (item.observacao) {
+
+          blocoObservacao = ehAlteracao
+            ? renderizarAlteracoes(item.observacao)
+            : `<div class="timeline-observacao">${escaparHTML(item.observacao)}</div>`;
+
+        }
 
         return `
           <div class="timeline-item">
@@ -2224,13 +2242,6 @@
 
             <div class="timeline-evento">
               ${escaparHTML(item.evento || 'Registro')}
-              ${
-                numeroAegea
-                  ? `<span class="timeline-pedido" title="Pedido AEGEA">
-                       <i class="bi bi-hash"></i>AEGEA ${escaparHTML(numeroAegea)}
-                     </span>`
-                  : ''
-              }
             </div>
 
             ${
@@ -2239,16 +2250,46 @@
                 : ''
             }
 
-            ${
-              item.observacao
-                ? `<div class="timeline-observacao">${escaparHTML(item.observacao)}</div>`
-                : ''
-            }
+            ${blocoObservacao}
 
           </div>
         `;
 
       }).join('');
+
+    }
+
+
+    /*
+     * Converte "Campo: antes → depois" (uma por linha)
+     * em lista, com o nome do campo em negrito.
+     */
+
+    function renderizarAlteracoes(texto) {
+
+      const linhas = String(texto)
+        .split('\n')
+        .map(l => l.trim())
+        .filter(Boolean);
+
+      if (!linhas.length) return '';
+
+      const itens = linhas.map(linha => {
+
+        const pos = linha.indexOf(': ');
+
+        if (pos === -1) {
+          return `<li>${escaparHTML(linha)}</li>`;
+        }
+
+        const campo = linha.substring(0, pos);
+        const valores = linha.substring(pos + 2);
+
+        return `<li><strong>${escaparHTML(campo)}:</strong> ${escaparHTML(valores)}</li>`;
+
+      }).join('');
+
+      return `<ul class="timeline-alteracoes">${itens}</ul>`;
 
     }
 
